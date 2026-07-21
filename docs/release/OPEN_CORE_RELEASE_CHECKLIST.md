@@ -15,6 +15,7 @@ Before a public open-core release:
 - [ ] Package metadata is accurate.
 - [ ] Public fixtures contain only fake ids and no private data.
 - [ ] Open-core Warden and Armor baseline contract examples are present.
+- [ ] Ecosystem contract examples pass the local schema verifier.
 - [ ] Repo verification profile for open core passes.
 - [ ] Supply-chain and provenance expectations are documented.
 - [ ] No management, migration approval, private planning, customer policy, or

@@ -39,6 +39,7 @@ OPEN_CORE_REQUIRED_PATHS = [
     "src/agent_bus/armor_enforcement.py",
     "src/agent_bus/cli.py",
     "src/agent_bus/credential_provider.py",
+    "src/agent_bus/ecosystem_contract.py",
     "src/agent_bus/verifier.py",
     "src/agent_bus/warden_policy.py",
     "tests/fixtures/README.md",

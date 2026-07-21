@@ -9,6 +9,7 @@ from pathlib import Path
 
 from .armor_enforcement import verify_armor_enforcement_path
 from .dry_run import verify_dry_run_path
+from .ecosystem_contract import verify_ecosystem_contract_path
 from .verifier import verify_path
 from .warden_policy import verify_warden_policy_path
 
@@ -58,6 +59,21 @@ def build_parser() -> argparse.ArgumentParser:
         help="pretty-print JSON output",
     )
 
+    ecosystem_contract = subparsers.add_parser(
+        "ecosystem-contract",
+        help="verify open-core ecosystem contract example fixtures",
+    )
+    ecosystem_contract.add_argument(
+        "path",
+        type=Path,
+        help="ecosystem contract fixture file or directory",
+    )
+    ecosystem_contract.add_argument(
+        "--pretty",
+        action="store_true",
+        help="pretty-print JSON output",
+    )
+
     return parser
 
 
@@ -100,6 +116,17 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.command == "armor-enforcement":
         result = verify_armor_enforcement_path(args.path)
+        json.dump(
+            result.to_dict(),
+            sys.stdout,
+            indent=2 if args.pretty else None,
+            sort_keys=True,
+        )
+        sys.stdout.write("\n")
+        return 0 if result.ok else 1
+
+    if args.command == "ecosystem-contract":
+        result = verify_ecosystem_contract_path(args.path)
         json.dump(
             result.to_dict(),
             sys.stdout,
