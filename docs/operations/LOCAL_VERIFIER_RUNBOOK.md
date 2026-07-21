@@ -132,3 +132,25 @@ and `require_review` enforcement results. It checks that an enforcement result
 binds to the original request, names finding/evidence references, requires
 sanitized field references for sanitize decisions, and does not embed private
 evidence.
+
+## Ecosystem Contract Examples
+
+Run:
+
+```sh
+python3 scripts/agent_bus_verify.py ecosystem-contract tests/fixtures/agent_bus/ecosystem --pretty
+```
+
+Expected result:
+
+```json
+{
+  "ok": true,
+  "case_count": 4
+}
+```
+
+The ecosystem contract verifier checks the S5 public example fixtures for
+RSK AI Auth-style capability grants, Keyper-style credential evidence, Warden
+policy results, and Armor enforcement results. It keeps those as local schema
+contracts only; it does not call or require the neighboring systems.

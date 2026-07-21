@@ -108,6 +108,21 @@ Expected result:
 }
 ```
 
+Run the ecosystem contract example verifier:
+
+```sh
+python3 scripts/agent_bus_verify.py ecosystem-contract tests/fixtures/agent_bus/ecosystem --pretty
+```
+
+Expected result:
+
+```json
+{
+  "ok": true,
+  "case_count": 4
+}
+```
+
 Run the source classification check in the pre-split source repository:
 
 ```sh
@@ -150,8 +165,8 @@ Agent Bus stays narrow by consuming neighboring capabilities through contracts:
 - Armor enforcement results answer `allow`, `block`, `sanitize`, or
   `require_review`.
 
-These are public contract shapes. The open core does not require private or
-commercial implementations of those systems.
+The ecosystem verifier enforces those public example shapes without importing
+or requiring private or commercial implementations of those systems.
 
 ## Safety Model
 

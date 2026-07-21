@@ -9,6 +9,7 @@ from agent_bus.cli import main
 FIXTURES = Path(__file__).resolve().parent / "fixtures" / "agent_bus"
 DRY_RUN_FIXTURES = Path(__file__).resolve().parent / "fixtures" / "adapter_dry_runs"
 ARMOR_ENFORCEMENT_FIXTURES = Path(__file__).resolve().parent / "fixtures" / "armor_enforcement"
+ECOSYSTEM_CONTRACT_FIXTURES = FIXTURES / "ecosystem"
 WARDEN_POLICY_FIXTURES = Path(__file__).resolve().parent / "fixtures" / "warden_policy"
 
 
@@ -68,3 +69,14 @@ def test_cli_verifies_armor_enforcement_fixture_directory(capsys) -> None:
     assert exit_code == 0
     assert result["ok"] is True
     assert result["case_count"] == 7
+
+
+def test_cli_verifies_ecosystem_contract_fixture_directory(capsys) -> None:
+    exit_code = main(["ecosystem-contract", str(ECOSYSTEM_CONTRACT_FIXTURES), "--pretty"])
+
+    captured = capsys.readouterr()
+    result = json.loads(captured.out)
+
+    assert exit_code == 0
+    assert result["ok"] is True
+    assert result["case_count"] == 4
