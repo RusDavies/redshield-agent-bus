@@ -20,6 +20,8 @@ The current open core provides:
 - a credential-provider contract with local fixtures;
 - public-safe examples for RSK AI Auth-style grants, Keyper-style credential
   evidence, Warden policy decisions, and Armor enforcement results;
+- enforced open-core Warden policy-result fixtures for `allow`, `deny`, and
+  `require_review`;
 - architecture, requirements, security, QA, and promotion-gate documentation.
 
 The verifier is intentionally local-first. It does not post messages, call live
@@ -63,6 +65,21 @@ fixtures:
 
 ```sh
 python3 scripts/agent_bus_verify.py dry-run tests/fixtures/adapter_dry_runs --pretty
+```
+
+Expected result:
+
+```json
+{
+  "ok": true,
+  "case_count": 6
+}
+```
+
+Run the Warden policy-result contract verifier:
+
+```sh
+python3 scripts/agent_bus_verify.py warden-policy tests/fixtures/warden_policy --pretty
 ```
 
 Expected result:
