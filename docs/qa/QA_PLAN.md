@@ -6,6 +6,7 @@
 - Run `python3 scripts/agent_bus_verify.py verify tests/fixtures/agent_bus --pretty`.
 - Run `python3 scripts/agent_bus_verify.py dry-run tests/fixtures/adapter_dry_runs --pretty`.
 - Run `python3 scripts/agent_bus_verify.py warden-policy tests/fixtures/warden_policy --pretty`.
+- Run `python3 scripts/agent_bus_verify.py armor-enforcement tests/fixtures/armor_enforcement --pretty`.
 - Run `python3 -m pytest`.
 - Validate required package, fixture, test, and public documentation paths
   exist.
@@ -21,4 +22,4 @@
 - Private-data exclusion.
 - Runtime-event boundary handling.
 - Adapter capability variants for each supported delivery expectation.
-- Armor baseline contract validation in the integrated verifier.
+- Integrated envelope validation that includes Warden and Armor result objects.

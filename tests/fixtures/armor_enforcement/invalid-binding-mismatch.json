@@ -1,0 +1,49 @@
+{
+  "case_id": "invalid-binding-mismatch",
+  "description": "Rejected Armor result whose applies_to block does not bind to the request.",
+  "expect": {
+    "valid": false,
+    "errors": ["armor_binding_failed"]
+  },
+  "enforcement_check_request": {
+    "schema_version": "redshield_armor.enforcement_check_request.v1",
+    "request_id": "armor_request_binding_test_0001",
+    "message_id": "msg_binding_0001",
+    "correlation_id": "corr_binding_0001",
+    "enforcement_target": "delivery_payload",
+    "action_class": "compose_response",
+    "payload_ref": "payload:test:binding",
+    "adapter_capability_ref": "adapter-capability:visible-chat-reply:test",
+    "safety_flags": {
+      "private_data": false,
+      "secret_data": false,
+      "external_action": false,
+      "destructive_action": false
+    }
+  },
+  "enforcement_result": {
+    "schema_version": "redshield_armor.enforcement_result.v1",
+    "enforcement_id": "armor_enforcement_binding_test_0001",
+    "decision": "allow",
+    "enforcement_target": "delivery_payload",
+    "finding_codes": ["payload_metadata_only"],
+    "adapter_capability_refs": ["adapter-capability:visible-chat-reply:test"],
+    "sanitized_field_refs": [],
+    "receipt_requirements": ["delivery_attempt_id"],
+    "evidence_refs": ["evidence:armor:test-binding"],
+    "applies_to": {
+      "request_id": "armor_request_wrong",
+      "message_id": "msg_binding_0001",
+      "correlation_id": "corr_binding_0001",
+      "enforcement_target": "delivery_payload",
+      "action_class": "compose_response",
+      "payload_ref": "payload:test:binding",
+      "adapter_capability_ref": "adapter-capability:visible-chat-reply:test"
+    },
+    "evidence": {
+      "privacy_classification": "internal",
+      "content_hash": "sha256:test-binding"
+    },
+    "evaluated_at": "2026-07-20T21:24:00Z"
+  }
+}
