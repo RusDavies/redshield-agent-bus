@@ -284,6 +284,8 @@ def _verify_envelope_fixture(
     _validate_authorization_context(envelope, fixture.get("trusted_time"), errors)
     _validate_context_package(envelope, errors)
     _validate_delivery_expectation(envelope, errors)
+    _validate_warden_policy_result(envelope, errors)
+    _validate_armor_enforcement_result(envelope, errors)
     _validate_idempotency(envelope, idempotency_payloads, errors)
 
     audit_events = [
@@ -461,6 +463,145 @@ def _validate_delivery_expectation(envelope: dict[str, Any], errors: list[str]) 
         source = envelope.get("source")
         if isinstance(source, dict) and delivery.get("source_conversation_id") != source.get("source_conversation_id"):
             errors.append("wrong_destination_delivery")
+
+
+def _validate_warden_policy_result(envelope: dict[str, Any], errors: list[str]) -> None:
+    result = envelope.get("warden_policy_result")
+    if result is None:
+        return
+    if not isinstance(result, dict):
+        errors.append("warden_policy_result_invalid")
+        return
+    if result.get("schema_version") != "redshield_warden.policy_result.v1":
+        errors.append("warden_policy_schema_unsupported")
+    decision = result.get("decision")
+    if decision != "allow":
+        if decision == "deny":
+            errors.append("warden_policy_denied")
+        elif decision == "require_review":
+            errors.append("warden_policy_review_required")
+        else:
+            errors.append("warden_policy_decision_unsupported")
+    if not result.get("reason_codes"):
+        errors.append("warden_policy_reason_missing")
+    if not result.get("evidence_refs"):
+        errors.append("warden_policy_evidence_missing")
+    _validate_warden_binding(envelope, result, errors)
+    _validate_embedded_evidence(result.get("evidence"), "warden_policy_private_evidence_rejected", errors)
+
+
+def _validate_warden_binding(
+    envelope: dict[str, Any],
+    result: dict[str, Any],
+    errors: list[str],
+) -> None:
+    applies_to = result.get("applies_to")
+    if not isinstance(applies_to, dict):
+        errors.append("warden_policy_binding_missing")
+        return
+    if applies_to.get("message_id") != envelope.get("message_id"):
+        errors.append("warden_policy_binding_failed")
+    if applies_to.get("correlation_id") != envelope.get("correlation_id"):
+        errors.append("warden_policy_binding_failed")
+
+    action_class = applies_to.get("action_class")
+    authz = envelope.get("authorization_context") if isinstance(envelope.get("authorization_context"), dict) else {}
+    if action_class not in set(authz.get("allowed_action_classes") or []):
+        errors.append("warden_policy_binding_failed")
+
+    target = envelope.get("target") if isinstance(envelope.get("target"), dict) else {}
+    applies_target = applies_to.get("target") if isinstance(applies_to.get("target"), dict) else {}
+    if applies_target.get("target_agent_id") != target.get("target_agent_id"):
+        errors.append("warden_policy_binding_failed")
+    if applies_target.get("target_role") != target.get("target_role"):
+        errors.append("warden_policy_binding_failed")
+
+    delivery = envelope.get("delivery_expectation") if isinstance(envelope.get("delivery_expectation"), dict) else {}
+    applies_delivery = applies_to.get("delivery_expectation") if isinstance(applies_to.get("delivery_expectation"), dict) else {}
+    if applies_delivery.get("type") != delivery.get("type"):
+        errors.append("warden_policy_binding_failed")
+    if applies_delivery.get("surface") != delivery.get("target_surface"):
+        errors.append("warden_policy_binding_failed")
+    if applies_delivery.get("conversation_id") != delivery.get("source_conversation_id"):
+        errors.append("warden_policy_binding_failed")
+
+
+def _validate_armor_enforcement_result(envelope: dict[str, Any], errors: list[str]) -> None:
+    result = envelope.get("armor_enforcement_result")
+    if result is None:
+        return
+    if not isinstance(result, dict):
+        errors.append("armor_enforcement_result_invalid")
+        return
+    if result.get("schema_version") != "redshield_armor.enforcement_result.v1":
+        errors.append("armor_enforcement_schema_unsupported")
+    decision = result.get("decision")
+    if decision == "block":
+        errors.append("armor_enforcement_blocked")
+    elif decision == "require_review":
+        errors.append("armor_enforcement_review_required")
+    elif decision not in {"allow", "sanitize"}:
+        errors.append("armor_enforcement_decision_unsupported")
+    if decision == "sanitize" and not result.get("sanitized_field_refs"):
+        errors.append("armor_enforcement_sanitize_missing_refs")
+    if not result.get("finding_codes"):
+        errors.append("armor_enforcement_finding_missing")
+    if not result.get("evidence_refs"):
+        errors.append("armor_enforcement_evidence_missing")
+    _validate_armor_binding(envelope, result, errors)
+    _validate_embedded_evidence(result.get("evidence"), "armor_enforcement_private_evidence_rejected", errors)
+
+
+def _validate_armor_binding(
+    envelope: dict[str, Any],
+    result: dict[str, Any],
+    errors: list[str],
+) -> None:
+    applies_to = result.get("applies_to")
+    if not isinstance(applies_to, dict):
+        errors.append("armor_enforcement_binding_missing")
+        return
+    if applies_to.get("message_id") != envelope.get("message_id"):
+        errors.append("armor_enforcement_binding_failed")
+    if applies_to.get("correlation_id") != envelope.get("correlation_id"):
+        errors.append("armor_enforcement_binding_failed")
+    if applies_to.get("payload_ref") != _expected_payload_ref(envelope):
+        errors.append("armor_enforcement_binding_failed")
+    action_class = applies_to.get("action_class")
+    authz = envelope.get("authorization_context") if isinstance(envelope.get("authorization_context"), dict) else {}
+    if action_class not in set(authz.get("allowed_action_classes") or []):
+        errors.append("armor_enforcement_binding_failed")
+    if applies_to.get("enforcement_target") != result.get("enforcement_target"):
+        errors.append("armor_enforcement_binding_failed")
+
+
+def _expected_payload_ref(envelope: dict[str, Any]) -> str | None:
+    package = envelope.get("context_package") if isinstance(envelope.get("context_package"), dict) else {}
+    package_id = package.get("package_id")
+    if not package_id:
+        return None
+    return f"context_package:{package_id}"
+
+
+def _validate_embedded_evidence(
+    evidence: Any,
+    error: str,
+    errors: list[str],
+) -> None:
+    if not isinstance(evidence, dict):
+        return
+    rejected_keys = {
+        "raw_content",
+        "full_chat_transcript",
+        "private_memory_dump",
+        "secret_value",
+        "credential_material",
+        "customer_data",
+    }
+    if evidence.get("privacy_classification") in {"private", "secret"}:
+        errors.append(error)
+    if any(key in evidence for key in rejected_keys):
+        errors.append(error)
 
 
 def _validate_idempotency(

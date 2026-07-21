@@ -1,0 +1,67 @@
+{
+  "extends": "valid-notify-minimal.json",
+  "case_id": "valid-notify-with-warden-armor",
+  "description": "Accepted notify message with bound Warden allow and Armor sanitize results.",
+  "expect": {
+    "valid": true,
+    "errors": []
+  },
+  "envelope": {
+    "message_id": "msg_integrated_0001",
+    "correlation_id": "corr_integrated_0001",
+    "idempotency_key": "idem_integrated_0001",
+    "warden_policy_result": {
+      "schema_version": "redshield_warden.policy_result.v1",
+      "decision_id": "warden_decision_integrated_allow",
+      "decision": "allow",
+      "reason_codes": ["action_class_allowed"],
+      "risk_class": "low",
+      "policy_refs": ["policy:open-core:local-safe-notify"],
+      "required_approver_roles": [],
+      "evidence_refs": ["evidence:warden:integrated-allow"],
+      "applies_to": {
+        "message_id": "msg_integrated_0001",
+        "correlation_id": "corr_integrated_0001",
+        "action_class": "compose_response",
+        "target": {
+          "target_agent_id": "agent_target_test",
+          "target_role": null
+        },
+        "delivery_expectation": {
+          "type": "visible_chat_reply",
+          "surface": "discord",
+          "conversation_id": "channel_test_source"
+        }
+      },
+      "evidence": {
+        "privacy_classification": "internal",
+        "content_hash": "sha256:integrated-warden"
+      },
+      "evaluated_at": "2026-07-20T21:30:00Z"
+    },
+    "armor_enforcement_result": {
+      "schema_version": "redshield_armor.enforcement_result.v1",
+      "enforcement_id": "armor_enforcement_integrated_sanitize",
+      "decision": "sanitize",
+      "enforcement_target": "delivery_payload",
+      "finding_codes": ["sensitive_reference_requires_redaction"],
+      "adapter_capability_refs": ["adapter-capability:visible-chat-reply:test"],
+      "sanitized_field_refs": ["context.references[0].display_excerpt"],
+      "receipt_requirements": ["delivery_attempt_id"],
+      "evidence_refs": ["evidence:armor:integrated-sanitize"],
+      "applies_to": {
+        "message_id": "msg_integrated_0001",
+        "correlation_id": "corr_integrated_0001",
+        "enforcement_target": "delivery_payload",
+        "action_class": "compose_response",
+        "payload_ref": "context_package:ctx_test_0001",
+        "adapter_capability_ref": "adapter-capability:visible-chat-reply:test"
+      },
+      "evidence": {
+        "privacy_classification": "internal",
+        "content_hash": "sha256:integrated-armor"
+      },
+      "evaluated_at": "2026-07-20T21:31:00Z"
+    }
+  }
+}

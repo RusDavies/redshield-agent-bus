@@ -1,0 +1,38 @@
+{
+  "extends": "../valid/valid-notify-minimal.json",
+  "case_id": "armor-block-result",
+  "description": "Rejected envelope when the attached Armor enforcement result blocks the payload.",
+  "expect": {
+    "valid": false,
+    "errors": ["armor_enforcement_blocked"]
+  },
+  "envelope": {
+    "message_id": "msg_armor_block",
+    "correlation_id": "corr_armor_block",
+    "idempotency_key": "idem_armor_block",
+    "armor_enforcement_result": {
+      "schema_version": "redshield_armor.enforcement_result.v1",
+      "enforcement_id": "armor_enforcement_integrated_block",
+      "decision": "block",
+      "enforcement_target": "context_package",
+      "finding_codes": ["private_payload_not_authorized"],
+      "adapter_capability_refs": ["adapter-capability:context-package:test"],
+      "sanitized_field_refs": [],
+      "receipt_requirements": [],
+      "evidence_refs": ["evidence:armor:integrated-block"],
+      "applies_to": {
+        "message_id": "msg_armor_block",
+        "correlation_id": "corr_armor_block",
+        "enforcement_target": "context_package",
+        "action_class": "compose_response",
+        "payload_ref": "context_package:ctx_test_0001",
+        "adapter_capability_ref": "adapter-capability:context-package:test"
+      },
+      "evidence": {
+        "privacy_classification": "internal",
+        "content_hash": "sha256:armor-block"
+      },
+      "evaluated_at": "2026-07-20T21:33:00Z"
+    }
+  }
+}
