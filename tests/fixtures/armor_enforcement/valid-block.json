@@ -1,0 +1,56 @@
+{
+  "case_id": "valid-block",
+  "description": "Accepted Armor enforcement result for blocking unauthorized private context.",
+  "expect": {
+    "valid": true,
+    "errors": []
+  },
+  "enforcement_check_request": {
+    "schema_version": "redshield_armor.enforcement_check_request.v1",
+    "request_id": "armor_request_block_test_0001",
+    "message_id": "msg_block_0001",
+    "correlation_id": "corr_block_0001",
+    "enforcement_target": "context_package",
+    "action_class": "read_context",
+    "payload_ref": "payload:test:private-context",
+    "adapter_capability_ref": "adapter-capability:context-package:test",
+    "safety_flags": {
+      "private_data": true,
+      "secret_data": false,
+      "external_action": false,
+      "destructive_action": false
+    }
+  },
+  "enforcement_result": {
+    "schema_version": "redshield_armor.enforcement_result.v1",
+    "enforcement_id": "armor_enforcement_block_test_0001",
+    "decision": "block",
+    "enforcement_target": "context_package",
+    "finding_codes": [
+      "private_payload_not_authorized",
+      "raw_private_content_detected"
+    ],
+    "adapter_capability_refs": [
+      "adapter-capability:context-package:test"
+    ],
+    "sanitized_field_refs": [],
+    "receipt_requirements": [],
+    "evidence_refs": [
+      "evidence:armor:test-block-0001"
+    ],
+    "applies_to": {
+      "request_id": "armor_request_block_test_0001",
+      "message_id": "msg_block_0001",
+      "correlation_id": "corr_block_0001",
+      "enforcement_target": "context_package",
+      "action_class": "read_context",
+      "payload_ref": "payload:test:private-context",
+      "adapter_capability_ref": "adapter-capability:context-package:test"
+    },
+    "evidence": {
+      "privacy_classification": "internal",
+      "content_hash": "sha256:test-block"
+    },
+    "evaluated_at": "2026-07-20T21:21:00Z"
+  }
+}

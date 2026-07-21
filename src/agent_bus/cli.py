@@ -7,6 +7,7 @@ import json
 import sys
 from pathlib import Path
 
+from .armor_enforcement import verify_armor_enforcement_path
 from .dry_run import verify_dry_run_path
 from .verifier import verify_path
 from .warden_policy import verify_warden_policy_path
@@ -46,6 +47,17 @@ def build_parser() -> argparse.ArgumentParser:
         help="pretty-print JSON output",
     )
 
+    armor_enforcement = subparsers.add_parser(
+        "armor-enforcement",
+        help="verify open-core Armor enforcement-result contract fixtures",
+    )
+    armor_enforcement.add_argument("path", type=Path, help="Armor enforcement fixture file or directory")
+    armor_enforcement.add_argument(
+        "--pretty",
+        action="store_true",
+        help="pretty-print JSON output",
+    )
+
     return parser
 
 
@@ -77,6 +89,17 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.command == "warden-policy":
         result = verify_warden_policy_path(args.path)
+        json.dump(
+            result.to_dict(),
+            sys.stdout,
+            indent=2 if args.pretty else None,
+            sort_keys=True,
+        )
+        sys.stdout.write("\n")
+        return 0 if result.ok else 1
+
+    if args.command == "armor-enforcement":
+        result = verify_armor_enforcement_path(args.path)
         json.dump(
             result.to_dict(),
             sys.stdout,

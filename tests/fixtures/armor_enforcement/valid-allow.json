@@ -1,0 +1,60 @@
+{
+  "case_id": "valid-allow",
+  "description": "Accepted Armor enforcement result for a safe adapter delivery preview.",
+  "expect": {
+    "valid": true,
+    "errors": []
+  },
+  "enforcement_check_request": {
+    "schema_version": "redshield_armor.enforcement_check_request.v1",
+    "request_id": "armor_request_allow_test_0001",
+    "message_id": "msg_0001",
+    "correlation_id": "corr_0001",
+    "enforcement_target": "adapter_delivery_preview",
+    "action_class": "compose_response",
+    "payload_ref": "payload:test:metadata-only",
+    "adapter_capability_ref": "adapter-capability:visible-chat-reply:test",
+    "safety_flags": {
+      "private_data": false,
+      "secret_data": false,
+      "external_action": false,
+      "destructive_action": false
+    }
+  },
+  "enforcement_result": {
+    "schema_version": "redshield_armor.enforcement_result.v1",
+    "enforcement_id": "armor_enforcement_allow_test_0001",
+    "decision": "allow",
+    "enforcement_target": "adapter_delivery_preview",
+    "finding_codes": [
+      "payload_metadata_only",
+      "receipt_capability_present"
+    ],
+    "adapter_capability_refs": [
+      "adapter-capability:visible-chat-reply:test"
+    ],
+    "sanitized_field_refs": [],
+    "receipt_requirements": [
+      "delivery_attempt_id",
+      "destination_ref",
+      "delivered_at"
+    ],
+    "evidence_refs": [
+      "evidence:armor:test-allow-0001"
+    ],
+    "applies_to": {
+      "request_id": "armor_request_allow_test_0001",
+      "message_id": "msg_0001",
+      "correlation_id": "corr_0001",
+      "enforcement_target": "adapter_delivery_preview",
+      "action_class": "compose_response",
+      "payload_ref": "payload:test:metadata-only",
+      "adapter_capability_ref": "adapter-capability:visible-chat-reply:test"
+    },
+    "evidence": {
+      "privacy_classification": "internal",
+      "content_hash": "sha256:test-allow"
+    },
+    "evaluated_at": "2026-07-20T21:20:00Z"
+  }
+}

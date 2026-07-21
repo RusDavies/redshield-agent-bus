@@ -1,0 +1,49 @@
+{
+  "case_id": "invalid-private-evidence",
+  "description": "Rejected Armor result that embeds private evidence instead of a safe reference.",
+  "expect": {
+    "valid": false,
+    "errors": ["armor_private_evidence_rejected"]
+  },
+  "enforcement_check_request": {
+    "schema_version": "redshield_armor.enforcement_check_request.v1",
+    "request_id": "armor_request_private_evidence",
+    "message_id": "msg_private_evidence",
+    "correlation_id": "corr_private_evidence",
+    "enforcement_target": "context_package",
+    "action_class": "read_context",
+    "payload_ref": "payload:test:private-evidence",
+    "adapter_capability_ref": "adapter-capability:context-package:test",
+    "safety_flags": {
+      "private_data": true,
+      "secret_data": false,
+      "external_action": false,
+      "destructive_action": false
+    }
+  },
+  "enforcement_result": {
+    "schema_version": "redshield_armor.enforcement_result.v1",
+    "enforcement_id": "armor_enforcement_private_evidence",
+    "decision": "block",
+    "enforcement_target": "context_package",
+    "finding_codes": ["private_payload_not_authorized"],
+    "adapter_capability_refs": ["adapter-capability:context-package:test"],
+    "sanitized_field_refs": [],
+    "receipt_requirements": [],
+    "evidence_refs": ["evidence:armor:test-private-evidence"],
+    "applies_to": {
+      "request_id": "armor_request_private_evidence",
+      "message_id": "msg_private_evidence",
+      "correlation_id": "corr_private_evidence",
+      "enforcement_target": "context_package",
+      "action_class": "read_context",
+      "payload_ref": "payload:test:private-evidence",
+      "adapter_capability_ref": "adapter-capability:context-package:test"
+    },
+    "evidence": {
+      "privacy_classification": "private",
+      "raw_content": "private fixture content must not be embedded"
+    },
+    "evaluated_at": "2026-07-20T21:26:00Z"
+  }
+}
