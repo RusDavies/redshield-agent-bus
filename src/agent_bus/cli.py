@@ -7,6 +7,7 @@ import json
 import sys
 from pathlib import Path
 
+from .dry_run import verify_dry_run_path
 from .verifier import verify_path
 
 
@@ -22,6 +23,17 @@ def build_parser() -> argparse.ArgumentParser:
         help="pretty-print JSON output",
     )
 
+    dry_run = subparsers.add_parser(
+        "dry-run",
+        help="verify local-only adapter dry-run preview and receipt fixtures",
+    )
+    dry_run.add_argument("path", type=Path, help="dry-run fixture file or directory")
+    dry_run.add_argument(
+        "--pretty",
+        action="store_true",
+        help="pretty-print JSON output",
+    )
+
     return parser
 
 
@@ -31,6 +43,17 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.command == "verify":
         result = verify_path(args.path)
+        json.dump(
+            result.to_dict(),
+            sys.stdout,
+            indent=2 if args.pretty else None,
+            sort_keys=True,
+        )
+        sys.stdout.write("\n")
+        return 0 if result.ok else 1
+
+    if args.command == "dry-run":
+        result = verify_dry_run_path(args.path)
         json.dump(
             result.to_dict(),
             sys.stdout,

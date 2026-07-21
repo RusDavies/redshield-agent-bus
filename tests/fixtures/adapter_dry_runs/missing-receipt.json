@@ -1,0 +1,10 @@
+{
+  "extends": "valid-visible-preview.json",
+  "case_id": "missing-receipt",
+  "description": "Rejected dry-run fixture when a receipt is required but absent.",
+  "expect": {
+    "valid": false,
+    "errors": ["receipt_missing"],
+    "receipt_required": true
+  }
+}
