@@ -1,0 +1,62 @@
+{
+  "case_id": "invalid-private-evidence",
+  "description": "Rejected Warden result that embeds private evidence instead of a safe reference.",
+  "expect": {
+    "valid": false,
+    "errors": ["policy_private_evidence_rejected"]
+  },
+  "policy_check_request": {
+    "schema_version": "redshield_warden.policy_check_request.v1",
+    "request_id": "warden_request_private_evidence",
+    "message_id": "msg_private_evidence",
+    "correlation_id": "corr_private_evidence",
+    "action_class": "compose_response",
+    "actor_id": "agent_target_test",
+    "target": {
+      "target_agent_id": "agent_target_test",
+      "target_role": null
+    },
+    "delivery_expectation": {
+      "type": "visible_chat_reply",
+      "surface": "discord",
+      "conversation_id": "channel_test_source"
+    },
+    "safety_flags": {
+      "external_action": false,
+      "public_action": false,
+      "destructive_action": false,
+      "private_data": true
+    }
+  },
+  "policy_result": {
+    "schema_version": "redshield_warden.policy_result.v1",
+    "decision_id": "warden_decision_private_evidence",
+    "decision": "allow",
+    "reason_codes": ["action_class_allowed"],
+    "risk_class": "low",
+    "policy_refs": ["policy:open-core:local-safe-notify"],
+    "required_approver_roles": [],
+    "evidence_refs": ["evidence:warden:test-private-evidence"],
+    "applies_to": {
+      "request_id": "warden_request_private_evidence",
+      "message_id": "msg_private_evidence",
+      "correlation_id": "corr_private_evidence",
+      "action_class": "compose_response",
+      "actor_id": "agent_target_test",
+      "target": {
+        "target_agent_id": "agent_target_test",
+        "target_role": null
+      },
+      "delivery_expectation": {
+        "type": "visible_chat_reply",
+        "surface": "discord",
+        "conversation_id": "channel_test_source"
+      }
+    },
+    "evidence": {
+      "privacy_classification": "private",
+      "raw_content": "private fixture content must not be embedded"
+    },
+    "evaluated_at": "2026-07-20T21:15:00Z"
+  }
+}

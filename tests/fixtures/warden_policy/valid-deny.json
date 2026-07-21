@@ -1,0 +1,69 @@
+{
+  "case_id": "valid-deny",
+  "description": "Accepted Warden policy-result contract for a denied risky action.",
+  "expect": {
+    "valid": true,
+    "errors": []
+  },
+  "policy_check_request": {
+    "schema_version": "redshield_warden.policy_check_request.v1",
+    "request_id": "warden_request_deny_test_0001",
+    "message_id": "msg_deny_0001",
+    "correlation_id": "corr_deny_0001",
+    "action_class": "external_action",
+    "actor_id": "agent_target_test",
+    "target": {
+      "target_agent_id": "agent_target_test",
+      "target_role": null
+    },
+    "delivery_expectation": {
+      "type": "visible_chat_reply",
+      "surface": "discord",
+      "conversation_id": "channel_test_source"
+    },
+    "safety_flags": {
+      "external_action": true,
+      "public_action": false,
+      "destructive_action": false,
+      "private_data": false
+    }
+  },
+  "policy_result": {
+    "schema_version": "redshield_warden.policy_result.v1",
+    "decision_id": "warden_decision_deny_test_0001",
+    "decision": "deny",
+    "reason_codes": [
+      "external_action_not_authorized",
+      "fail_closed"
+    ],
+    "risk_class": "high",
+    "policy_refs": [
+      "policy:open-core:fail-closed-risky-action"
+    ],
+    "required_approver_roles": [],
+    "evidence_refs": [
+      "evidence:warden:test-deny-0001"
+    ],
+    "applies_to": {
+      "request_id": "warden_request_deny_test_0001",
+      "message_id": "msg_deny_0001",
+      "correlation_id": "corr_deny_0001",
+      "action_class": "external_action",
+      "actor_id": "agent_target_test",
+      "target": {
+        "target_agent_id": "agent_target_test",
+        "target_role": null
+      },
+      "delivery_expectation": {
+        "type": "visible_chat_reply",
+        "surface": "discord",
+        "conversation_id": "channel_test_source"
+      }
+    },
+    "evidence": {
+      "privacy_classification": "internal",
+      "content_hash": "sha256:test-deny"
+    },
+    "evaluated_at": "2026-07-20T21:11:00Z"
+  }
+}

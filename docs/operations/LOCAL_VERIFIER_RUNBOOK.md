@@ -87,3 +87,25 @@ They must not:
 
 Promotion beyond local verification is controlled by
 [`PROMOTION_GATE.md`](../operations/PROMOTION_GATE.md).
+
+## Warden Policy Contract
+
+Run:
+
+```sh
+python3 scripts/agent_bus_verify.py warden-policy tests/fixtures/warden_policy --pretty
+```
+
+Expected result:
+
+```json
+{
+  "ok": true,
+  "case_count": 6
+}
+```
+
+The open-core Warden contract validates baseline `allow`, `deny`, and
+`require_review` policy results. It checks that a policy result binds to the
+original request, carries reason/evidence references, requires approvers for
+review decisions, and does not embed private evidence.
