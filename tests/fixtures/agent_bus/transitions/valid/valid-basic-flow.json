@@ -1,0 +1,32 @@
+{
+  "case_id": "valid-basic-flow",
+  "description": "Accepted state flow from created to completed.",
+  "initial_state": "created",
+  "events": [
+    {
+      "to": "queued",
+      "actor_id": "agent_source_test",
+      "actor_type": "agent"
+    },
+    {
+      "to": "claimed",
+      "actor_id": "agent_target_test",
+      "actor_type": "agent"
+    },
+    {
+      "to": "in_progress",
+      "actor_id": "agent_target_test",
+      "actor_type": "agent"
+    },
+    {
+      "to": "completed",
+      "actor_id": "agent_target_test",
+      "actor_type": "agent"
+    }
+  ],
+  "expect": {
+    "valid": true,
+    "errors": [],
+    "final_state": "completed"
+  }
+}

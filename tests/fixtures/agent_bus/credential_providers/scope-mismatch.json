@@ -1,0 +1,33 @@
+{
+  "case_id": "scope-mismatch",
+  "description": "Rejected provider response where workspace and project scope do not include the requested scope.",
+  "trusted_time": "2026-07-14T00:00:00Z",
+  "request": {
+    "credential_id": "credential_local_test",
+    "actor_id": "agent_source_test",
+    "actor_type": "agent",
+    "runtime_id": "runtime_local_test",
+    "workspace_id": "workspace_redshield_test",
+    "project_slug": "redshield-agent-bus",
+    "proof_present": true
+  },
+  "provider_response": {
+    "credential_id": "credential_local_test",
+    "auth_method": "local_runtime_token",
+    "actor_id": "agent_source_test",
+    "actor_type": "agent",
+    "runtime_id": "runtime_local_test",
+    "scope_bindings": {
+      "workspace_ids": ["workspace_other_test"],
+      "project_slugs": ["other-project"]
+    },
+    "status": "active",
+    "expires_at": "2026-08-14T00:00:00Z",
+    "trust_level": "local_test",
+    "evidence_ref": "fixture://credential-providers/scope-mismatch"
+  },
+  "expect": {
+    "valid": false,
+    "errors": ["workspace_scope_mismatch", "project_scope_mismatch"]
+  }
+}

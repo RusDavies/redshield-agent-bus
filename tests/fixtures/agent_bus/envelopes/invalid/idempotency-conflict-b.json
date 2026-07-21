@@ -1,0 +1,17 @@
+{
+  "extends": "../valid/valid-notify-minimal.json",
+  "case_id": "idempotency-conflict-b",
+  "description": "Second incompatible message using the same idempotency key.",
+  "expect": {
+    "valid": false,
+    "errors": ["idempotency_conflict"]
+  },
+  "envelope": {
+    "message_id": "msg_idem_b",
+    "correlation_id": "corr_idem",
+    "idempotency_key": "idem_conflict",
+    "requested_output": {
+      "shape": "different_status_summary"
+    }
+  }
+}

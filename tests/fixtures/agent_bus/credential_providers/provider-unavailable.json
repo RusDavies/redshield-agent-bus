@@ -1,0 +1,19 @@
+{
+  "case_id": "provider-unavailable",
+  "description": "Rejected provider failure when the credential provider is unavailable.",
+  "trusted_time": "2026-07-14T00:00:00Z",
+  "request": {
+    "credential_id": "credential_local_test",
+    "actor_id": "agent_source_test",
+    "actor_type": "agent",
+    "runtime_id": "runtime_local_test",
+    "workspace_id": "workspace_redshield_test",
+    "project_slug": "redshield-agent-bus",
+    "proof_present": true
+  },
+  "provider_error": "provider_unavailable",
+  "expect": {
+    "valid": false,
+    "errors": ["provider_unavailable"]
+  }
+}

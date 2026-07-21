@@ -1,0 +1,28 @@
+{
+  "extends": "../valid/valid-notify-minimal.json",
+  "case_id": "private-data-leakage",
+  "description": "Rejected message that includes private context without private-data authorization.",
+  "expect": {
+    "valid": false,
+    "errors": ["context_private_data_not_authorized"]
+  },
+  "envelope": {
+    "message_id": "msg_private_data",
+    "correlation_id": "corr_private_data",
+    "idempotency_key": "idem_private_data",
+    "context_package": {
+      "privacy_classification": "private",
+      "references": [
+        {
+          "ref_id": "ref_private_memory_0001",
+          "type": "source_event",
+          "locator": "event_test_private_0001",
+          "privacy_classification": "private",
+          "allowed_use": ["verify_request"],
+          "copy_mode": "reference_only",
+          "redaction_status": "not_required"
+        }
+      ]
+    }
+  }
+}

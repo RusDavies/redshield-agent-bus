@@ -1,0 +1,112 @@
+# Redshield Agent Bus
+
+Redshield Agent Bus is an open-core protocol and verifier toolkit for safe
+agent-to-agent and agent-to-workflow handoffs.
+
+The open core focuses on one job: define and verify safe bus semantics before
+work crosses agent, tool, runtime, workspace, or delivery boundaries.
+
+## What It Does
+
+The current open core provides:
+
+- a local `agent-bus` Python package;
+- a verifier CLI for static bus-message fixtures;
+- envelope and state-transition validation;
+- checks for source, target, actor identity, credential evidence, expiry,
+  idempotency, delivery expectations, and risky authorization patterns;
+- context-package redaction and allowlist rules;
+- a credential-provider contract with local fixtures;
+- public-safe examples for RSK AI Auth-style grants, Keyper-style credential
+  evidence, Warden policy decisions, and Armor enforcement results;
+- architecture, requirements, security, QA, and promotion-gate documentation.
+
+The verifier is intentionally local-first. It does not post messages, call live
+runtime tools, spawn agents, publish events, or perform external actions.
+
+## Why It Exists
+
+Agent systems often pass work through chat messages, session notes, copied
+context, or informal handoffs. That is convenient until the work crosses a
+privacy, authorization, delivery, runtime, or audit boundary.
+
+Redshield Agent Bus makes those handoffs explicit:
+
+- who requested the work;
+- which actor/runtime is acting;
+- what authority is claimed;
+- what context is allowed;
+- whether the request is fresh and non-duplicated;
+- where the result must be delivered;
+- which safety checks allowed, denied, blocked, sanitized, or required review.
+
+## Quick Start
+
+Run the local verifier against the fixture suite:
+
+```sh
+python3 scripts/agent_bus_verify.py verify tests/fixtures/agent_bus --pretty
+```
+
+Expected result:
+
+```json
+{
+  "ok": true,
+  "case_count": 16
+}
+```
+
+Run the source classification check in the pre-split source repository:
+
+```sh
+python3 scripts/check_source_classification_manifest.py
+```
+
+Run the standard Python test command after installing test dependencies:
+
+```sh
+python3 -m pip install -e '.[test]'
+python3 -m pytest
+```
+
+## Open-Core Boundary
+
+The open core must remain useful without paid services.
+
+Open core includes:
+
+- protocol vocabulary and envelope semantics;
+- local verifier and fixture suite;
+- authorization-context and context-package safety rules;
+- credential-provider contract;
+- baseline Warden policy-result contract;
+- baseline Armor enforcement-result contract;
+- adapter and promotion-gate documentation.
+
+Commercial or enterprise editions may add scale, governance, deployed
+enforcement, visibility, integrations, evidence exports, managed operations,
+and support. They must not be required for local validation or the baseline
+safety model.
+
+## Neighboring Contracts
+
+Agent Bus stays narrow by consuming neighboring capabilities through contracts:
+
+- RSK AI Auth-style proofs describe workload identity and delegated authority.
+- Keyper-style evidence can satisfy the credential-provider contract.
+- Warden policy results answer `allow`, `deny`, or `require_review`.
+- Armor enforcement results answer `allow`, `block`, `sanitize`, or
+  `require_review`.
+
+These are public contract shapes. The open core does not require private or
+commercial implementations of those systems.
+
+## Safety Model
+
+The verifier should fail closed when a message is missing required identity,
+authorization, scope, freshness, idempotency, delivery, or safety information.
+
+Fixtures must use fake identities and references. Do not put real secrets,
+tokens, private messages, production runtime ids, live channel ids, or customer
+data into fixtures.

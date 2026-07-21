@@ -1,0 +1,99 @@
+{
+  "case_id": "deferred-broadcast",
+  "description": "Rejected message using deferred broadcast interaction type.",
+  "trusted_time": "2026-07-10T18:00:00Z",
+  "expect": {
+    "valid": false,
+    "errors": ["interaction_type_deferred"]
+  },
+  "envelope": {
+    "message_id": "msg_broadcast",
+    "correlation_id": "corr_broadcast",
+    "idempotency_key": "idem_broadcast",
+    "interaction_type": "broadcast",
+    "created_at": "2026-07-10T18:00:00Z",
+    "expires_at": "2026-07-10T19:00:00Z",
+    "auth": {
+      "actor_id": "agent_source_test",
+      "actor_type": "agent",
+      "runtime_id": "runtime_local_test",
+      "credential_id": "credential_local_test",
+      "auth_method": "local_runtime_token",
+      "authenticated_at": "2026-07-10T18:00:00Z"
+    },
+    "source": {
+      "source_surface": "discord",
+      "source_conversation_id": "channel_test_source",
+      "source_event_id": "event_test_request_0001",
+      "source_agent_id": "agent_source_test",
+      "runtime_id": "runtime_local_test",
+      "workspace_id": "workspace_redshield_test",
+      "project_slug": "project_agent_bus_test"
+    },
+    "target": {
+      "target_role": "reviewer"
+    },
+    "requester": {
+      "requester_id": "requester_test_user",
+      "approval_event_ids": []
+    },
+    "authorization_context": {
+      "schema_version": "authzctx.v1",
+      "authorization_id": "authz_test_broadcast",
+      "requester_id": "requester_test_user",
+      "source_event_ids": ["event_test_request_0001"],
+      "basis": {
+        "kind": "direct_request",
+        "approval_event_ids": [],
+        "summary_is_authorization": false
+      },
+      "scope": {
+        "workspace_id": "workspace_redshield_test",
+        "project_slug": "project_agent_bus_test",
+        "target_agent_ids": [],
+        "target_roles": ["reviewer"]
+      },
+      "allowed_interaction_types": ["broadcast"],
+      "allowed_action_classes": ["read_context"],
+      "safety_authorizations": {
+        "external_action": false,
+        "public_action": false,
+        "destructive_action": false,
+        "sensitive_data": false,
+        "private_data": false,
+        "runtime_event": false,
+        "customer_impacting": false
+      },
+      "constraints": {
+        "allowed_delivery_expectations": ["internal_result"],
+        "allowed_context_reference_types": ["source_event"],
+        "allowed_paths": [],
+        "denied_paths": []
+      },
+      "expires_at": "2026-07-10T19:00:00Z"
+    },
+    "delivery_expectation": {
+      "type": "internal_result"
+    },
+    "context_package": {
+      "schema_version": "ctxpkg.v1",
+      "package_id": "ctx_test_broadcast",
+      "summary": "Broadcast is deferred.",
+      "privacy_classification": "internal",
+      "references": [],
+      "redactions": []
+    },
+    "privacy_classification": "internal",
+    "safety_flags": {
+      "external_action": false,
+      "destructive_action": false,
+      "private_data": false,
+      "runtime_event_boundary": false,
+      "security_sensitive": false,
+      "approval_required": false
+    },
+    "requested_output": {
+      "shape": "status_summary"
+    }
+  }
+}

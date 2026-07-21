@@ -1,0 +1,17 @@
+{
+  "extends": "../valid/valid-notify-minimal.json",
+  "case_id": "runtime-event-misuse",
+  "description": "Rejected message that tries to treat a runtime-event boundary as ordinary work.",
+  "expect": {
+    "valid": false,
+    "errors": ["runtime_event_boundary_misuse"]
+  },
+  "envelope": {
+    "message_id": "msg_runtime_event_misuse",
+    "correlation_id": "corr_runtime_event_misuse",
+    "idempotency_key": "idem_runtime_event_misuse",
+    "safety_flags": {
+      "runtime_event_boundary": true
+    }
+  }
+}

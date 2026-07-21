@@ -1,0 +1,18 @@
+{
+  "extends": "../valid/valid-notify-minimal.json",
+  "case_id": "display-name-only-identity",
+  "description": "Rejected message that has only a display name for the actor.",
+  "expect": {
+    "valid": false,
+    "errors": ["display_name_only_identity"]
+  },
+  "envelope": {
+    "message_id": "msg_display_name_only",
+    "correlation_id": "corr_display_name_only",
+    "idempotency_key": "idem_display_name_only",
+    "auth": {
+      "actor_id": null,
+      "actor_display_name": "Skippy"
+    }
+  }
+}

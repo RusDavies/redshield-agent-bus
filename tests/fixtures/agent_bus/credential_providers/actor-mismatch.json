@@ -1,0 +1,33 @@
+{
+  "case_id": "actor-mismatch",
+  "description": "Rejected provider response where the resolved actor does not match the actor claim.",
+  "trusted_time": "2026-07-14T00:00:00Z",
+  "request": {
+    "credential_id": "credential_local_test",
+    "actor_id": "agent_source_test",
+    "actor_type": "agent",
+    "runtime_id": "runtime_local_test",
+    "workspace_id": "workspace_redshield_test",
+    "project_slug": "redshield-agent-bus",
+    "proof_present": true
+  },
+  "provider_response": {
+    "credential_id": "credential_local_test",
+    "auth_method": "local_runtime_token",
+    "actor_id": "agent_other_test",
+    "actor_type": "agent",
+    "runtime_id": "runtime_local_test",
+    "scope_bindings": {
+      "workspace_ids": ["workspace_redshield_test"],
+      "project_slugs": ["redshield-agent-bus"]
+    },
+    "status": "active",
+    "expires_at": "2026-08-14T00:00:00Z",
+    "trust_level": "local_test",
+    "evidence_ref": "fixture://credential-providers/actor-mismatch"
+  },
+  "expect": {
+    "valid": false,
+    "errors": ["actor_id_mismatch"]
+  }
+}

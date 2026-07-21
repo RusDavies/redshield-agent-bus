@@ -1,0 +1,15 @@
+{
+  "case_id": "actorless-transition",
+  "description": "Rejected transition with no authenticated actor.",
+  "initial_state": "created",
+  "events": [
+    {
+      "to": "queued"
+    }
+  ],
+  "expect": {
+    "valid": false,
+    "errors": ["transition_actor_missing"],
+    "final_state": "created"
+  }
+}

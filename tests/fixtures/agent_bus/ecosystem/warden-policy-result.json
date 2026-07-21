@@ -1,0 +1,63 @@
+{
+  "schema_version": "agent_bus.ecosystem_fixture.v1",
+  "fixture_kind": "warden_policy_result",
+  "case_id": "warden-policy-result",
+  "policy_results": [
+    {
+      "schema_version": "redshield_warden.policy_result.v1",
+      "decision_id": "warden_decision_allow_test_0001",
+      "decision": "allow",
+      "reason_codes": [
+        "action_class_allowed",
+        "scope_allowed",
+        "delivery_expectation_allowed"
+      ],
+      "risk_class": "low",
+      "policy_refs": [
+        "policy:open-core:local-safe-notify"
+      ],
+      "required_approver_roles": [],
+      "evidence_refs": [
+        "evidence:warden:test-allow-0001"
+      ],
+      "evaluated_at": "2026-07-20T21:10:00Z"
+    },
+    {
+      "schema_version": "redshield_warden.policy_result.v1",
+      "decision_id": "warden_decision_deny_test_0001",
+      "decision": "deny",
+      "reason_codes": [
+        "target_scope_mismatch",
+        "risky_action_not_authorized"
+      ],
+      "risk_class": "high",
+      "policy_refs": [
+        "policy:open-core:fail-closed-risky-action"
+      ],
+      "required_approver_roles": [],
+      "evidence_refs": [
+        "evidence:warden:test-deny-0001"
+      ],
+      "evaluated_at": "2026-07-20T21:11:00Z"
+    },
+    {
+      "schema_version": "redshield_warden.policy_result.v1",
+      "decision_id": "warden_decision_review_test_0001",
+      "decision": "require_review",
+      "reason_codes": [
+        "public_action_requires_human_review"
+      ],
+      "risk_class": "medium",
+      "policy_refs": [
+        "policy:open-core:review-public-action"
+      ],
+      "required_approver_roles": [
+        "project_owner"
+      ],
+      "evidence_refs": [
+        "evidence:warden:test-review-0001"
+      ],
+      "evaluated_at": "2026-07-20T21:12:00Z"
+    }
+  ]
+}

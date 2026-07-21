@@ -1,0 +1,92 @@
+{
+  "case_id": "missing-source",
+  "description": "Rejected message without source provenance.",
+  "trusted_time": "2026-07-10T18:00:00Z",
+  "expect": {
+    "valid": false,
+    "errors": ["envelope_field_missing:source"]
+  },
+  "envelope": {
+    "message_id": "msg_missing_source",
+    "correlation_id": "corr_missing_source",
+    "idempotency_key": "idem_missing_source",
+    "interaction_type": "notify",
+    "created_at": "2026-07-10T18:00:00Z",
+    "expires_at": "2026-07-10T19:00:00Z",
+    "auth": {
+      "actor_id": "agent_source_test",
+      "actor_type": "agent",
+      "runtime_id": "runtime_local_test",
+      "credential_id": "credential_local_test",
+      "auth_method": "local_runtime_token",
+      "authenticated_at": "2026-07-10T18:00:00Z"
+    },
+    "target": {
+      "target_agent_id": "agent_target_test"
+    },
+    "requester": {
+      "requester_id": "requester_test_user",
+      "approval_event_ids": []
+    },
+    "authorization_context": {
+      "schema_version": "authzctx.v1",
+      "authorization_id": "authz_test_missing_source",
+      "requester_id": "requester_test_user",
+      "source_event_ids": ["event_test_request_0001"],
+      "basis": {
+        "kind": "direct_request",
+        "approval_event_ids": [],
+        "summary_is_authorization": false
+      },
+      "scope": {
+        "workspace_id": "workspace_redshield_test",
+        "project_slug": "project_agent_bus_test",
+        "target_agent_ids": ["agent_target_test"],
+        "target_roles": []
+      },
+      "allowed_interaction_types": ["notify"],
+      "allowed_action_classes": ["read_context"],
+      "safety_authorizations": {
+        "external_action": false,
+        "public_action": false,
+        "destructive_action": false,
+        "sensitive_data": false,
+        "private_data": false,
+        "runtime_event": false,
+        "customer_impacting": false
+      },
+      "constraints": {
+        "allowed_delivery_expectations": ["visible_chat_reply"],
+        "allowed_context_reference_types": ["source_event"],
+        "allowed_paths": [],
+        "denied_paths": []
+      },
+      "expires_at": "2026-07-10T19:00:00Z"
+    },
+    "delivery_expectation": {
+      "type": "visible_chat_reply",
+      "target_surface": "discord",
+      "source_conversation_id": "channel_test_source"
+    },
+    "context_package": {
+      "schema_version": "ctxpkg.v1",
+      "package_id": "ctx_test_missing_source",
+      "summary": "Missing source provenance case.",
+      "privacy_classification": "internal",
+      "references": [],
+      "redactions": []
+    },
+    "privacy_classification": "internal",
+    "safety_flags": {
+      "external_action": false,
+      "destructive_action": false,
+      "private_data": false,
+      "runtime_event_boundary": false,
+      "security_sensitive": false,
+      "approval_required": false
+    },
+    "requested_output": {
+      "shape": "status_summary"
+    }
+  }
+}

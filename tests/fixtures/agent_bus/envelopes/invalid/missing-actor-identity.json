@@ -1,0 +1,17 @@
+{
+  "extends": "../valid/valid-notify-minimal.json",
+  "case_id": "missing-actor-identity",
+  "description": "Rejected message with no authenticated actor id.",
+  "expect": {
+    "valid": false,
+    "errors": ["auth_field_missing:actor_id"]
+  },
+  "envelope": {
+    "message_id": "msg_missing_actor",
+    "correlation_id": "corr_missing_actor",
+    "idempotency_key": "idem_missing_actor",
+    "auth": {
+      "actor_id": null
+    }
+  }
+}

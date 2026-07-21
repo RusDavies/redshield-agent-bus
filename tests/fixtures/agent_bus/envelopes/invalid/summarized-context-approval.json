@@ -1,0 +1,19 @@
+{
+  "extends": "../valid/valid-notify-minimal.json",
+  "case_id": "summarized-context-approval",
+  "description": "Rejected message that treats a summary as authorization.",
+  "expect": {
+    "valid": false,
+    "errors": ["summarized_context_not_authorization"]
+  },
+  "envelope": {
+    "message_id": "msg_summary_auth",
+    "correlation_id": "corr_summary_auth",
+    "idempotency_key": "idem_summary_auth",
+    "authorization_context": {
+      "basis": {
+        "summary_is_authorization": true
+      }
+    }
+  }
+}

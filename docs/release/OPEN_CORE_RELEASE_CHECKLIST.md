@@ -1,0 +1,25 @@
+# Open-Core Release Checklist
+
+No public release is approved yet.
+
+Before a public open-core release:
+
+- [ ] License is selected and present.
+- [ ] Contribution policy is present.
+- [ ] Security policy and vulnerability intake path are present.
+- [ ] Public README explains stand-alone verifier value.
+- [ ] Public product overview is current.
+- [ ] Local verifier passes against public fixtures.
+- [ ] Python tests pass in a documented environment.
+- [ ] Release notes or changelog are present.
+- [ ] Package metadata is accurate.
+- [ ] Public fixtures contain only fake ids and no private data.
+- [ ] Open-core Warden and Armor baseline contract examples are present.
+- [ ] Repo verification profile for open core passes.
+- [ ] Supply-chain and provenance expectations are documented.
+- [ ] No management, migration approval, private planning, customer policy, or
+      commercial launch posture is included in the public repo.
+
+Production, hosted, managed, enterprise, or customer-facing deployment requires
+separate gates and evidence. A public package release is not a production
+authorization.

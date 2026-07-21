@@ -1,0 +1,14 @@
+{
+  "extends": "../valid/valid-notify-minimal.json",
+  "case_id": "idempotency-conflict-a",
+  "description": "First message using a shared idempotency key.",
+  "expect": {
+    "valid": true,
+    "errors": []
+  },
+  "envelope": {
+    "message_id": "msg_idem_a",
+    "correlation_id": "corr_idem",
+    "idempotency_key": "idem_conflict"
+  }
+}

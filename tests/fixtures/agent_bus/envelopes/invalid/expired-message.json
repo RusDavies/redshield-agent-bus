@@ -1,0 +1,18 @@
+{
+  "extends": "../valid/valid-notify-minimal.json",
+  "case_id": "expired-message",
+  "description": "Rejected message with an expired message timestamp.",
+  "expect": {
+    "valid": false,
+    "errors": ["message_expired"]
+  },
+  "envelope": {
+    "message_id": "msg_expired",
+    "correlation_id": "corr_expired",
+    "idempotency_key": "idem_expired",
+    "expires_at": "2026-07-10T17:59:00Z",
+    "authorization_context": {
+      "expires_at": "2026-07-10T19:00:00Z"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "case_id": "target-claim-mismatch",
+  "description": "Rejected claim by an actor that is not the target agent.",
+  "initial_state": "queued",
+  "target_agent_id": "agent_target_test",
+  "events": [
+    {
+      "to": "claimed",
+      "actor_id": "agent_wrong_test",
+      "actor_type": "agent"
+    }
+  ],
+  "expect": {
+    "valid": false,
+    "errors": ["target_claim_mismatch"],
+    "final_state": "queued"
+  }
+}

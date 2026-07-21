@@ -1,0 +1,92 @@
+{
+  "schema_version": "agent_bus.ecosystem_fixture.v1",
+  "fixture_kind": "armor_enforcement_result",
+  "case_id": "armor-enforcement-result",
+  "enforcement_results": [
+    {
+      "schema_version": "redshield_armor.enforcement_result.v1",
+      "enforcement_id": "armor_enforcement_allow_test_0001",
+      "decision": "allow",
+      "enforcement_target": "adapter_delivery_preview",
+      "finding_codes": [
+        "payload_metadata_only",
+        "receipt_capability_present"
+      ],
+      "adapter_capability_refs": [
+        "adapter-capability:visible-chat-reply:test"
+      ],
+      "sanitized_field_refs": [],
+      "receipt_requirements": [
+        "delivery_attempt_id",
+        "destination_ref",
+        "delivered_at",
+        "provider_message_ref"
+      ],
+      "evidence_refs": [
+        "evidence:armor:test-allow-0001"
+      ],
+      "evaluated_at": "2026-07-20T21:20:00Z"
+    },
+    {
+      "schema_version": "redshield_armor.enforcement_result.v1",
+      "enforcement_id": "armor_enforcement_block_test_0001",
+      "decision": "block",
+      "enforcement_target": "context_package",
+      "finding_codes": [
+        "private_payload_not_authorized",
+        "raw_private_content_detected"
+      ],
+      "adapter_capability_refs": [],
+      "sanitized_field_refs": [],
+      "receipt_requirements": [],
+      "evidence_refs": [
+        "evidence:armor:test-block-0001"
+      ],
+      "evaluated_at": "2026-07-20T21:21:00Z"
+    },
+    {
+      "schema_version": "redshield_armor.enforcement_result.v1",
+      "enforcement_id": "armor_enforcement_sanitize_test_0001",
+      "decision": "sanitize",
+      "enforcement_target": "delivery_payload",
+      "finding_codes": [
+        "sensitive_reference_requires_redaction"
+      ],
+      "adapter_capability_refs": [
+        "adapter-capability:visible-chat-reply:test"
+      ],
+      "sanitized_field_refs": [
+        "context.references[0].display_excerpt"
+      ],
+      "receipt_requirements": [
+        "delivery_attempt_id",
+        "destination_ref",
+        "delivered_at"
+      ],
+      "evidence_refs": [
+        "evidence:armor:test-sanitize-0001"
+      ],
+      "evaluated_at": "2026-07-20T21:22:00Z"
+    },
+    {
+      "schema_version": "redshield_armor.enforcement_result.v1",
+      "enforcement_id": "armor_enforcement_review_test_0001",
+      "decision": "require_review",
+      "enforcement_target": "tool_dispatch",
+      "finding_codes": [
+        "adapter_capability_uncertain"
+      ],
+      "adapter_capability_refs": [
+        "adapter-capability:tool-dispatch:test"
+      ],
+      "sanitized_field_refs": [],
+      "receipt_requirements": [
+        "operator_approval_event_id"
+      ],
+      "evidence_refs": [
+        "evidence:armor:test-review-0001"
+      ],
+      "evaluated_at": "2026-07-20T21:23:00Z"
+    }
+  ]
+}

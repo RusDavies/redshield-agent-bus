@@ -1,0 +1,17 @@
+{
+  "extends": "../valid/valid-notify-minimal.json",
+  "case_id": "wrong-destination-delivery",
+  "description": "Rejected message whose visible delivery target differs from the source conversation.",
+  "expect": {
+    "valid": false,
+    "errors": ["wrong_destination_delivery"]
+  },
+  "envelope": {
+    "message_id": "msg_wrong_destination",
+    "correlation_id": "corr_wrong_destination",
+    "idempotency_key": "idem_wrong_destination",
+    "delivery_expectation": {
+      "source_conversation_id": "channel_test_wrong"
+    }
+  }
+}

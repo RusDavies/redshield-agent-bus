@@ -1,0 +1,132 @@
+{
+  "schema_version": "agent_bus.ecosystem_fixture.v1",
+  "fixture_kind": "rsk_ai_auth_capability_grant",
+  "case_id": "rsk-ai-auth-capability-grant",
+  "capability_grant": {
+    "schema_version": "rsk_ai_auth.capability_grant.v1",
+    "grant_id": "grant_test_agent_bus_notify_0001",
+    "issuer": "issuer_rsk_ai_auth_test",
+    "subject": {
+      "actor_id": "agent_source_test",
+      "actor_type": "agent",
+      "runtime_id": "runtime_source_test"
+    },
+    "delegated_by": {
+      "requester_id": "requester_test_user",
+      "source_event_ids": [
+        "event_test_request_0001"
+      ],
+      "approval_event_ids": []
+    },
+    "allowed_interaction_types": [
+      "notify"
+    ],
+    "allowed_action_classes": [
+      "read_context",
+      "compose_response",
+      "run_local_verifier"
+    ],
+    "scope": {
+      "workspace_ids": [
+        "workspace_redshield_test"
+      ],
+      "project_slugs": [
+        "project_agent_bus_test"
+      ],
+      "source_surface": "discord",
+      "source_conversation_ids": [
+        "channel_test_source"
+      ],
+      "target_agent_ids": [
+        "agent_target_test"
+      ],
+      "target_roles": []
+    },
+    "safety_authorizations": {
+      "external_action": false,
+      "public_action": false,
+      "destructive_action": false,
+      "sensitive_data": false,
+      "private_data": false,
+      "runtime_event": false,
+      "customer_impacting": false
+    },
+    "constraints": {
+      "allowed_delivery_expectations": [
+        "visible_chat_reply"
+      ],
+      "allowed_context_reference_types": [
+        "project_file",
+        "source_event"
+      ],
+      "max_duration_seconds": 300
+    },
+    "proof_binding": {
+      "binding_kind": "sender_constrained",
+      "proof_ref": "proof_ref_test_0001"
+    },
+    "not_before": "2026-07-20T21:00:00Z",
+    "expires_at": "2026-07-20T22:00:00Z",
+    "revoked_at": null,
+    "evidence_ref": "evidence:rsk-ai-auth:test-grant-0001"
+  },
+  "agent_bus_authorization_context": {
+    "schema_version": "authzctx.v1",
+    "authorization_id": "grant_test_agent_bus_notify_0001",
+    "requester_id": "requester_test_user",
+    "source_event_ids": [
+      "event_test_request_0001"
+    ],
+    "basis": {
+      "kind": "direct_request",
+      "approval_event_ids": [],
+      "summary_is_authorization": false,
+      "proof_issuer": "issuer_rsk_ai_auth_test",
+      "proof_ref": "proof_ref_test_0001"
+    },
+    "scope": {
+      "workspace_id": "workspace_redshield_test",
+      "project_slug": "project_agent_bus_test",
+      "source_surface": "discord",
+      "source_conversation_id": "channel_test_source",
+      "target_agent_ids": [
+        "agent_target_test"
+      ],
+      "target_roles": []
+    },
+    "allowed_interaction_types": [
+      "notify"
+    ],
+    "allowed_action_classes": [
+      "read_context",
+      "compose_response",
+      "run_local_verifier"
+    ],
+    "safety_authorizations": {
+      "external_action": false,
+      "public_action": false,
+      "destructive_action": false,
+      "sensitive_data": false,
+      "private_data": false,
+      "runtime_event": false,
+      "customer_impacting": false
+    },
+    "constraints": {
+      "max_duration_seconds": 300,
+      "allowed_delivery_expectations": [
+        "visible_chat_reply"
+      ],
+      "allowed_context_reference_types": [
+        "project_file",
+        "source_event"
+      ],
+      "allowed_paths": [],
+      "denied_paths": [],
+      "requires_human_confirmation": false
+    },
+    "expires_at": "2026-07-20T22:00:00Z",
+    "evidence_refs": [
+      "evidence:rsk-ai-auth:test-grant-0001"
+    ]
+  }
+}
