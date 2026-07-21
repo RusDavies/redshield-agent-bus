@@ -146,6 +146,58 @@ Identity and authentication model:
 - Release-readiness checks block public/open-source release until release-security gate, vulnerability intake, and supply-chain requirements exist.
 - Enterprise-readiness checks block Warden/Armor enterprise claims until control/evidence registers and customer-facing security posture are approved.
 
+## Gate 0 Review
+
+Review date: 2026-07-21.
+
+Review scope: local verifier and open-core repository readiness only. This review
+does not approve public visibility, a package release, live adapter behavior,
+production use, enterprise claims, or customer-facing security posture.
+
+Reviewed evidence:
+
+- `src/agent_bus/verifier.py`
+- `src/agent_bus/credential_provider.py`
+- `tests/test_verifier.py`
+- `tests/test_credential_provider_contract.py`
+- `tests/test_ecosystem_contract_examples.py`
+- `tests/fixtures/agent_bus/envelopes/`
+- `tests/fixtures/agent_bus/transitions/`
+- `tests/fixtures/agent_bus/credential_providers/`
+- `tests/fixtures/agent_bus/ecosystem/`
+- `docs/security/AGENT_IDENTITY_AUTHENTICATION.md`
+- `docs/security/LOCAL_RUNTIME_CREDENTIAL_FORMAT.md`
+- `docs/security/AUTHORIZATION_CONTEXT_SCHEMA.md`
+- `docs/security/CONTEXT_PACKAGE_RULES.md`
+- `docs/operations/PROMOTION_GATE.md`
+
+Threat-to-mitigation links:
+
+| Threat | Gate 0 review result | Evidence |
+| --- | --- | --- |
+| TH-1 | Partly mitigated for local fixtures. Runtime credential verification remains future work. | `tests/fixtures/agent_bus/envelopes/invalid/missing-actor-identity.json`, `tests/fixtures/agent_bus/envelopes/invalid/display-name-only-identity.json`, `tests/fixtures/agent_bus/envelopes/invalid/unknown-credential.json`, `tests/fixtures/agent_bus/credential_providers/` |
+| TH-2 | Partly mitigated for explicit ambiguous targets and target-claim mismatch. Full resolver design remains open. | `tests/fixtures/agent_bus/envelopes/invalid/wrong-destination-delivery.json`, `tests/fixtures/agent_bus/transitions/invalid/target-claim-mismatch.json` |
+| TH-3 | Mitigated for current local verifier fixtures. | `tests/fixtures/agent_bus/envelopes/invalid/summarized-context-approval.json`, `docs/security/AUTHORIZATION_CONTEXT_SCHEMA.md` |
+| TH-4 | Mitigated for incompatible local fixture reuse. Side-effect guards remain future live-adapter work. | `tests/fixtures/agent_bus/envelopes/invalid/idempotency-conflict-a.json`, `tests/fixtures/agent_bus/envelopes/invalid/idempotency-conflict-b.json` |
+| TH-5 | Mitigated for message, authorization, and credential expiry checks in local fixtures. Renewal flow remains open. | `tests/fixtures/agent_bus/envelopes/invalid/expired-message.json`, `tests/fixtures/agent_bus/credential_providers/expired-credential.json` |
+| TH-6 | Mitigated for current private-context fixture leakage checks. Content scanning remains future work. | `tests/fixtures/agent_bus/envelopes/invalid/private-data-leakage.json`, `docs/security/CONTEXT_PACKAGE_RULES.md` |
+| TH-7 | Partly mitigated by delivery expectation and wrong-destination checks. Live receipt enforcement remains Gate 1/Gate 2 work. | `tests/fixtures/agent_bus/envelopes/valid/valid-notify-minimal.json`, `tests/fixtures/agent_bus/envelopes/invalid/wrong-destination-delivery.json`, `docs/architecture/LIVE_ADAPTER_DRY_RUN_CONTRACT.md` |
+| TH-8 | Mitigated for current local verifier fixtures. Ops-only runtime continuation handling remains implementation work. | `tests/fixtures/agent_bus/envelopes/invalid/runtime-event-misuse.json` |
+| TH-9 | Partly mitigated for authorization-context fields, risky-action authorization, scope, and expiry. Warden/Armor enforcement remains open. | `docs/security/AUTHORIZATION_CONTEXT_SCHEMA.md`, `tests/fixtures/agent_bus/ecosystem/warden-policy-result.json`, `tests/fixtures/agent_bus/ecosystem/armor-enforcement-result.json` |
+| TH-10 | Partly mitigated by fixture audit shape and redaction rules. Retention and evidence export policy remain open. | `docs/architecture/FIXTURE_AUDIT_STORAGE.md`, `docs/security/CONTEXT_PACKAGE_RULES.md` |
+| TH-11 | Not mitigated in Gate 0. Track rate limits, quotas, claim authorization, and queue isolation before live/shared use. | `docs/operations/PROMOTION_GATE.md` |
+| TH-12 | Partly mitigated for actor-bound transitions. Trusted adapter receipts remain Gate 1/Gate 2 work. | `tests/fixtures/agent_bus/transitions/invalid/actorless-transition.json`, `docs/architecture/LIVE_ADAPTER_DRY_RUN_CONTRACT.md` |
+| TH-13 | Not mitigated yet. Blocks public visibility and package release until governance and supply-chain release gates are complete. | `docs/release/OPEN_CORE_RELEASE_CHECKLIST.md`, `docs/operations/PROMOTION_GATE.md` |
+| TH-14 | Not mitigated yet. Blocks enterprise/customer-facing posture claims. | `docs/operations/PROMOTION_GATE.md` |
+| TH-15 | Not mitigated yet. Warden policy hook contract remains open-core baseline work. | `tests/fixtures/agent_bus/ecosystem/warden-policy-result.json` |
+| TH-16 | Not mitigated yet. Armor enforcement contract remains open-core baseline work. | `tests/fixtures/agent_bus/ecosystem/armor-enforcement-result.json` |
+
+Gate 0 decision: approved with conditions for continued local-verifier and
+open-core preparation work. The current mitigations are sufficient to keep
+building the local verifier and public-target repository while the remaining
+findings stay explicit backlog. They are not sufficient for public release or
+live adapter promotion.
+
 ## Open Findings
 
 - OF-1: Agent identity and authentication model is defined in `docs/security/AGENT_IDENTITY_AUTHENTICATION.md`, and the first local credential format is selected in `docs/security/LOCAL_RUNTIME_CREDENTIAL_FORMAT.md`; implementation and verifier tests are still required.
@@ -162,6 +214,6 @@ Identity and authentication model:
 
 ## Approval
 
-- Reviewer: Not yet reviewed.
-- Date: 
-- Conditions: Treat this as the initial Class 4E threat model draft. Do not use it as release approval, production approval, or customer-facing security posture.
+- Reviewer: Product owner approval recorded from the Discord project channel.
+- Date: 2026-07-21.
+- Conditions: Approved only for Gate 0 local-verifier and open-core preparation work. Do not use this as public-release approval, live-adapter approval, production approval, enterprise-readiness approval, or customer-facing security posture.
