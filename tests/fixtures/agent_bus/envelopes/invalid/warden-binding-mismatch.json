@@ -1,0 +1,43 @@
+{
+  "extends": "../valid/valid-notify-minimal.json",
+  "case_id": "warden-binding-mismatch",
+  "description": "Rejected envelope when Warden policy result binds to the wrong message.",
+  "expect": {
+    "valid": false,
+    "errors": ["warden_policy_binding_failed"]
+  },
+  "envelope": {
+    "message_id": "msg_warden_binding",
+    "correlation_id": "corr_warden_binding",
+    "idempotency_key": "idem_warden_binding",
+    "warden_policy_result": {
+      "schema_version": "redshield_warden.policy_result.v1",
+      "decision_id": "warden_decision_integrated_binding",
+      "decision": "allow",
+      "reason_codes": ["action_class_allowed"],
+      "risk_class": "low",
+      "policy_refs": ["policy:open-core:local-safe-notify"],
+      "required_approver_roles": [],
+      "evidence_refs": ["evidence:warden:integrated-binding"],
+      "applies_to": {
+        "message_id": "msg_wrong",
+        "correlation_id": "corr_warden_binding",
+        "action_class": "compose_response",
+        "target": {
+          "target_agent_id": "agent_target_test",
+          "target_role": null
+        },
+        "delivery_expectation": {
+          "type": "visible_chat_reply",
+          "surface": "discord",
+          "conversation_id": "channel_test_source"
+        }
+      },
+      "evidence": {
+        "privacy_classification": "internal",
+        "content_hash": "sha256:warden-binding"
+      },
+      "evaluated_at": "2026-07-20T21:34:00Z"
+    }
+  }
+}

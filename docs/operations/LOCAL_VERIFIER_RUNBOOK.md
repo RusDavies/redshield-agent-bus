@@ -22,7 +22,7 @@ Expected result:
 ```json
 {
   "ok": true,
-  "case_count": 16
+  "case_count": 21
 }
 ```
 

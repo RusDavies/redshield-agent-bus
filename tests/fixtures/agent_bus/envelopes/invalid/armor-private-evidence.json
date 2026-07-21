@@ -1,0 +1,38 @@
+{
+  "extends": "../valid/valid-notify-minimal.json",
+  "case_id": "armor-private-evidence",
+  "description": "Rejected envelope when Armor result embeds private evidence.",
+  "expect": {
+    "valid": false,
+    "errors": ["armor_enforcement_private_evidence_rejected"]
+  },
+  "envelope": {
+    "message_id": "msg_armor_private_evidence",
+    "correlation_id": "corr_armor_private_evidence",
+    "idempotency_key": "idem_armor_private_evidence",
+    "armor_enforcement_result": {
+      "schema_version": "redshield_armor.enforcement_result.v1",
+      "enforcement_id": "armor_enforcement_integrated_private",
+      "decision": "allow",
+      "enforcement_target": "delivery_payload",
+      "finding_codes": ["payload_metadata_only"],
+      "adapter_capability_refs": ["adapter-capability:visible-chat-reply:test"],
+      "sanitized_field_refs": [],
+      "receipt_requirements": ["delivery_attempt_id"],
+      "evidence_refs": ["evidence:armor:integrated-private"],
+      "applies_to": {
+        "message_id": "msg_armor_private_evidence",
+        "correlation_id": "corr_armor_private_evidence",
+        "enforcement_target": "delivery_payload",
+        "action_class": "compose_response",
+        "payload_ref": "context_package:ctx_test_0001",
+        "adapter_capability_ref": "adapter-capability:visible-chat-reply:test"
+      },
+      "evidence": {
+        "privacy_classification": "private",
+        "raw_content": "private evidence must not be embedded"
+      },
+      "evaluated_at": "2026-07-20T21:35:00Z"
+    }
+  }
+}

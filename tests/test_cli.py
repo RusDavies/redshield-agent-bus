@@ -20,7 +20,7 @@ def test_cli_verifies_fixture_directory(capsys) -> None:
 
     assert exit_code == 0
     assert result["ok"] is True
-    assert result["case_count"] == 16
+    assert result["case_count"] == 21
 
 
 def test_cli_returns_nonzero_when_expectations_fail(tmp_path, capsys) -> None:

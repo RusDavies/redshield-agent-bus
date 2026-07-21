@@ -1,0 +1,43 @@
+{
+  "extends": "../valid/valid-notify-minimal.json",
+  "case_id": "warden-deny-result",
+  "description": "Rejected envelope when the attached Warden policy result denies the action.",
+  "expect": {
+    "valid": false,
+    "errors": ["warden_policy_denied"]
+  },
+  "envelope": {
+    "message_id": "msg_warden_deny",
+    "correlation_id": "corr_warden_deny",
+    "idempotency_key": "idem_warden_deny",
+    "warden_policy_result": {
+      "schema_version": "redshield_warden.policy_result.v1",
+      "decision_id": "warden_decision_integrated_deny",
+      "decision": "deny",
+      "reason_codes": ["external_action_not_authorized"],
+      "risk_class": "high",
+      "policy_refs": ["policy:open-core:fail-closed-risky-action"],
+      "required_approver_roles": [],
+      "evidence_refs": ["evidence:warden:integrated-deny"],
+      "applies_to": {
+        "message_id": "msg_warden_deny",
+        "correlation_id": "corr_warden_deny",
+        "action_class": "compose_response",
+        "target": {
+          "target_agent_id": "agent_target_test",
+          "target_role": null
+        },
+        "delivery_expectation": {
+          "type": "visible_chat_reply",
+          "surface": "discord",
+          "conversation_id": "channel_test_source"
+        }
+      },
+      "evidence": {
+        "privacy_classification": "internal",
+        "content_hash": "sha256:warden-deny"
+      },
+      "evaluated_at": "2026-07-20T21:32:00Z"
+    }
+  }
+}
