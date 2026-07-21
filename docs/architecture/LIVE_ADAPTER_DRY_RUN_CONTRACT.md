@@ -144,19 +144,28 @@ Accepted:
 Rejected:
 
 - `adapter_capability_missing`
+- `adapter_capability_schema_unsupported`
 - `adapter_mode_not_dry_run`
 - `adapter_identity_missing`
+- `adapter_forbidden_capabilities_incomplete`
 - `delivery_expectation_unsupported`
 - `interaction_type_unsupported`
+- `preview_schema_unsupported`
+- `preview_binding_failed`
+- `preview_adapter_binding_failed`
+- `preview_safety_missing`
+- `payload_preview_missing`
 - `destination_missing`
 - `destination_mismatch`
 - `source_mismatch`
 - `payload_contains_private_data`
 - `payload_contains_secret`
 - `live_side_effect_requested`
+- `receipt_missing`
 - `receipt_binding_failed`
 - `receipt_claims_side_effect`
 - `receipt_schema_unsupported`
+- `receipt_result_unsupported`
 
 Reason-code prose can change. Codes should not.
 

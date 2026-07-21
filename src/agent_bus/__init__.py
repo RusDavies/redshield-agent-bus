@@ -1,4 +1,4 @@
-"""Local verifier for Redshield Agent Bus fixtures."""
+"""Local verifier and dry-run preview tooling for Redshield Agent Bus fixtures."""
 
 __all__ = ["__version__"]
 

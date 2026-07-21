@@ -12,6 +12,7 @@ The current open core provides:
 
 - a local `agent-bus` Python package;
 - a verifier CLI for static bus-message fixtures;
+- a local-only adapter dry-run preview and receipt verifier;
 - envelope and state-transition validation;
 - checks for source, target, actor identity, credential evidence, expiry,
   idempotency, delivery expectations, and risky authorization patterns;
@@ -54,6 +55,22 @@ Expected result:
 {
   "ok": true,
   "case_count": 16
+}
+```
+
+Run the local-only adapter dry-run verifier against preview and receipt
+fixtures:
+
+```sh
+python3 scripts/agent_bus_verify.py dry-run tests/fixtures/adapter_dry_runs --pretty
+```
+
+Expected result:
+
+```json
+{
+  "ok": true,
+  "case_count": 6
 }
 ```
 

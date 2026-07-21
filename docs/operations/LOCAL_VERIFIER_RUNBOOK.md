@@ -61,6 +61,21 @@ Fixtures must not include:
 
 Dry-run adapters may model delivery previews and receipts as data.
 
+Run:
+
+```sh
+python3 scripts/agent_bus_verify.py dry-run tests/fixtures/adapter_dry_runs --pretty
+```
+
+Expected result:
+
+```json
+{
+  "ok": true,
+  "case_count": 6
+}
+```
+
 They must not:
 
 - post messages;

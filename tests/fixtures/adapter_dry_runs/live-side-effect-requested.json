@@ -1,0 +1,42 @@
+{
+  "extends": "valid-visible-preview.json",
+  "case_id": "live-side-effect-requested",
+  "description": "Rejected dry-run preview attempting to enable a live side effect.",
+  "expect": {
+    "valid": false,
+    "errors": ["live_side_effect_requested"]
+  },
+  "adapter_preview_request": {
+    "schema_version": "adapterpreview.v1",
+    "preview_id": "preview_msg_0001",
+    "message_id": "msg_0001",
+    "correlation_id": "corr_0001",
+    "idempotency_key": "idem_0001",
+    "adapter_id": "adapter_discord_dry_run_test",
+    "adapter_type": "chat",
+    "surface": "discord",
+    "mode": "dry_run",
+    "source": {
+      "surface": "discord",
+      "conversation_id": "channel_test_source",
+      "event_id": "event_test_request_0001"
+    },
+    "destination": {
+      "surface": "discord",
+      "conversation_id": "channel_test_source",
+      "thread_id": null
+    },
+    "delivery_expectation": {
+      "type": "visible_chat_reply"
+    },
+    "payload_preview": {
+      "content_hash": "sha256:fixture-placeholder",
+      "redacted_summary": "Would deliver a status_summary."
+    },
+    "safety": {
+      "live_side_effect_allowed": true,
+      "external_action_allowed": false,
+      "private_data_included": false
+    }
+  }
+}

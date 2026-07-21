@@ -1,0 +1,22 @@
+{
+  "extends": "valid-visible-preview.json",
+  "case_id": "private-only-completion-missing-receipt",
+  "description": "Rejected internal-result completion when receipt evidence is required but missing.",
+  "expect": {
+    "valid": false,
+    "errors": ["receipt_missing"],
+    "receipt_required": true
+  },
+  "envelope": {
+    "delivery_expectation": {
+      "type": "internal_result",
+      "target_surface": "internal",
+      "source_conversation_id": "channel_test_source"
+    },
+    "authorization_context": {
+      "constraints": {
+        "allowed_delivery_expectations": ["internal_result"]
+      }
+    }
+  }
+}

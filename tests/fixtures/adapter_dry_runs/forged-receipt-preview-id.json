@@ -1,0 +1,34 @@
+{
+  "extends": "valid-visible-preview.json",
+  "case_id": "forged-receipt-preview-id",
+  "description": "Rejected forged receipt whose preview id does not bind to the generated preview.",
+  "expect": {
+    "valid": false,
+    "errors": ["receipt_binding_failed"],
+    "receipt_required": true
+  },
+  "dry_run_delivery_receipt": {
+    "schema_version": "dryreceipt.v1",
+    "receipt_id": "dryreceipt_test_forged_preview",
+    "preview_id": "preview_wrong",
+    "message_id": "msg_0001",
+    "correlation_id": "corr_0001",
+    "adapter_id": "adapter_discord_dry_run_test",
+    "adapter_type": "chat",
+    "surface": "discord",
+    "mode": "dry_run",
+    "result": "accepted",
+    "reason": "would_deliver",
+    "destination": {
+      "surface": "discord",
+      "conversation_id": "channel_test_source",
+      "thread_id": null
+    },
+    "delivery_expectation": {
+      "type": "visible_chat_reply"
+    },
+    "side_effect_performed": false,
+    "payload_hash": "sha256:forged",
+    "created_at": "2026-07-10T22:00:00Z"
+  }
+}

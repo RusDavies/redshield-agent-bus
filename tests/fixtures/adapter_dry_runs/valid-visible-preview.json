@@ -1,0 +1,20 @@
+{
+  "case_id": "valid-visible-preview",
+  "description": "Accepted dry-run preview for visible chat delivery.",
+  "envelope_fixture": "../agent_bus/envelopes/valid/valid-notify-minimal.json",
+  "expect": {
+    "valid": true,
+    "errors": []
+  },
+  "adapter_capability": {
+    "schema_version": "adaptercap.v1",
+    "adapter_id": "adapter_discord_dry_run_test",
+    "adapter_type": "chat",
+    "surface": "discord",
+    "mode": "dry_run",
+    "supports_delivery_expectations": ["visible_chat_reply", "internal_result"],
+    "supports_interaction_types": ["notify", "ask", "instruct", "delegate", "handoff", "consult", "escalate"],
+    "forbidden_capabilities": ["live_send", "session_spawn", "gateway_call", "queue_publish"],
+    "receipt_schema_version": "dryreceipt.v1"
+  }
+}
