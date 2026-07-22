@@ -13,6 +13,9 @@ Redshield Agent Bus.
 - `SECURITY.md` is present and defines a private vulnerability intake path that
   does not publish personal email addresses.
 - `docs/release/OPEN_CORE_RELEASE_CHECKLIST.md` is current.
+- `docs/release/PACKAGE_PROVENANCE_CONTROLS.md` is current.
+- A release-specific evidence file has been copied from
+  `docs/release/RELEASE_EVIDENCE_TEMPLATE.md` and completed.
 - `README.md` and public docs describe stand-alone verifier value without
   management, customer, launch, or commercial-only assumptions.
 - Package metadata identifies the selected license and supported Python version.
@@ -37,6 +40,8 @@ Redshield Agent Bus.
   recorded in release evidence.
 - Any future CI release workflow must use protected branches, minimal tokens,
   pinned third-party actions, and a documented rollback path.
+- Package provenance controls must define protected source, CI/runner controls,
+  artifact provenance, SBOM expectations, and rollback/recovery expectations.
 
 ## Blocking Conditions
 
@@ -63,4 +68,3 @@ A release approval record must name:
 - package artifact and checksum if packaging occurs;
 - open risks and accepted-risk owner;
 - approval date and approver.
-

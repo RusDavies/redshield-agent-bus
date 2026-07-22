@@ -15,6 +15,8 @@ Before a public open-core release:
 - [ ] Python tests pass in a documented environment.
 - [ ] Release notes or changelog are present.
 - [ ] Package metadata is accurate.
+- [ ] Package provenance controls are present.
+- [ ] Release evidence record is complete for the candidate release.
 - [ ] Public fixtures contain only fake ids and no private data.
 - [ ] Keyper-style provider fixture stays behind the generic credential-provider
       contract and does not introduce a hard dependency.
@@ -22,6 +24,7 @@ Before a public open-core release:
 - [ ] Ecosystem contract examples pass the local schema verifier.
 - [ ] Repo verification profile for open core passes.
 - [ ] Supply-chain and provenance expectations are documented.
+- [ ] SBOM expectation and rollback path are documented.
 - [ ] No management, migration approval, private planning, customer policy, or
       commercial launch posture is included in the public repo.
 
