@@ -116,6 +116,8 @@ Entry criteria from Gate 1:
 - all Gate 1 exit criteria are met;
 - owner-only access can be verified before live action;
 - operations runbook has start, stop, disable, log, receipt, and incident paths for the adapter;
+- agent-operation boundaries are documented in
+  `docs/operations/AGENT_OPERATION_BOUNDARIES.md`;
 - release checklist has been updated for the live trial;
 - threat model is reviewed and the relevant mitigations are linked to tests or accepted risk;
 - human approval explicitly names the live adapter, surface, scope, and duration.
@@ -137,7 +139,8 @@ Entry criteria from Gate 2:
 
 - all Gate 2 exit criteria are met;
 - Class 4 production-readiness gates are defined and satisfied;
-- agent-operation boundaries are documented;
+- agent-operation boundaries in
+  `docs/operations/AGENT_OPERATION_BOUNDARIES.md` are satisfied;
 - risk, control, evidence, and policy registers exist;
 - release security gate is defined;
 - operations runbook is usable for production-like incidents;
