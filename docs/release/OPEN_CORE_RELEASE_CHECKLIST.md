@@ -10,6 +10,7 @@ Before a public open-core release:
 - [ ] Public README explains stand-alone verifier value.
 - [ ] Public product overview is current.
 - [ ] Local verifier passes against public fixtures.
+- [ ] Capability-grant proof adapter contract passes against public fixtures.
 - [ ] Python tests pass in a documented environment.
 - [ ] Release notes or changelog are present.
 - [ ] Package metadata is accurate.

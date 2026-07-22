@@ -1,0 +1,133 @@
+{
+  "case_id": "valid-redshieldworks-core-grant",
+  "description": "Accepted RedshieldWorks Core agent capability grant mapped into Agent Bus authorization context.",
+  "trusted_time": "2026-07-06T17:05:00Z",
+  "expect": {
+    "valid": true,
+    "errors": []
+  },
+  "capability_grant": {
+    "schema_version": "0.1.0",
+    "grant_id": "agent-capability-grant-secure-intake-accounting-001",
+    "grant_profile": "redshieldworks-agent-capability-grant.v0",
+    "issuer": "redshieldworks-local-policy",
+    "issued_at": "2026-07-06T17:00:00Z",
+    "not_before": "2026-07-06T17:00:00Z",
+    "expires_at": "2026-07-06T17:15:00Z",
+    "audience": "redshieldworks-core",
+    "workload": {
+      "workload_id": "openclaw-agent-runtime:skippy",
+      "workload_issuer": "openclaw-local",
+      "actor_id": "actor-agent-skippy-001"
+    },
+    "delegation": {
+      "delegation_id": "delegation-secure-intake-accounting-001",
+      "source_type": "workflow",
+      "authorizing_actor_id": "actor-synthetic-admin-001",
+      "authorizing_workflow_id": "workflow-secure-intake-accounting-001",
+      "purpose": "Create secure intake and register accounting export references"
+    },
+    "scope": {
+      "project_id": "redshieldworks-demo",
+      "secure_intake_session_id": "secure-intake-redshieldworks-accounting-001",
+      "account_id": "acct-redshieldworks-synthetic"
+    },
+    "allowed_actions": [
+      "create_secure_intake",
+      "register_intake_source"
+    ],
+    "limits": {
+      "source_classes": [
+        "accounting_export"
+      ],
+      "max_sensitivity": "restricted",
+      "content_access": "raw_content_reference",
+      "ai_processing": "requires_manifest_approval",
+      "max_source_items": 25,
+      "allowed_operations": [
+        "extract_facts",
+        "summarize",
+        "generate_diagnostics"
+      ]
+    },
+    "policy_review": {
+      "required": true,
+      "provider": "product-local-policy",
+      "status": "required_before_ingestion"
+    },
+    "sender_constraint": {
+      "sender_constraint_id": "sender-openclaw-agent-runtime-001",
+      "method": "hmac-sha256-test"
+    },
+    "revocation_status_ref": "grant-status-secure-intake-accounting-001",
+    "audit_correlation": {
+      "correlation_id": "audit-correlation-secure-intake-accounting-001",
+      "request_context_hash": "0123456789abcdef0123456789abcdef"
+    }
+  },
+  "agent_bus_authorization_context": {
+    "schema_version": "authzctx.v1",
+    "authorization_id": "agent-capability-grant-secure-intake-accounting-001",
+    "requester_id": "actor-synthetic-admin-001",
+    "source_event_ids": [
+      "audit-correlation-secure-intake-accounting-001"
+    ],
+    "basis": {
+      "kind": "capability_grant",
+      "approval_event_ids": [],
+      "summary_is_authorization": false,
+      "proof_issuer": "redshieldworks-local-policy",
+      "proof_ref": "sender-openclaw-agent-runtime-001",
+      "grant_profile": "redshieldworks-agent-capability-grant.v0"
+    },
+    "scope": {
+      "workspace_id": "workspace_redshield_test",
+      "project_slug": "redshieldworks-demo",
+      "source_surface": "capability_grant",
+      "source_conversation_id": "agent-capability-grant-secure-intake-accounting-001",
+      "target_agent_ids": [],
+      "target_roles": [
+        "secure_intake_agent"
+      ]
+    },
+    "allowed_interaction_types": [
+      "instruct"
+    ],
+    "allowed_action_classes": [
+      "create_secure_intake",
+      "register_intake_source"
+    ],
+    "safety_authorizations": {
+      "external_action": false,
+      "public_action": false,
+      "destructive_action": false,
+      "sensitive_data": true,
+      "private_data": true,
+      "runtime_event": false,
+      "customer_impacting": false
+    },
+    "constraints": {
+      "max_duration_seconds": 900,
+      "allowed_delivery_expectations": [
+        "internal_result"
+      ],
+      "allowed_context_reference_types": [
+        "fixture",
+        "audit_event"
+      ],
+      "allowed_paths": [],
+      "denied_paths": [],
+      "requires_human_confirmation": true,
+      "source_classes": [
+        "accounting_export"
+      ],
+      "max_sensitivity": "restricted",
+      "content_access": "raw_content_reference"
+    },
+    "expires_at": "2026-07-06T17:15:00Z",
+    "evidence_refs": [
+      "grant-status-secure-intake-accounting-001",
+      "audit-correlation-secure-intake-accounting-001"
+    ]
+  }
+}

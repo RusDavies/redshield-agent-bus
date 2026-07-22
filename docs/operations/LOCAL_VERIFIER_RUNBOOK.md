@@ -133,6 +133,28 @@ binds to the original request, names finding/evidence references, requires
 sanitized field references for sanitize decisions, and does not embed private
 evidence.
 
+## Capability Grant Proof Adapter Contract
+
+Run:
+
+```sh
+python3 scripts/agent_bus_verify.py capability-grant tests/fixtures/capability_grants --pretty
+```
+
+Expected result:
+
+```json
+{
+  "ok": true,
+  "case_count": 3
+}
+```
+
+The capability-grant proof adapter contract validates the public
+RedshieldWorks Core `agent-capability-grant` shape and its mapping into Agent
+Bus `authorization_context`. It fails closed for expired grants and for
+authorization contexts that widen grant actions.
+
 ## Ecosystem Contract Examples
 
 Run:
