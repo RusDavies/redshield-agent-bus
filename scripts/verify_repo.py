@@ -12,6 +12,9 @@ ROOT = Path(__file__).resolve().parents[1]
 
 OPEN_CORE_REQUIRED_PATHS = [
     ".gitignore",
+    "CONTRIBUTING.md",
+    "LICENSE",
+    "SECURITY.md",
     "pyproject.toml",
     "docs/architecture/ALTERNATIVES_REVIEW.md",
     "docs/architecture/ARCHITECTURE_OVERVIEW.md",
@@ -32,6 +35,7 @@ OPEN_CORE_REQUIRED_PATHS = [
     "docs/security/AUTHORIZATION_CONTEXT_SCHEMA.md",
     "docs/security/CONTEXT_PACKAGE_RULES.md",
     "docs/qa/QA_PLAN.md",
+    "docs/release/RELEASE_SECURITY_GATE.md",
     "scripts/agent_bus_verify.py",
     "scripts/verify_repo.py",
     "src/agent_bus/__init__.py",

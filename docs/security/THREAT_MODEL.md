@@ -116,7 +116,7 @@ Identity and authentication model:
 | TH-10 | Bus audit logs store secrets or unnecessary private content. | Secondary data breach through evidence stores. | Audit record must avoid secrets. | Audit schema with hashes/references, redaction, retention policy. | Open |
 | TH-11 | Attacker floods bus with messages or claims work to starve legitimate tasks. | Denial of service, delayed operations. | None yet. | Rate limits, quotas, claim authorization, queue isolation. | Open |
 | TH-12 | Malicious or compromised agent forges completion or delivery receipt. | False status, lost work, hidden failure. | State model requires transitions. Agent identity/authentication model requires authenticated transition and delivery actors. | Implement trusted delivery adapter receipts and actor-bound transition validation. | Started |
-| TH-13 | Open-source release workflow is compromised. | Supply-chain compromise. | None yet. | Release security gate, pinned CI actions, protected branches, provenance/SBOM plan. | Open |
+| TH-13 | Open-source release workflow is compromised. | Supply-chain compromise. | Release security gate documents required governance, vulnerability intake, provenance, build-artifact, and future CI controls. | Add concrete CI/release automation, pinned actions, protected branches, and SBOM/provenance artifacts before a public package release. | Started |
 | TH-14 | Enterprise integration overclaims security/compliance readiness. | Customer trust, legal, and sales risk. | Non-goal prohibits unsupported claims. | Control/evidence register and approved customer-facing security posture. | Open |
 | TH-15 | RedshieldWarden policy decision is bypassed or ignored. | Governance control failure. | Open-core Warden policy-result contract and integrated envelope checks exist for baseline local verification. | Mandatory policy decision point before risky live actions once a live Warden exists. | Started |
 | TH-16 | RedshieldArmor enforcement is incomplete or inconsistent across adapters. | Boundary bypass and data leakage. | Open-core Armor enforcement-result contract and integrated envelope checks exist for baseline local verification. | Adapter-specific enforcement tests and fail-closed live defaults before live adapters. | Started |
@@ -191,7 +191,7 @@ Threat-to-mitigation links:
 | TH-10 | Partly mitigated by fixture audit shape and redaction rules. Retention and evidence export policy remain open. | `docs/architecture/FIXTURE_AUDIT_STORAGE.md`, `docs/security/CONTEXT_PACKAGE_RULES.md` |
 | TH-11 | Not mitigated in Gate 0. Track rate limits, quotas, claim authorization, and queue isolation before live/shared use. | `docs/operations/PROMOTION_GATE.md` |
 | TH-12 | Partly mitigated for actor-bound transitions. Trusted adapter receipts remain Gate 1/Gate 2 work. | `tests/fixtures/agent_bus/transitions/invalid/actorless-transition.json`, `docs/architecture/LIVE_ADAPTER_DRY_RUN_CONTRACT.md` |
-| TH-13 | Not mitigated yet. Blocks public visibility and package release until governance and supply-chain release gates are complete. | `docs/release/OPEN_CORE_RELEASE_CHECKLIST.md`, `docs/operations/PROMOTION_GATE.md` |
+| TH-13 | Partly mitigated by open-source governance files and the release security gate. Public visibility and package release remain blocked until release evidence and future CI/package provenance controls are complete. | `LICENSE`, `CONTRIBUTING.md`, `SECURITY.md`, `docs/release/OPEN_CORE_RELEASE_CHECKLIST.md`, `docs/release/RELEASE_SECURITY_GATE.md`, `docs/operations/PROMOTION_GATE.md` |
 | TH-14 | Not mitigated yet. Blocks enterprise/customer-facing posture claims. | `docs/operations/PROMOTION_GATE.md` |
 | TH-15 | Partly mitigated for local fixtures by Warden result contract checks and envelope binding checks. Live policy hook enforcement remains future work. | `src/agent_bus/warden_policy.py`, `tests/fixtures/warden_policy/`, `tests/fixtures/agent_bus/envelopes/valid/valid-notify-with-warden-armor.json` |
 | TH-16 | Partly mitigated for local fixtures by Armor result contract checks and envelope binding checks. Live adapter enforcement remains future work. | `src/agent_bus/armor_enforcement.py`, `tests/fixtures/armor_enforcement/`, `tests/fixtures/agent_bus/envelopes/valid/valid-notify-with-warden-armor.json` |
@@ -213,7 +213,7 @@ live adapter promotion.
 - OF-7: Runtime-event boundary classifier is not designed.
 - OF-8: Baseline open-core RedshieldWarden policy-result contract and local envelope binding checks exist; live Warden policy hook enforcement is not implemented.
 - OF-9: Baseline open-core RedshieldArmor enforcement-result contract and local envelope binding checks exist; live Armor enforcement is not implemented.
-- OF-10: Open-source release security gate is missing.
+- OF-10: Open-source release security gate exists; concrete CI/package provenance, protected-branch, and SBOM controls remain future work before public package release.
 - OF-11: Enterprise control/evidence registers are missing.
 
 ## Approval

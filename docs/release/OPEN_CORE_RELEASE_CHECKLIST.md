@@ -7,6 +7,7 @@ Before a public open-core release:
 - [ ] License is selected and present.
 - [ ] Contribution policy is present.
 - [ ] Security policy and vulnerability intake path are present.
+- [ ] Release security gate is present and satisfied.
 - [ ] Public README explains stand-alone verifier value.
 - [ ] Public product overview is current.
 - [ ] Local verifier passes against public fixtures.
