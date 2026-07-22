@@ -136,6 +136,7 @@ Identity and authentication model:
 - Keep runtime-event continuation handling separate from ordinary project work.
 - Require release security gates before public/open-source release or production deployment.
 - Require agent-operation boundaries before live adapter trial, shared use, or production use.
+- Require Class 4 production-readiness gates before shared or production infrastructure use.
 - Require control/evidence support before enterprise security/compliance posture claims.
 
 ## Security Acceptance Criteria
@@ -146,6 +147,7 @@ Identity and authentication model:
 - Audit tests confirm sensitive fields are redacted or referenced rather than copied.
 - Release-readiness checks block public/open-source release until release-security gate, vulnerability intake, and supply-chain requirements exist.
 - Promotion checks block live/shared/production use until agent-operation boundaries, delivery receipts, rollback/disable paths, and explicit approval evidence exist.
+- Production-readiness checks block shared or production infrastructure use until operations, monitoring, incident, rollback, backup/restore, security, privacy, release-approval, and post-promotion review evidence exists.
 - Enterprise-readiness checks block Warden/Armor enterprise claims until control/evidence registers and customer-facing security posture are approved.
 
 ## Gate 0 Review
@@ -177,6 +179,7 @@ Reviewed evidence:
 - `docs/security/CONTEXT_PACKAGE_RULES.md`
 - `docs/operations/PROMOTION_GATE.md`
 - `docs/operations/AGENT_OPERATION_BOUNDARIES.md`
+- `docs/operations/CLASS_4_PRODUCTION_READINESS_GATES.md`
 
 Threat-to-mitigation links:
 
@@ -211,13 +214,13 @@ live adapter promotion.
 - OF-2: Authorization-context schema is defined in `docs/security/AUTHORIZATION_CONTEXT_SCHEMA.md`; verifier implementation and tests are still required.
 - OF-3: Context-package redaction and allowlist rules are defined in `docs/security/CONTEXT_PACKAGE_RULES.md`; verifier implementation and tests are still required.
 - OF-4: Idempotency conflict behavior is not specified beyond the requirement.
-- OF-5: Audit retention, redaction, and evidence-export policy is not defined.
+- OF-5: Audit retention, redaction, and evidence-export requirements are defined at the Class 4 gate level; concrete implementation and tested retention policy remain future work.
 - OF-6: Delivery adapter receipt model is partially defined by the dry-run contract and agent-operation boundaries; trusted live adapter receipts remain future work.
 - OF-7: Runtime-event boundary classifier is not designed.
 - OF-8: Baseline open-core RedshieldWarden policy-result contract and local envelope binding checks exist; live Warden policy hook enforcement is not implemented.
 - OF-9: Baseline open-core RedshieldArmor enforcement-result contract and local envelope binding checks exist; live Armor enforcement is not implemented.
 - OF-10: Open-source release security gate and package provenance controls exist; concrete branch-protection configuration, CI/release automation, and candidate-specific SBOM/provenance artifacts remain future work before public package release.
-- OF-11: Enterprise control/evidence registers are missing.
+- OF-11: Class 4 production-readiness gates are defined; enterprise control/evidence registers remain missing.
 
 ## Approval
 

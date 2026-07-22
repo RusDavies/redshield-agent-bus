@@ -138,7 +138,8 @@ Shared or production use is not authorized by the first local verifier.
 Entry criteria from Gate 2:
 
 - all Gate 2 exit criteria are met;
-- Class 4 production-readiness gates are defined and satisfied;
+- Class 4 production-readiness gates in
+  `docs/operations/CLASS_4_PRODUCTION_READINESS_GATES.md` are satisfied;
 - agent-operation boundaries in
   `docs/operations/AGENT_OPERATION_BOUNDARIES.md` are satisfied;
 - risk, control, evidence, and policy registers exist;
@@ -196,5 +197,5 @@ Before Gate 2:
 
 Before Gate 3:
 
-- satisfy Class 4 production-readiness requirements;
+- satisfy Class 4 production-readiness gates;
 - complete the relevant Class 4E evidence and control artifacts before enterprise/customer-facing use.
