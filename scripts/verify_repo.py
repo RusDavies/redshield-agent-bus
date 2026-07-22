@@ -56,6 +56,7 @@ OPEN_CORE_REQUIRED_PATHS = [
     "tests/fixtures/agent_bus/envelopes/invalid/armor-block-result.json",
     "tests/fixtures/agent_bus/envelopes/invalid/armor-private-evidence.json",
     "tests/fixtures/agent_bus/credential_providers/valid-local-runtime-token.json",
+    "tests/fixtures/agent_bus/credential_providers/valid-keyper-ssh-certificate-evidence.json",
     "tests/fixtures/agent_bus/envelopes/invalid/missing-source.json",
     "tests/fixtures/agent_bus/envelopes/invalid/warden-binding-mismatch.json",
     "tests/fixtures/agent_bus/envelopes/invalid/warden-deny-result.json",

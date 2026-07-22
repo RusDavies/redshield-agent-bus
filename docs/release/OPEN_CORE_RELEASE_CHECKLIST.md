@@ -15,6 +15,8 @@ Before a public open-core release:
 - [ ] Release notes or changelog are present.
 - [ ] Package metadata is accurate.
 - [ ] Public fixtures contain only fake ids and no private data.
+- [ ] Keyper-style provider fixture stays behind the generic credential-provider
+      contract and does not introduce a hard dependency.
 - [ ] Open-core Warden and Armor baseline contract examples are present.
 - [ ] Ecosystem contract examples pass the local schema verifier.
 - [ ] Repo verification profile for open core passes.

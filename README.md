@@ -62,6 +62,16 @@ Expected result:
 }
 ```
 
+Run the credential-provider contract verifier:
+
+```sh
+python3 -m pytest tests/test_credential_provider_contract.py
+```
+
+Expected result: the suite accepts the local runtime token and Keyper-style
+SSH certificate evidence fixtures, then rejects unavailable, expired, revoked,
+mismatched, missing-proof, and missing-evidence provider responses.
+
 Run the local-only adapter dry-run verifier against preview and receipt
 fixtures:
 
@@ -177,7 +187,8 @@ Agent Bus stays narrow by consuming neighboring capabilities through contracts:
 
 - RSK AI Auth-style / RedshieldWorks Core capability grants describe workload
   identity and delegated authority.
-- Keyper-style evidence can satisfy the credential-provider contract.
+- Keyper-style SSH certificate evidence can satisfy the credential-provider
+  contract without making Agent Bus depend on Keyper.
 - Warden policy results answer `allow`, `deny`, or `require_review`.
 - Armor enforcement results answer `allow`, `block`, `sanitize`, or
   `require_review`.

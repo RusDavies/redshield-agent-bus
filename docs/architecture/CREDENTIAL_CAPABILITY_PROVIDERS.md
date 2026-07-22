@@ -35,7 +35,7 @@ The provider contract should support these logical operations:
 
 The provider contract should not own bus authorization, routing, state-transition, delivery-expectation, or context-package decisions. Those remain Agent Bus responsibilities.
 
-Provider-contract fixtures live under `tests/fixtures/agent_bus/credential_providers/` and are exercised by `tests/test_credential_provider_contract.py`. They cover accepted local runtime-token evidence and fail-closed cases for unknown credentials, revoked credentials, expired credentials, actor mismatch, runtime mismatch, scope mismatch, missing evidence, provider unavailability, and missing proof.
+Provider-contract fixtures live under `tests/fixtures/agent_bus/credential_providers/` and are exercised by `tests/test_credential_provider_contract.py`. They cover accepted local runtime-token evidence, accepted Keyper-style SSH certificate evidence through the same provider boundary, and fail-closed cases for unknown credentials, revoked credentials, expired credentials, actor mismatch, runtime mismatch, scope mismatch, missing evidence, provider unavailability, and missing proof.
 
 Initial stable reason codes include:
 
@@ -79,6 +79,14 @@ Potential strengths:
 - audit evidence around approvals, issuance, denial, expiry, and revocation.
 
 Agent Bus should consume Keyper evidence and identity/status assertions, not manage SSH private keys or become Keyper-specific.
+
+The current Keyper spike fixture uses the public Keyper issuer evidence boundary
+from `docs/ISSUER_REQUEST_EVIDENCE.md` and `docs/ISSUER_BACKEND_INTERFACE.md`.
+It models `SshCertificateIssueEvidence` as provider-specific evidence behind
+the generic Agent Bus response fields. Agent Bus consumes only `actor_id`,
+`actor_type`, `runtime_id`, scope bindings, status, expiry, trust level, and an
+evidence reference. Certificate artifacts, issuer backend details, KRL posture,
+and command evidence stay as provider-specific references.
 
 ### Smallstep Direct
 
