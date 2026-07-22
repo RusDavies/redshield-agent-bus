@@ -35,6 +35,8 @@ OPEN_CORE_REQUIRED_PATHS = [
     "docs/security/AUTHORIZATION_CONTEXT_SCHEMA.md",
     "docs/security/CONTEXT_PACKAGE_RULES.md",
     "docs/qa/QA_PLAN.md",
+    "docs/release/PACKAGE_PROVENANCE_CONTROLS.md",
+    "docs/release/RELEASE_EVIDENCE_TEMPLATE.md",
     "docs/release/RELEASE_SECURITY_GATE.md",
     "scripts/agent_bus_verify.py",
     "scripts/verify_repo.py",
