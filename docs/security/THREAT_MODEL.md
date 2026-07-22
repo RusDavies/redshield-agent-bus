@@ -179,7 +179,7 @@ Threat-to-mitigation links:
 
 | Threat | Gate 0 review result | Evidence |
 | --- | --- | --- |
-| TH-1 | Partly mitigated for local fixtures. Runtime credential verification remains future work. | `tests/fixtures/agent_bus/envelopes/invalid/missing-actor-identity.json`, `tests/fixtures/agent_bus/envelopes/invalid/display-name-only-identity.json`, `tests/fixtures/agent_bus/envelopes/invalid/unknown-credential.json`, `tests/fixtures/agent_bus/credential_providers/` |
+| TH-1 | Partly mitigated for local fixtures, including local runtime-token and Keyper-style credential-provider evidence. Runtime credential verification remains future work. | `tests/fixtures/agent_bus/envelopes/invalid/missing-actor-identity.json`, `tests/fixtures/agent_bus/envelopes/invalid/display-name-only-identity.json`, `tests/fixtures/agent_bus/envelopes/invalid/unknown-credential.json`, `tests/fixtures/agent_bus/credential_providers/` |
 | TH-2 | Partly mitigated for explicit ambiguous targets and target-claim mismatch. Full resolver design remains open. | `tests/fixtures/agent_bus/envelopes/invalid/wrong-destination-delivery.json`, `tests/fixtures/agent_bus/transitions/invalid/target-claim-mismatch.json` |
 | TH-3 | Mitigated for current local verifier fixtures. | `tests/fixtures/agent_bus/envelopes/invalid/summarized-context-approval.json`, `docs/security/AUTHORIZATION_CONTEXT_SCHEMA.md` |
 | TH-4 | Mitigated for incompatible local fixture reuse. Side-effect guards remain future live-adapter work. | `tests/fixtures/agent_bus/envelopes/invalid/idempotency-conflict-a.json`, `tests/fixtures/agent_bus/envelopes/invalid/idempotency-conflict-b.json` |

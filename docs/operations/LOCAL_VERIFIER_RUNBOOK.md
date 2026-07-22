@@ -57,6 +57,23 @@ Fixtures must not include:
 - live channel ids;
 - customer data.
 
+## Credential Provider Contract
+
+Run:
+
+```sh
+python3 -m pytest tests/test_credential_provider_contract.py
+```
+
+The credential-provider contract accepts the local runtime-token fixture and a
+Keyper-style SSH certificate evidence fixture through the same generic provider
+response shape. It rejects unavailable, expired, revoked, mismatched,
+missing-proof, and missing-evidence provider responses.
+
+The Keyper spike fixture references public Keyper issuer evidence concepts. It
+does not import Keyper code, call Keyper, manage SSH keys, or require Keyper as
+a dependency.
+
 ## Dry-Run Adapters
 
 Dry-run adapters may model delivery previews and receipts as data.

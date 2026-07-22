@@ -1,0 +1,100 @@
+{
+  "case_id": "valid-keyper-ssh-certificate-evidence",
+  "description": "Accepted Keyper-style SSH certificate evidence through the generic credential-provider contract.",
+  "trusted_time": "2026-07-14T00:00:00Z",
+  "request": {
+    "credential_id": "cred_keyper_ssh_cert_test_0001",
+    "actor_id": "agent_source_test",
+    "actor_type": "agent",
+    "runtime_id": "runtime_local_test",
+    "workspace_id": "workspace_redshield_test",
+    "project_slug": "redshield-agent-bus",
+    "proof_present": true
+  },
+  "provider_response": {
+    "credential_id": "cred_keyper_ssh_cert_test_0001",
+    "auth_method": "ssh_certificate_evidence",
+    "actor_id": "agent_source_test",
+    "actor_type": "agent",
+    "runtime_id": "runtime_local_test",
+    "scope_bindings": {
+      "workspace_ids": [
+        "workspace_redshield_test"
+      ],
+      "project_slugs": [
+        "redshield-agent-bus"
+      ]
+    },
+    "status": "active",
+    "expires_at": "2026-07-14T01:00:00Z",
+    "trust_level": "ssh_certificate_backed",
+    "evidence_ref": "keyper://issuer-evidence/2026/07/ev-agent-bus-test-0001",
+    "provider_specific_refs": {
+      "provider": "keyper",
+      "public_boundary_docs": [
+        "keyper:docs/ISSUER_REQUEST_EVIDENCE.md",
+        "keyper:docs/ISSUER_BACKEND_INTERFACE.md"
+      ],
+      "record_kind": "SshCertificateIssueEvidence",
+      "request_ref": {
+        "kind": "SshCertificateIssueRequest",
+        "id": "req-agent-bus-test-0001"
+      },
+      "policy_ref": {
+        "kind": "SshCertificateAccess",
+        "id": "access-agent-bus-test-0001",
+        "version": 1
+      },
+      "issuer": {
+        "backend": "smallstep",
+        "backend_id": "smallstep-test",
+        "ca_ref": "smallstep-test-ca"
+      },
+      "decision": {
+        "outcome": "issued",
+        "reason_code": "issued"
+      },
+      "certificate": {
+        "type": "user",
+        "serial": "123456789",
+        "key_id": "keyper:req-agent-bus-test-0001:access-agent-bus-test-0001",
+        "fingerprint": "SHA256:cert-example",
+        "principals": [
+          "agent_source_test",
+          "agent-bus"
+        ],
+        "valid_after": "2026-07-14T00:00:00Z",
+        "valid_before": "2026-07-14T01:00:00Z",
+        "public_key_fingerprint": "SHA256:pubkey-example",
+        "certificate_ref": "artifact-cert-agent-bus-test-0001"
+      },
+      "revocation_posture_ref": "keyper://krl-enforcement/2026/07/krlhost-agent-bus-test-0001",
+      "integrity": {
+        "request_digest": "sha256:request-digest-example",
+        "evidence_digest": "sha256:evidence-digest-example"
+      }
+    }
+  },
+  "agent_bus_consumes": [
+    "credential_id",
+    "actor_id",
+    "actor_type",
+    "runtime_id",
+    "scope_bindings",
+    "status",
+    "expires_at",
+    "trust_level",
+    "evidence_ref"
+  ],
+  "agent_bus_does_not_consume": [
+    "certificate_ref",
+    "issuer_backend_credentials",
+    "raw_certificate_body",
+    "ssh_private_key",
+    "smallstep_token"
+  ],
+  "expect": {
+    "valid": true,
+    "errors": []
+  }
+}
