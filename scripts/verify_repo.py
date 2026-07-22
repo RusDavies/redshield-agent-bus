@@ -26,6 +26,7 @@ OPEN_CORE_REQUIRED_PATHS = [
     "docs/architecture/OPEN_CORE_WARDEN_POLICY_CONTRACT.md",
     "docs/operations/AGENT_OPERATION_BOUNDARIES.md",
     "docs/operations/CLASS_4_PRODUCTION_READINESS_GATES.md",
+    "docs/risk/INITIAL_RISK_REGISTER.md",
     "docs/architecture/diagrams/agent-bus-data-flow.html",
     "docs/architecture/diagrams/agent-bus-trust-boundaries.html",
     "docs/requirements/REQUIREMENTS_SPEC.md",

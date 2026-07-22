@@ -163,6 +163,7 @@ Required evidence:
 - verifier and test command results;
 - operational gate evidence;
 - open risks and accepted-risk owner;
+- current risk-register review;
 - rollback plan;
 - approval event naming scope, duration, and allowed behavior;
 - public-release evidence when repository visibility or package publishing is
@@ -204,4 +205,3 @@ Every Class 4 promotion decision must record:
 - rollback or disable result;
 - approval event;
 - next review date.
-
