@@ -43,6 +43,7 @@ runtime tools, spawn agents, publish events, or perform external actions.
   `docs/operations/AGENT_OPERATION_BOUNDARIES.md`.
 - Class 4 production-readiness gates: see
   `docs/operations/CLASS_4_PRODUCTION_READINESS_GATES.md`.
+- Initial risk register: see `docs/risk/INITIAL_RISK_REGISTER.md`.
 
 No public release, package publication, live adapter promotion, production use,
 or customer-facing security claim is approved by the presence of these files.
