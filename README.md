@@ -29,6 +29,18 @@ The current open core provides:
 The verifier is intentionally local-first. It does not post messages, call live
 runtime tools, spawn agents, publish events, or perform external actions.
 
+## Project Governance
+
+- License: Apache License 2.0. See `LICENSE`.
+- Contributions: see `CONTRIBUTING.md`.
+- Vulnerability reporting: see `SECURITY.md`.
+- Public release readiness: see `docs/release/OPEN_CORE_RELEASE_CHECKLIST.md`
+  and `docs/release/RELEASE_SECURITY_GATE.md`.
+
+No public release, package publication, live adapter promotion, production use,
+or customer-facing security claim is approved by the presence of these files.
+They define the gate; they do not open it.
+
 ## Why It Exists
 
 Agent systems often pass work through chat messages, session notes, copied
