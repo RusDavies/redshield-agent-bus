@@ -110,7 +110,8 @@ Allowed only after Gate 3 approval and Class 4 production-readiness evidence.
 
 Required before use:
 
-- documented production readiness gates;
+- satisfied production readiness gates in
+  `docs/operations/CLASS_4_PRODUCTION_READINESS_GATES.md`;
 - operations runbook for start, stop, disable, logs, receipt inspection,
   incident response, rollback, and recovery;
 - risk, control, evidence, and policy registers;
@@ -214,4 +215,3 @@ Stop or reject the operation when:
 - rollback or disable path is missing for live behavior;
 - the operation crosses into public release, production, enterprise, customer,
   external, or destructive territory without explicit approval.
-
