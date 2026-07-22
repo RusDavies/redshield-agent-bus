@@ -78,6 +78,21 @@ Expected result:
 }
 ```
 
+Run the capability-grant proof adapter contract verifier:
+
+```sh
+python3 scripts/agent_bus_verify.py capability-grant tests/fixtures/capability_grants --pretty
+```
+
+Expected result:
+
+```json
+{
+  "ok": true,
+  "case_count": 3
+}
+```
+
 Run the Warden policy-result contract verifier:
 
 ```sh
@@ -145,6 +160,7 @@ Open core includes:
 - protocol vocabulary and envelope semantics;
 - local verifier and fixture suite;
 - authorization-context and context-package safety rules;
+- capability-grant proof adapter contract;
 - credential-provider contract;
 - baseline Warden policy-result contract;
 - baseline Armor enforcement-result contract;
@@ -159,7 +175,8 @@ safety model.
 
 Agent Bus stays narrow by consuming neighboring capabilities through contracts:
 
-- RSK AI Auth-style proofs describe workload identity and delegated authority.
+- RSK AI Auth-style / RedshieldWorks Core capability grants describe workload
+  identity and delegated authority.
 - Keyper-style evidence can satisfy the credential-provider contract.
 - Warden policy results answer `allow`, `deny`, or `require_review`.
 - Armor enforcement results answer `allow`, `block`, `sanitize`, or

@@ -157,13 +157,16 @@ production use, enterprise claims, or customer-facing security posture.
 Reviewed evidence:
 
 - `src/agent_bus/verifier.py`
+- `src/agent_bus/capability_grant.py`
 - `src/agent_bus/credential_provider.py`
 - `src/agent_bus/ecosystem_contract.py`
 - `tests/test_verifier.py`
+- `tests/test_capability_grant.py`
 - `tests/test_credential_provider_contract.py`
 - `tests/test_ecosystem_contract_examples.py`
 - `tests/fixtures/agent_bus/envelopes/`
 - `tests/fixtures/agent_bus/transitions/`
+- `tests/fixtures/capability_grants/`
 - `tests/fixtures/agent_bus/credential_providers/`
 - `tests/fixtures/agent_bus/ecosystem/`
 - `docs/security/AGENT_IDENTITY_AUTHENTICATION.md`
@@ -184,7 +187,7 @@ Threat-to-mitigation links:
 | TH-6 | Mitigated for current private-context fixture leakage checks. Content scanning remains future work. | `tests/fixtures/agent_bus/envelopes/invalid/private-data-leakage.json`, `docs/security/CONTEXT_PACKAGE_RULES.md` |
 | TH-7 | Partly mitigated by delivery expectation and wrong-destination checks. Live receipt enforcement remains Gate 1/Gate 2 work. | `tests/fixtures/agent_bus/envelopes/valid/valid-notify-minimal.json`, `tests/fixtures/agent_bus/envelopes/invalid/wrong-destination-delivery.json`, `docs/architecture/LIVE_ADAPTER_DRY_RUN_CONTRACT.md` |
 | TH-8 | Mitigated for current local verifier fixtures. Ops-only runtime continuation handling remains implementation work. | `tests/fixtures/agent_bus/envelopes/invalid/runtime-event-misuse.json` |
-| TH-9 | Partly mitigated for authorization-context fields, risky-action authorization, scope, expiry, and public ecosystem contract examples. Warden/Armor live enforcement remains open. | `docs/security/AUTHORIZATION_CONTEXT_SCHEMA.md`, `src/agent_bus/ecosystem_contract.py`, `tests/fixtures/agent_bus/ecosystem/` |
+| TH-9 | Partly mitigated for authorization-context fields, risky-action authorization, scope, expiry, capability-grant mapping, and public ecosystem contract examples. Warden/Armor live enforcement remains open. | `docs/security/AUTHORIZATION_CONTEXT_SCHEMA.md`, `src/agent_bus/capability_grant.py`, `src/agent_bus/ecosystem_contract.py`, `tests/fixtures/capability_grants/`, `tests/fixtures/agent_bus/ecosystem/` |
 | TH-10 | Partly mitigated by fixture audit shape and redaction rules. Retention and evidence export policy remain open. | `docs/architecture/FIXTURE_AUDIT_STORAGE.md`, `docs/security/CONTEXT_PACKAGE_RULES.md` |
 | TH-11 | Not mitigated in Gate 0. Track rate limits, quotas, claim authorization, and queue isolation before live/shared use. | `docs/operations/PROMOTION_GATE.md` |
 | TH-12 | Partly mitigated for actor-bound transitions. Trusted adapter receipts remain Gate 1/Gate 2 work. | `tests/fixtures/agent_bus/transitions/invalid/actorless-transition.json`, `docs/architecture/LIVE_ADAPTER_DRY_RUN_CONTRACT.md` |

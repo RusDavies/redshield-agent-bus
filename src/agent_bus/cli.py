@@ -8,6 +8,7 @@ import sys
 from pathlib import Path
 
 from .armor_enforcement import verify_armor_enforcement_path
+from .capability_grant import verify_capability_grant_path
 from .dry_run import verify_dry_run_path
 from .ecosystem_contract import verify_ecosystem_contract_path
 from .verifier import verify_path
@@ -74,6 +75,21 @@ def build_parser() -> argparse.ArgumentParser:
         help="pretty-print JSON output",
     )
 
+    capability_grant = subparsers.add_parser(
+        "capability-grant",
+        help="verify capability-grant proof adapter contract fixtures",
+    )
+    capability_grant.add_argument(
+        "path",
+        type=Path,
+        help="capability-grant fixture file or directory",
+    )
+    capability_grant.add_argument(
+        "--pretty",
+        action="store_true",
+        help="pretty-print JSON output",
+    )
+
     return parser
 
 
@@ -127,6 +143,17 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.command == "ecosystem-contract":
         result = verify_ecosystem_contract_path(args.path)
+        json.dump(
+            result.to_dict(),
+            sys.stdout,
+            indent=2 if args.pretty else None,
+            sort_keys=True,
+        )
+        sys.stdout.write("\n")
+        return 0 if result.ok else 1
+
+    if args.command == "capability-grant":
+        result = verify_capability_grant_path(args.path)
         json.dump(
             result.to_dict(),
             sys.stdout,

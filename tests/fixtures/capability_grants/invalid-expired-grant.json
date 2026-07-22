@@ -1,0 +1,104 @@
+{
+  "case_id": "invalid-expired-grant",
+  "description": "Expired capability grants must not authorize Agent Bus action.",
+  "trusted_time": "2026-07-06T17:20:00Z",
+  "expect": {
+    "valid": false,
+    "errors": [
+      "capability_grant_expired"
+    ]
+  },
+  "capability_grant": {
+    "schema_version": "0.1.0",
+    "grant_id": "agent-capability-grant-expired-secure-intake-001",
+    "grant_profile": "redshieldworks-agent-capability-grant.v0",
+    "issuer": "redshieldworks-local-policy",
+    "issued_at": "2026-07-06T17:00:00Z",
+    "not_before": "2026-07-06T17:00:00Z",
+    "expires_at": "2026-07-06T17:15:00Z",
+    "audience": "redshieldworks-core",
+    "workload": {
+      "workload_id": "openclaw-agent-runtime:skippy",
+      "workload_issuer": "openclaw-local"
+    },
+    "delegation": {
+      "delegation_id": "delegation-expired-secure-intake-001",
+      "source_type": "workflow",
+      "authorizing_workflow_id": "workflow-expired-secure-intake-001",
+      "purpose": "Create secure intake"
+    },
+    "scope": {
+      "project_id": "redshieldworks-demo"
+    },
+    "allowed_actions": [
+      "create_secure_intake"
+    ],
+    "limits": {
+      "source_classes": [
+        "accounting_export"
+      ],
+      "max_sensitivity": "restricted",
+      "content_access": "raw_content_reference",
+      "ai_processing": "requires_manifest_approval"
+    },
+    "sender_constraint": {
+      "sender_constraint_id": "sender-expired-secure-intake-001",
+      "method": "hmac-sha256-test"
+    },
+    "revocation_status_ref": "grant-status-expired-secure-intake-001",
+    "audit_correlation": {
+      "correlation_id": "audit-correlation-expired-secure-intake-001"
+    }
+  },
+  "agent_bus_authorization_context": {
+    "schema_version": "authzctx.v1",
+    "authorization_id": "agent-capability-grant-expired-secure-intake-001",
+    "requester_id": "workflow-expired-secure-intake-001",
+    "source_event_ids": [
+      "audit-correlation-expired-secure-intake-001"
+    ],
+    "basis": {
+      "kind": "capability_grant",
+      "approval_event_ids": [],
+      "summary_is_authorization": false,
+      "proof_issuer": "redshieldworks-local-policy",
+      "proof_ref": "sender-expired-secure-intake-001"
+    },
+    "scope": {
+      "workspace_id": "workspace_redshield_test",
+      "project_slug": "redshieldworks-demo",
+      "source_surface": "capability_grant",
+      "source_conversation_id": "agent-capability-grant-expired-secure-intake-001",
+      "target_agent_ids": [],
+      "target_roles": [
+        "secure_intake_agent"
+      ]
+    },
+    "allowed_interaction_types": [
+      "instruct"
+    ],
+    "allowed_action_classes": [
+      "create_secure_intake"
+    ],
+    "safety_authorizations": {
+      "external_action": false,
+      "public_action": false,
+      "destructive_action": false,
+      "sensitive_data": true,
+      "private_data": true,
+      "runtime_event": false,
+      "customer_impacting": false
+    },
+    "constraints": {
+      "source_classes": [
+        "accounting_export"
+      ],
+      "max_sensitivity": "restricted",
+      "content_access": "raw_content_reference"
+    },
+    "expires_at": "2026-07-06T17:15:00Z",
+    "evidence_refs": [
+      "grant-status-expired-secure-intake-001"
+    ]
+  }
+}

@@ -9,6 +9,7 @@ from agent_bus.cli import main
 FIXTURES = Path(__file__).resolve().parent / "fixtures" / "agent_bus"
 DRY_RUN_FIXTURES = Path(__file__).resolve().parent / "fixtures" / "adapter_dry_runs"
 ARMOR_ENFORCEMENT_FIXTURES = Path(__file__).resolve().parent / "fixtures" / "armor_enforcement"
+CAPABILITY_GRANT_FIXTURES = Path(__file__).resolve().parent / "fixtures" / "capability_grants"
 ECOSYSTEM_CONTRACT_FIXTURES = FIXTURES / "ecosystem"
 WARDEN_POLICY_FIXTURES = Path(__file__).resolve().parent / "fixtures" / "warden_policy"
 
@@ -80,3 +81,14 @@ def test_cli_verifies_ecosystem_contract_fixture_directory(capsys) -> None:
     assert exit_code == 0
     assert result["ok"] is True
     assert result["case_count"] == 4
+
+
+def test_cli_verifies_capability_grant_fixture_directory(capsys) -> None:
+    exit_code = main(["capability-grant", str(CAPABILITY_GRANT_FIXTURES), "--pretty"])
+
+    captured = capsys.readouterr()
+    result = json.loads(captured.out)
+
+    assert exit_code == 0
+    assert result["ok"] is True
+    assert result["case_count"] == 3
