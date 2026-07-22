@@ -135,6 +135,7 @@ Identity and authentication model:
 - Log hashes, references, decisions, and receipts without logging secrets or unnecessary private content.
 - Keep runtime-event continuation handling separate from ordinary project work.
 - Require release security gates before public/open-source release or production deployment.
+- Require agent-operation boundaries before live adapter trial, shared use, or production use.
 - Require control/evidence support before enterprise security/compliance posture claims.
 
 ## Security Acceptance Criteria
@@ -144,6 +145,7 @@ Identity and authentication model:
 - Completion tests require delivery evidence for chat-visible result paths.
 - Audit tests confirm sensitive fields are redacted or referenced rather than copied.
 - Release-readiness checks block public/open-source release until release-security gate, vulnerability intake, and supply-chain requirements exist.
+- Promotion checks block live/shared/production use until agent-operation boundaries, delivery receipts, rollback/disable paths, and explicit approval evidence exist.
 - Enterprise-readiness checks block Warden/Armor enterprise claims until control/evidence registers and customer-facing security posture are approved.
 
 ## Gate 0 Review
@@ -174,6 +176,7 @@ Reviewed evidence:
 - `docs/security/AUTHORIZATION_CONTEXT_SCHEMA.md`
 - `docs/security/CONTEXT_PACKAGE_RULES.md`
 - `docs/operations/PROMOTION_GATE.md`
+- `docs/operations/AGENT_OPERATION_BOUNDARIES.md`
 
 Threat-to-mitigation links:
 
@@ -209,7 +212,7 @@ live adapter promotion.
 - OF-3: Context-package redaction and allowlist rules are defined in `docs/security/CONTEXT_PACKAGE_RULES.md`; verifier implementation and tests are still required.
 - OF-4: Idempotency conflict behavior is not specified beyond the requirement.
 - OF-5: Audit retention, redaction, and evidence-export policy is not defined.
-- OF-6: Delivery adapter receipt model is not defined.
+- OF-6: Delivery adapter receipt model is partially defined by the dry-run contract and agent-operation boundaries; trusted live adapter receipts remain future work.
 - OF-7: Runtime-event boundary classifier is not designed.
 - OF-8: Baseline open-core RedshieldWarden policy-result contract and local envelope binding checks exist; live Warden policy hook enforcement is not implemented.
 - OF-9: Baseline open-core RedshieldArmor enforcement-result contract and local envelope binding checks exist; live Armor enforcement is not implemented.

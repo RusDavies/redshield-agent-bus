@@ -24,6 +24,7 @@ OPEN_CORE_REQUIRED_PATHS = [
     "docs/architecture/LIVE_ADAPTER_DRY_RUN_CONTRACT.md",
     "docs/architecture/OPEN_CORE_ARMOR_ENFORCEMENT_CONTRACT.md",
     "docs/architecture/OPEN_CORE_WARDEN_POLICY_CONTRACT.md",
+    "docs/operations/AGENT_OPERATION_BOUNDARIES.md",
     "docs/architecture/diagrams/agent-bus-data-flow.html",
     "docs/architecture/diagrams/agent-bus-trust-boundaries.html",
     "docs/requirements/REQUIREMENTS_SPEC.md",

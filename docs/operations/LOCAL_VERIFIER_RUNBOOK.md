@@ -104,6 +104,8 @@ They must not:
 
 Promotion beyond local verification is controlled by
 [`PROMOTION_GATE.md`](../operations/PROMOTION_GATE.md).
+Agent action classes and live-use boundaries are defined in
+[`AGENT_OPERATION_BOUNDARIES.md`](../operations/AGENT_OPERATION_BOUNDARIES.md).
 
 ## Warden Policy Contract
 

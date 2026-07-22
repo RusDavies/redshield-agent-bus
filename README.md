@@ -39,6 +39,8 @@ runtime tools, spawn agents, publish events, or perform external actions.
 - Package provenance controls: see
   `docs/release/PACKAGE_PROVENANCE_CONTROLS.md` and
   `docs/release/RELEASE_EVIDENCE_TEMPLATE.md`.
+- Agent operation boundaries: see
+  `docs/operations/AGENT_OPERATION_BOUNDARIES.md`.
 
 No public release, package publication, live adapter promotion, production use,
 or customer-facing security claim is approved by the presence of these files.
