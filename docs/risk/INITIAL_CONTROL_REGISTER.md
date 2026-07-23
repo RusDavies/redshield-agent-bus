@@ -44,7 +44,7 @@ Control status values:
 | CTL-017 | Risk register review | Defined | RSK-001 through RSK-012 | TH-1 through TH-16 | Class 4E planning |
 | CTL-018 | Audit minimization and retention | Planned | RSK-003, RSK-011 | TH-6, TH-10, TH-12 | Gate 2 / Gate 3 |
 | CTL-019 | Runtime-event boundary | Started | RSK-001, RSK-005 | TH-3, TH-8, TH-9 | Gate 0 / Gate 1 |
-| CTL-020 | Queue, rate, quota, and claim controls | Planned | RSK-002, RSK-010 | TH-2, TH-11, TH-12 | Gate 2 / Gate 3 |
+| CTL-020 | Queue, rate, quota, and claim controls | Started | RSK-002, RSK-010 | TH-2, TH-11, TH-12 | Gate 2 / Gate 3 |
 
 ## Control Details
 
@@ -353,7 +353,11 @@ wrong-actor claims, and unbounded retry behavior.
 Evidence:
 
 - `docs/operations/CLASS_4_PRODUCTION_READINESS_GATES.md`
+- `docs/operations/SHARED_USE_CONTROLS.md`
 - `docs/risk/INITIAL_RISK_REGISTER.md`
+- `src/agent_bus/shared_use.py`
+- `tests/fixtures/shared_use/`
+- `tests/test_shared_use.py`
 
 Minimum gate expectation: shared and production gates require rate limits,
 quotas, claim authorization, stale-claim monitoring, retry limits, and operator

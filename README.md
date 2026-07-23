@@ -44,6 +44,8 @@ runtime tools, spawn agents, publish events, or perform external actions.
   `docs/operations/AGENT_OPERATION_BOUNDARIES.md`.
 - Class 4 production-readiness gates: see
   `docs/operations/CLASS_4_PRODUCTION_READINESS_GATES.md`.
+- Shared-use controls: see
+  `docs/operations/SHARED_USE_CONTROLS.md`.
 - Target resolver contract: see
   `docs/architecture/TARGET_RESOLVER_CONTRACT.md`.
 - Initial risk register: see `docs/risk/INITIAL_RISK_REGISTER.md`.

@@ -1,0 +1,19 @@
+{
+  "extends": "valid-shared-profile.json",
+  "case_id": "invalid-rate-limit",
+  "description": "Rejected profile with an unsupported rate-limit scope and non-positive limit.",
+  "expect": {
+    "valid": false,
+    "errors": ["rate_limit_scope_unsupported", "rate_limit_value_invalid"]
+  },
+  "shared_use_profile": {
+    "rate_limits": [
+      {
+        "name": "bad_limit",
+        "scope": "global",
+        "window_seconds": 60,
+        "max_messages": 0
+      }
+    ]
+  }
+}

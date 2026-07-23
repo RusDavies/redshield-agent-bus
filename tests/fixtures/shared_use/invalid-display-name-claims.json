@@ -1,0 +1,14 @@
+{
+  "extends": "valid-shared-profile.json",
+  "case_id": "invalid-display-name-claims",
+  "description": "Rejected profile that allows display-name-only claims.",
+  "expect": {
+    "valid": false,
+    "errors": ["display_name_claims_forbidden"]
+  },
+  "shared_use_profile": {
+    "claim_authorization": {
+      "allow_display_name_claims": true
+    }
+  }
+}
