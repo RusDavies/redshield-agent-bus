@@ -41,6 +41,12 @@ Minimum settings:
 If GitHub branch protection is unavailable, record the equivalent control and
 approval path in the candidate release evidence.
 
+Current status: branch protection for the private `RusDavies/redshield-agent-bus`
+repository could not be enabled or verified during the 2026-07-23
+release-admin gate because GitHub returned a plan/visibility `403`. The public
+release remains blocked until that control is enabled or an equivalent source
+control path is explicitly approved and documented.
+
 ## Publishing Controls
 
 Package publication must use one of:
@@ -51,6 +57,10 @@ Package publication must use one of:
 
 Publishing credentials must never be available to untrusted pull-request code.
 The current CI workflow does not publish packages.
+
+Current selected direction: PyPI trusted publishing through GitHub Actions
+OpenID Connect and a protected release environment. The workflow and PyPI
+publisher binding are not configured yet.
 
 ## Candidate SBOM And Provenance
 
@@ -66,6 +76,9 @@ Each candidate release must record:
 - runtime dependencies, even when empty;
 - build/test dependencies;
 - rollback and credential-rotation path.
+
+Current candidate evidence:
+`docs/release/candidates/2026-07-23-release-admin-gate/PROVENANCE.md`.
 
 ## Verification
 

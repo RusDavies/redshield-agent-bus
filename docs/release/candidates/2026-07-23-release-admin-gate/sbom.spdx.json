@@ -1,0 +1,128 @@
+{
+  "spdxVersion": "SPDX-2.3",
+  "dataLicense": "CC0-1.0",
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "name": "redshield-agent-bus-0.1.0-release-admin-gate",
+  "documentNamespace": "https://github.com/RusDavies/redshield-agent-bus/spdx/redshield-agent-bus-0.1.0-2026-07-23-release-admin-gate",
+  "creationInfo": {
+    "created": "2026-07-23T00:00:00Z",
+    "creators": [
+      "Tool: manual-candidate-inventory",
+      "Organization: RusDavies"
+    ]
+  },
+  "packages": [
+    {
+      "name": "redshield-agent-bus",
+      "SPDXID": "SPDXRef-Package-redshield-agent-bus",
+      "versionInfo": "0.1.0",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "Apache-2.0",
+      "licenseDeclared": "Apache-2.0",
+      "copyrightText": "NOASSERTION",
+      "supplier": "Organization: RusDavies",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/redshield-agent-bus@0.1.0"
+        }
+      ]
+    },
+    {
+      "name": "build",
+      "SPDXID": "SPDXRef-Package-build",
+      "versionInfo": "1.5.0",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "supplier": "NOASSERTION"
+    },
+    {
+      "name": "iniconfig",
+      "SPDXID": "SPDXRef-Package-iniconfig",
+      "versionInfo": "2.3.0",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "supplier": "NOASSERTION"
+    },
+    {
+      "name": "packaging",
+      "SPDXID": "SPDXRef-Package-packaging",
+      "versionInfo": "26.2",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "supplier": "NOASSERTION"
+    },
+    {
+      "name": "pluggy",
+      "SPDXID": "SPDXRef-Package-pluggy",
+      "versionInfo": "1.6.0",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "supplier": "NOASSERTION"
+    },
+    {
+      "name": "Pygments",
+      "SPDXID": "SPDXRef-Package-Pygments",
+      "versionInfo": "2.20.0",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "supplier": "NOASSERTION"
+    },
+    {
+      "name": "pyproject_hooks",
+      "SPDXID": "SPDXRef-Package-pyproject-hooks",
+      "versionInfo": "1.2.0",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "supplier": "NOASSERTION"
+    },
+    {
+      "name": "pytest",
+      "SPDXID": "SPDXRef-Package-pytest",
+      "versionInfo": "9.1.1",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "supplier": "NOASSERTION"
+    }
+  ],
+  "relationships": [
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-Package-redshield-agent-bus"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-redshield-agent-bus",
+      "relationshipType": "BUILD_DEPENDENCY_OF",
+      "relatedSpdxElement": "SPDXRef-Package-build"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-redshield-agent-bus",
+      "relationshipType": "TEST_DEPENDENCY_OF",
+      "relatedSpdxElement": "SPDXRef-Package-pytest"
+    }
+  ]
+}

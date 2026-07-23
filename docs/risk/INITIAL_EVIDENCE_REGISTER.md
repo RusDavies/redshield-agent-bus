@@ -65,8 +65,8 @@ Evidence records should prefer:
 | EVD-018 | Rollback or disable test result | Planned | CTL-006, CTL-007, CTL-009 | Gate 2 / Gate 3 |
 | EVD-019 | Monitoring and stuck-work evidence | Planned | CTL-005, CTL-009, CTL-020 | Gate 3 |
 | EVD-020 | Audit retention and minimization review | Planned | CTL-004, CTL-018 | Gate 2 / Gate 3 |
-| EVD-021 | Branch protection and release automation evidence | Planned | CTL-010, CTL-011 | Public/package release |
-| EVD-022 | SBOM, artifact hash, and provenance evidence | Planned | CTL-011 | Package release |
+| EVD-021 | Branch protection and release automation evidence | Started | CTL-010, CTL-011 | Public/package release |
+| EVD-022 | SBOM, artifact hash, and provenance evidence | Started | CTL-011 | Package release |
 
 ## Current Evidence Records
 
@@ -86,11 +86,40 @@ python3 scripts/verify_repo.py open-core
 ```
 
 Current expected result: `OK: redshield-agent-bus open-core profile contains
-80 required checks`.
+98 required checks`.
 
 Scope: proves the current open-core repository includes the required public-safe
 files and fixtures for Gate 0 review. It does not prove branch protection,
 release automation, public visibility readiness, or package provenance.
+
+### EVD-021: Branch Protection And Release Automation Evidence
+
+Status: Started.
+
+Evidence:
+
+- `docs/release/PUBLIC_RELEASE_INFRASTRUCTURE_CONTROLS.md`
+- `docs/release/candidates/2026-07-23-release-admin-gate/PROVENANCE.md`
+- `.github/workflows/ci.yml`
+
+Scope: records the CI workflow, least-privilege workflow permission posture,
+and the GitHub branch-protection verification attempt. The current private
+repository cannot enable or verify branch protection on the current GitHub
+plan, so public release remains blocked until that source-control gap is
+resolved or an equivalent control is approved.
+
+### EVD-022: SBOM, Artifact Hash, And Provenance Evidence
+
+Status: Started.
+
+Evidence:
+
+- `docs/release/candidates/2026-07-23-release-admin-gate/PROVENANCE.md`
+- `docs/release/candidates/2026-07-23-release-admin-gate/sbom.spdx.json`
+
+Scope: records local build artifacts, SHA-256 hashes, an SPDX 2.3 JSON SBOM,
+runtime dependency inventory, build/test dependencies, and rollback notes for
+release-admin-gate evidence. It does not approve package publication.
 
 ### EVD-002: Local Verifier Fixture-Suite Result
 
