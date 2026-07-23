@@ -49,6 +49,8 @@ OPEN_CORE_REQUIRED_PATHS = [
     "docs/release/PACKAGE_PROVENANCE_CONTROLS.md",
     "docs/release/PUBLIC_RELEASE_INFRASTRUCTURE_CONTROLS.md",
     "docs/release/RELEASE_CANDIDATE_EVIDENCE.md",
+    "docs/release/candidates/2026-07-23-release-admin-gate/PROVENANCE.md",
+    "docs/release/candidates/2026-07-23-release-admin-gate/sbom.spdx.json",
     "docs/release/RELEASE_EVIDENCE_TEMPLATE.md",
     "docs/release/RELEASE_SECURITY_GATE.md",
     "scripts/agent_bus_verify.py",
