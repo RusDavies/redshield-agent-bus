@@ -16,6 +16,8 @@ Before a public open-core release:
 - [ ] Release notes or changelog are present.
 - [ ] Package metadata is accurate.
 - [ ] Package provenance controls are present.
+- [ ] Public release infrastructure controls are present.
+- [ ] CI workflow passes for the release candidate.
 - [ ] Release evidence record is complete for the candidate release.
 - [ ] Public fixtures contain only fake ids and no private data.
 - [ ] Keyper-style provider fixture stays behind the generic credential-provider
@@ -25,6 +27,7 @@ Before a public open-core release:
 - [ ] Repo verification profile for open core passes.
 - [ ] Supply-chain and provenance expectations are documented.
 - [ ] SBOM expectation and rollback path are documented.
+- [ ] Branch protection or equivalent default-branch ruleset is verified.
 - [ ] No management, migration approval, private planning, customer policy, or
       commercial launch posture is included in the public repo.
 

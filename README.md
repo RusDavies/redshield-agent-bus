@@ -39,6 +39,8 @@ runtime tools, spawn agents, publish events, or perform external actions.
 - Package provenance controls: see
   `docs/release/PACKAGE_PROVENANCE_CONTROLS.md` and
   `docs/release/RELEASE_EVIDENCE_TEMPLATE.md`.
+- Public release infrastructure controls: see
+  `docs/release/PUBLIC_RELEASE_INFRASTRUCTURE_CONTROLS.md`.
 - Policy index: see `docs/policy/POLICY_INDEX.md`.
 - Agent operation boundaries: see
   `docs/operations/AGENT_OPERATION_BOUNDARIES.md`.

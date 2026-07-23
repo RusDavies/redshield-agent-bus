@@ -1,0 +1,56 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Verify open core
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install package and test dependencies
+        run: python -m pip install -e '.[test]'
+
+      - name: Verify repository profile
+        run: python scripts/verify_repo.py open-core
+
+      - name: Verify bus envelope fixtures
+        run: python scripts/agent_bus_verify.py verify tests/fixtures/agent_bus --pretty
+
+      - name: Verify adapter dry-run fixtures
+        run: python scripts/agent_bus_verify.py dry-run tests/fixtures/adapter_dry_runs --pretty
+
+      - name: Verify capability-grant fixtures
+        run: python scripts/agent_bus_verify.py capability-grant tests/fixtures/capability_grants --pretty
+
+      - name: Verify Warden policy fixtures
+        run: python scripts/agent_bus_verify.py warden-policy tests/fixtures/warden_policy --pretty
+
+      - name: Verify Armor enforcement fixtures
+        run: python scripts/agent_bus_verify.py armor-enforcement tests/fixtures/armor_enforcement --pretty
+
+      - name: Verify ecosystem contract fixtures
+        run: python scripts/agent_bus_verify.py ecosystem-contract tests/fixtures/agent_bus/ecosystem --pretty
+
+      - name: Verify shared-use control fixtures
+        run: python scripts/agent_bus_verify.py shared-use tests/fixtures/shared_use --pretty
+
+      - name: Verify trusted live-receipt fixtures
+        run: python scripts/agent_bus_verify.py live-receipt tests/fixtures/live_receipts --pretty
+
+      - name: Run Python tests
+        run: python -m pytest

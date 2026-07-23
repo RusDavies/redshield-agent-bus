@@ -92,3 +92,5 @@ Use `docs/release/RELEASE_EVIDENCE_TEMPLATE.md` as the minimum release approval
 record. A real release evidence file should be copied from the template and
 filled in for the specific version under review.
 
+Current repository-side release infrastructure controls are tracked in
+`docs/release/PUBLIC_RELEASE_INFRASTRUCTURE_CONTROLS.md`.
