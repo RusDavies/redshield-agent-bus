@@ -6,6 +6,11 @@ This register tracks public-safe product, security, operations, and release
 risks for Redshield Agent Bus. It is an initial Class 4E planning artifact, not
 a production approval record.
 
+Companion controls are tracked in
+`docs/risk/INITIAL_CONTROL_REGISTER.md`. A control listed there is only
+sufficient for a gate when its status and evidence satisfy that gate's review
+requirements.
+
 Ratings are deliberately simple until a formal risk process exists:
 
 - Impact: Low, Medium, High, Critical.
@@ -153,7 +158,7 @@ Controls already present:
 Next controls:
 
 - create production operations runbook;
-- create initial control, evidence, and policy registers;
+- create initial evidence and policy registers;
 - define monitoring, incident, rollback, backup/restore, and review evidence.
 
 Stop condition: any Gate 3 request missing Class 4 evidence or explicit human
@@ -291,4 +296,3 @@ Review this register:
 - after any security incident, wrong-destination delivery, private-data
   leakage, or live-adapter rollback;
 - after every significant Warden/Armor contract change.
-

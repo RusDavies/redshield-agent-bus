@@ -147,6 +147,8 @@ Required evidence:
 - private-data redaction and allowlist rules;
 - idempotency, expiry, and replay controls;
 - rate limit, quota, or claim-authorization control for shared use;
+- current control-register review with mapped risks, threats, gate
+  expectations, and control status;
 - vulnerability intake path and open-finding review.
 
 Blocking conditions:
@@ -164,6 +166,7 @@ Required evidence:
 - operational gate evidence;
 - open risks and accepted-risk owner;
 - current risk-register review;
+- current control-register review;
 - rollback plan;
 - approval event naming scope, duration, and allowed behavior;
 - public-release evidence when repository visibility or package publishing is
