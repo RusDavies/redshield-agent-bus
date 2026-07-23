@@ -29,6 +29,39 @@
     "delivery_expectation": {
       "type": "visible_chat_reply"
     },
+    "route_resolution": {
+      "schema_version": "targetresolution.v1",
+      "resolver_id": "local_deterministic_resolver_v1",
+      "resolution_id": "resolution_msg_0001",
+      "message_id": "msg_0001",
+      "correlation_id": "corr_0001",
+      "decision": "resolved",
+      "reason_codes": [
+        "target_agent_id_exact",
+        "delivery_destination_bound"
+      ],
+      "selected_target": {
+        "target_agent_id": "agent_target_test",
+        "target_role": null,
+        "workspace_id": "workspace_redshield_test",
+        "project_slug": "project_agent_bus_test",
+        "allowed_runtime_ids": [
+          "runtime_local_test"
+        ]
+      },
+      "route_preview": {
+        "surface": "discord",
+        "conversation_id": "channel_test_source",
+        "thread_id": null,
+        "adapter_id": "adapter_discord_dry_run_test",
+        "adapter_type": "chat",
+        "delivery_expectation_type": "visible_chat_reply"
+      },
+      "audit_ref": {
+        "content_hash": "sha256:a1e3b3afded462614abf347cf8e6727bf7a8e2d301e12122c2cb35af291d11d0",
+        "privacy_classification": "internal"
+      }
+    },
     "payload_preview": {
       "content_hash": "sha256:fixture-placeholder",
       "redacted_summary": "Would deliver a status_summary."

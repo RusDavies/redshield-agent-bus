@@ -13,6 +13,7 @@ from .verifier import (
     _resolve_extends,
     _stable_errors,
 )
+from .target_resolver import build_route_resolution
 
 
 REQUIRED_CAPABILITY_FIELDS = {
@@ -39,6 +40,7 @@ REQUIRED_PREVIEW_FIELDS = {
     "source",
     "destination",
     "delivery_expectation",
+    "route_resolution",
     "payload_preview",
     "safety",
 }
@@ -136,6 +138,7 @@ def build_preview_request(
             "context_package_id": context_package.get("package_id"),
         }
     )
+    route_resolution = build_route_resolution(envelope, adapter_capability)
 
     return {
         "schema_version": "adapterpreview.v1",
@@ -160,6 +163,7 @@ def build_preview_request(
         "delivery_expectation": {
             "type": delivery.get("type"),
         },
+        "route_resolution": route_resolution,
         "payload_preview": {
             "content_hash": content_hash,
             "redacted_summary": f"Would deliver {requested_output.get('shape', 'result')}.",
@@ -300,6 +304,11 @@ def _validate_preview(
         errors.append("source_mismatch")
     if preview.get("destination") != _expected_destination(envelope):
         errors.append("destination_mismatch")
+    route_resolution = preview.get("route_resolution")
+    if route_resolution != build_route_resolution(envelope, capability):
+        errors.append("route_resolution_mismatch")
+    elif isinstance(route_resolution, dict) and route_resolution.get("decision") != "resolved":
+        errors.append("route_resolution_rejected")
 
     delivery = envelope.get("delivery_expectation") if isinstance(envelope.get("delivery_expectation"), dict) else {}
     if (preview.get("delivery_expectation") or {}).get("type") != delivery.get("type"):
@@ -468,6 +477,7 @@ def _audit(
         "correlation_id": preview.get("correlation_id"),
         "delivery_expectation": preview.get("delivery_expectation"),
         "destination": preview.get("destination"),
+        "route_resolution": preview.get("route_resolution"),
         "result": result,
         "reason": reason,
         "side_effect_performed": receipt.get("side_effect_performed") if receipt else False,

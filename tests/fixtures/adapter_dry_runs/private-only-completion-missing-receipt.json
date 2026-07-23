@@ -4,7 +4,7 @@
   "description": "Rejected internal-result completion when receipt evidence is required but missing.",
   "expect": {
     "valid": false,
-    "errors": ["receipt_missing"],
+    "errors": ["receipt_missing", "route_resolution_rejected"],
     "receipt_required": true
   },
   "envelope": {

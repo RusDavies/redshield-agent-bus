@@ -43,6 +43,9 @@ claim, or live-adapter approval.
   `require_review`.
 - [Live adapter dry-run contract](../architecture/LIVE_ADAPTER_DRY_RUN_CONTRACT.md):
   preview and receipt model for adapter behavior without live delivery.
+- [Deterministic target resolver contract](../architecture/TARGET_RESOLVER_CONTRACT.md):
+  ambiguity rejection, route preview, audit evidence, and wrong-destination
+  fail-closed behavior.
 - [Capability-grant proof adapter contract](../architecture/CAPABILITY_GRANT_PROOF_ADAPTER_CONTRACT.md):
   public capability-grant proof shape used by the verifier.
 - [Credential capability providers](../architecture/CREDENTIAL_CAPABILITY_PROVIDERS.md):

@@ -72,6 +72,34 @@ Rules:
   "delivery_expectation": {
     "type": "visible_chat_reply"
   },
+  "route_resolution": {
+    "schema_version": "targetresolution.v1",
+    "resolver_id": "local_deterministic_resolver_v1",
+    "resolution_id": "resolution_msg_0001",
+    "message_id": "msg_0001",
+    "correlation_id": "corr_0001",
+    "decision": "resolved",
+    "reason_codes": ["target_agent_id_exact", "delivery_destination_bound"],
+    "selected_target": {
+      "target_agent_id": "agent_target_test",
+      "target_role": null,
+      "workspace_id": "workspace_redshield_test",
+      "project_slug": "project_agent_bus_test",
+      "allowed_runtime_ids": ["runtime_local_test"]
+    },
+    "route_preview": {
+      "surface": "discord",
+      "conversation_id": "channel_test_source",
+      "thread_id": null,
+      "adapter_id": "adapter_discord_dry_run_test",
+      "adapter_type": "chat",
+      "delivery_expectation_type": "visible_chat_reply"
+    },
+    "audit_ref": {
+      "content_hash": "sha256:test-placeholder",
+      "privacy_classification": "internal"
+    }
+  },
   "payload_preview": {
     "content_hash": "sha256:test-placeholder",
     "redacted_summary": "Would deliver a status summary."
@@ -89,6 +117,8 @@ Rules:
 - `mode` must be `dry_run`.
 - `destination` must match the envelope delivery expectation.
 - `source` must match the envelope source provenance.
+- `route_resolution` must match the deterministic resolver output defined in
+  `docs/architecture/TARGET_RESOLVER_CONTRACT.md`.
 - `payload_preview` must contain redacted metadata, not raw private content.
 - `live_side_effect_allowed` must be `false`.
 - The request must include the original `message_id`, `correlation_id`, and `idempotency_key`.
@@ -153,6 +183,8 @@ Rejected:
 - `preview_schema_unsupported`
 - `preview_binding_failed`
 - `preview_adapter_binding_failed`
+- `route_resolution_mismatch`
+- `route_resolution_rejected`
 - `preview_safety_missing`
 - `payload_preview_missing`
 - `destination_missing`
@@ -179,6 +211,8 @@ The bus/verifier must reject a dry-run preview or receipt when:
 - adapter capability does not support the requested delivery expectation;
 - destination does not match the envelope's delivery expectation;
 - source does not match the envelope source provenance;
+- route resolution does not match the deterministic resolver output;
+- route resolution rejects the selector, scope, destination, or adapter binding;
 - preview payload includes private data, secrets, credential material, raw chat history, or unrelated context;
 - receipt claims `side_effect_performed: true`;
 - receipt does not bind to the preview request;
@@ -198,6 +232,7 @@ Dry-run audit events must record:
 - `correlation_id`;
 - delivery expectation decision;
 - destination decision;
+- route resolution decision;
 - result and reason;
 - `side_effect_performed`;
 - redaction decisions.
