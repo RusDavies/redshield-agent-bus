@@ -182,6 +182,7 @@ Reviewed evidence:
 - `docs/operations/CLASS_4_PRODUCTION_READINESS_GATES.md`
 - `docs/risk/INITIAL_RISK_REGISTER.md`
 - `docs/risk/INITIAL_CONTROL_REGISTER.md`
+- `docs/risk/INITIAL_EVIDENCE_REGISTER.md`
 
 Threat-to-mitigation links:
 
@@ -222,7 +223,7 @@ live adapter promotion.
 - OF-8: Baseline open-core RedshieldWarden policy-result contract and local envelope binding checks exist; live Warden policy hook enforcement is not implemented.
 - OF-9: Baseline open-core RedshieldArmor enforcement-result contract and local envelope binding checks exist; live Armor enforcement is not implemented.
 - OF-10: Open-source release security gate and package provenance controls exist; concrete branch-protection configuration, CI/release automation, and candidate-specific SBOM/provenance artifacts remain future work before public package release.
-- OF-11: Initial risk and control registers plus Class 4 production-readiness gates are defined; enterprise evidence and policy registers remain missing.
+- OF-11: Initial risk, control, and evidence registers plus Class 4 production-readiness gates are defined; enterprise policy index and customer-facing posture evidence remain missing.
 
 ## Approval
 
