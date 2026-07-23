@@ -1,0 +1,14 @@
+{
+  "extends": "valid-owner-only-delivered.json",
+  "case_id": "invalid-raw-platform-response",
+  "description": "Rejected live receipt that stores raw platform response data.",
+  "expect": {
+    "valid": false,
+    "errors": ["live_receipt_contains_raw_private_or_platform_data"]
+  },
+  "live_adapter_receipt": {
+    "raw_platform_response": {
+      "body": "Raw platform response bodies do not belong in public-safe evidence."
+    }
+  }
+}

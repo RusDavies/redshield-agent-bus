@@ -121,12 +121,15 @@ must bind to a matching visible or auditable receipt.
 Evidence:
 
 - `docs/architecture/LIVE_ADAPTER_DRY_RUN_CONTRACT.md`
+- `docs/architecture/TRUSTED_LIVE_ADAPTER_RECEIPT_MODEL.md`
 - `docs/architecture/TARGET_RESOLVER_CONTRACT.md`
 - `docs/operations/AGENT_OPERATION_BOUNDARIES.md`
 - `src/agent_bus/target_resolver.py`
 - `tests/test_target_resolver.py`
 - `tests/test_dry_run.py`
+- `tests/test_live_receipt.py`
 - `tests/fixtures/adapter_dry_runs/`
+- `tests/fixtures/live_receipts/`
 - `tests/fixtures/agent_bus/envelopes/invalid/wrong-destination-delivery.json`
 
 Minimum gate expectation: local dry-runs expose route preview and receipt shape.

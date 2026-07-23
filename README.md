@@ -48,6 +48,8 @@ runtime tools, spawn agents, publish events, or perform external actions.
   `docs/operations/SHARED_USE_CONTROLS.md`.
 - Target resolver contract: see
   `docs/architecture/TARGET_RESOLVER_CONTRACT.md`.
+- Trusted live-adapter receipt model: see
+  `docs/architecture/TRUSTED_LIVE_ADAPTER_RECEIPT_MODEL.md`.
 - Initial risk register: see `docs/risk/INITIAL_RISK_REGISTER.md`.
 - Initial control register: see `docs/risk/INITIAL_CONTROL_REGISTER.md`.
 - Initial evidence register: see `docs/risk/INITIAL_EVIDENCE_REGISTER.md`.

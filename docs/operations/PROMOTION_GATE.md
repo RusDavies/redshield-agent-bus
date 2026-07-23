@@ -76,6 +76,8 @@ Entry criteria from Gate 0:
 - local runtime credential format is selected;
 - delivery adapter dry-run and receipt contract is documented in `docs/architecture/LIVE_ADAPTER_DRY_RUN_CONTRACT.md`;
 - adapter dry-run has tests for wrong destination, private-only completion, missing receipt, and forged receipt;
+- trusted live-adapter receipt model is defined for later Gate 2/Gate 3 use in
+  `docs/architecture/TRUSTED_LIVE_ADAPTER_RECEIPT_MODEL.md`;
 - rollback/disable procedure is documented at least for dry-run configuration;
 - human approval is recorded for the dry-run experiment.
 
@@ -126,6 +128,7 @@ Exit criteria for Gate 2:
 
 - live trial delivers only to the declared destination;
 - delivery receipts are captured and auditable;
+- delivery receipts satisfy the trusted live-adapter receipt model;
 - private-only completion and wrong-destination paths visibly fail closed;
 - rollback/disable procedure has been tested;
 - no unapproved external/public/destructive behavior occurred;

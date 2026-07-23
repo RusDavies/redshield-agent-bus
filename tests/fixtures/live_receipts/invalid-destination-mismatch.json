@@ -1,0 +1,16 @@
+{
+  "extends": "valid-owner-only-delivered.json",
+  "case_id": "invalid-destination-mismatch",
+  "description": "Rejected live receipt whose destination differs from the resolved route.",
+  "expect": {
+    "valid": false,
+    "errors": ["live_receipt_destination_mismatch"]
+  },
+  "live_adapter_receipt": {
+    "destination": {
+      "surface": "discord",
+      "conversation_id": "channel_test_wrong",
+      "thread_id": null
+    }
+  }
+}

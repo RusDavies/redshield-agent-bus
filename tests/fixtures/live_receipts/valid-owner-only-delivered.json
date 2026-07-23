@@ -1,0 +1,77 @@
+{
+  "case_id": "valid-owner-only-delivered",
+  "description": "Accepted owner-only live adapter receipt with bound route and redacted evidence.",
+  "expect": {
+    "valid": true,
+    "errors": []
+  },
+  "live_adapter_receipt": {
+    "schema_version": "liveadapterreceipt.v1",
+    "receipt_id": "livereceipt_test_0001",
+    "preview_id": "preview_msg_0001",
+    "message_id": "msg_0001",
+    "correlation_id": "corr_0001",
+    "adapter_id": "adapter_discord_live_owner_only_test",
+    "adapter_type": "chat",
+    "surface": "discord",
+    "mode": "live",
+    "gate": "gate_2_owner_only_live_trial",
+    "approval_event_id": "approval_test_gate2_0001",
+    "owner_only_access_verified": true,
+    "route_resolution": {
+      "schema_version": "targetresolution.v1",
+      "resolver_id": "local_deterministic_resolver_v1",
+      "resolution_id": "resolution_msg_0001",
+      "message_id": "msg_0001",
+      "correlation_id": "corr_0001",
+      "decision": "resolved",
+      "reason_codes": [
+        "target_agent_id_exact",
+        "delivery_destination_bound"
+      ],
+      "selected_target": {
+        "target_agent_id": "agent_target_test",
+        "target_role": null,
+        "workspace_id": "workspace_redshield_test",
+        "project_slug": "project_agent_bus_test",
+        "allowed_runtime_ids": [
+          "runtime_local_test"
+        ]
+      },
+      "route_preview": {
+        "surface": "discord",
+        "conversation_id": "channel_test_source",
+        "thread_id": null,
+        "adapter_id": "adapter_discord_live_owner_only_test",
+        "adapter_type": "chat",
+        "delivery_expectation_type": "visible_chat_reply"
+      },
+      "audit_ref": {
+        "content_hash": "sha256:test-route-resolution",
+        "privacy_classification": "internal"
+      }
+    },
+    "destination": {
+      "surface": "discord",
+      "conversation_id": "channel_test_source",
+      "thread_id": null
+    },
+    "delivery_expectation": {
+      "type": "visible_chat_reply"
+    },
+    "result": "delivered",
+    "reason": "delivered_to_declared_destination",
+    "side_effect_performed": true,
+    "platform_delivery_ref": "platform-message:test-redacted-0001",
+    "adapter_actor": {
+      "actor_id": "adapter_actor_discord_test",
+      "runtime_id": "runtime_local_test",
+      "credential_id": "credential_live_adapter_test",
+      "authenticated_at": "2026-07-23T15:30:00Z"
+    },
+    "evidence_refs": [
+      "evidence:live-receipt:test-0001"
+    ],
+    "created_at": "2026-07-23T15:30:05Z"
+  }
+}
