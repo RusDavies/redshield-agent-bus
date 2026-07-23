@@ -49,6 +49,9 @@ claim, or live-adapter approval.
 - [Deterministic target resolver contract](../architecture/TARGET_RESOLVER_CONTRACT.md):
   ambiguity rejection, route preview, audit evidence, and wrong-destination
   fail-closed behavior.
+- [Trusted live-adapter receipt model](../architecture/TRUSTED_LIVE_ADAPTER_RECEIPT_MODEL.md):
+  Gate 2/Gate 3 receipt evidence requirements for approved live adapter
+  behavior.
 - [Capability-grant proof adapter contract](../architecture/CAPABILITY_GRANT_PROOF_ADAPTER_CONTRACT.md):
   public capability-grant proof shape used by the verifier.
 - [Credential capability providers](../architecture/CREDENTIAL_CAPABILITY_PROVIDERS.md):

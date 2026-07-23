@@ -1,0 +1,12 @@
+{
+  "extends": "valid-owner-only-delivered.json",
+  "case_id": "invalid-missing-approval",
+  "description": "Rejected live receipt without a concrete approval event.",
+  "expect": {
+    "valid": false,
+    "errors": ["live_receipt_field_missing:approval_event_id", "approval_event_missing"]
+  },
+  "live_adapter_receipt": {
+    "approval_event_id": ""
+  }
+}

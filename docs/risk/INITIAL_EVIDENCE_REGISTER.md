@@ -405,6 +405,7 @@ Required fields:
 - health signal;
 - pending-work age signal where queues exist;
 - missing-receipt and wrong-destination detection;
+- trusted live-adapter receipt reference;
 - shared-use controls profile reference;
 - rate-limit and quota enforcement reference;
 - claim-authorization enforcement reference;
