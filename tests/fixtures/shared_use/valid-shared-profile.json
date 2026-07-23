@@ -1,0 +1,52 @@
+{
+  "case_id": "valid-shared-profile",
+  "description": "Accepted shared-use control profile for local verification.",
+  "expect": {
+    "valid": true,
+    "errors": []
+  },
+  "shared_use_profile": {
+    "schema_version": "shareduse.v1",
+    "profile_id": "shareduse_local_test_0001",
+    "scope": {
+      "mode": "shared",
+      "workspace_id": "workspace_redshield_test",
+      "project_slug": "project_agent_bus_test"
+    },
+    "rate_limits": [
+      {
+        "name": "per_actor_burst",
+        "scope": "actor",
+        "window_seconds": 60,
+        "max_messages": 20
+      },
+      {
+        "name": "per_workspace_hour",
+        "scope": "workspace",
+        "window_seconds": 3600,
+        "max_messages": 500
+      }
+    ],
+    "quota_limits": {
+      "daily_message_limit": 2500,
+      "daily_claim_limit": 1000,
+      "max_inflight_claims": 25
+    },
+    "claim_authorization": {
+      "require_actor_binding": true,
+      "allowed_claim_modes": ["exact_agent", "role_with_runtime_allowlist"],
+      "allow_display_name_claims": false,
+      "allow_actorless_transitions": false
+    },
+    "stale_work_monitoring": {
+      "pending_age_threshold_seconds": 900,
+      "claimed_age_threshold_seconds": 1800,
+      "alert_destination_ref": "ops-channel:redshield-agent-bus-test",
+      "missing_receipt_detection": true,
+      "wrong_destination_detection": true
+    },
+    "evidence_refs": [
+      "evidence:shared-use:test-profile-0001"
+    ]
+  }
+}

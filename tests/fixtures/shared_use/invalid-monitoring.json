@@ -1,0 +1,20 @@
+{
+  "extends": "valid-shared-profile.json",
+  "case_id": "invalid-monitoring",
+  "description": "Rejected profile without required stuck-work and wrong-destination monitoring.",
+  "expect": {
+    "valid": false,
+    "errors": [
+      "stale_work_alert_destination_missing",
+      "missing_receipt_detection_required",
+      "wrong_destination_detection_required"
+    ]
+  },
+  "shared_use_profile": {
+    "stale_work_monitoring": {
+      "alert_destination_ref": "",
+      "missing_receipt_detection": false,
+      "wrong_destination_detection": false
+    }
+  }
+}

@@ -241,12 +241,16 @@ Controls already present:
 
 - Class 4 gates require monitoring, stuck-work detection, and rate/claim
   controls before shared use.
+- Shared-use controls define rate limits, quotas, claim authorization, and
+  stale-work monitoring.
+- Local shared-use fixtures reject unsupported rate scopes, display-name claims,
+  missing alert destinations, missing-receipt detection gaps, and
+  wrong-destination detection gaps.
 
 Next controls:
 
-- design claim authorization;
-- define rate limits and quotas;
-- add pending-work age and stale-claim monitoring.
+- implement queue isolation and live enforcement;
+- add operator recovery procedures before shared use.
 
 Stop condition: shared queue or routing use without claim authorization and
 stuck-work detection.

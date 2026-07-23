@@ -33,6 +33,9 @@ claim, or live-adapter approval.
   operational evidence required before shared or production infrastructure use.
 - [Local verifier runbook](../operations/LOCAL_VERIFIER_RUNBOOK.md):
   operator steps for running the local verifier without live side effects.
+- [Shared-use controls](../operations/SHARED_USE_CONTROLS.md):
+  rate limits, quotas, claim authorization, and stale-work monitoring required
+  before shared or production use.
 
 ## Contract Documents
 

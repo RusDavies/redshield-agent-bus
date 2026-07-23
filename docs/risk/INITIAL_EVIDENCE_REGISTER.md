@@ -405,6 +405,9 @@ Required fields:
 - health signal;
 - pending-work age signal where queues exist;
 - missing-receipt and wrong-destination detection;
+- shared-use controls profile reference;
+- rate-limit and quota enforcement reference;
+- claim-authorization enforcement reference;
 - denial/block/review counts;
 - alert thresholds and destination;
 - manual review cadence.

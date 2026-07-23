@@ -11,6 +11,7 @@ from .armor_enforcement import verify_armor_enforcement_path
 from .capability_grant import verify_capability_grant_path
 from .dry_run import verify_dry_run_path
 from .ecosystem_contract import verify_ecosystem_contract_path
+from .shared_use import verify_shared_use_path
 from .verifier import verify_path
 from .warden_policy import verify_warden_policy_path
 
@@ -90,6 +91,21 @@ def build_parser() -> argparse.ArgumentParser:
         help="pretty-print JSON output",
     )
 
+    shared_use = subparsers.add_parser(
+        "shared-use",
+        help="verify shared-use limits, quotas, claim authorization, and monitoring fixtures",
+    )
+    shared_use.add_argument(
+        "path",
+        type=Path,
+        help="shared-use fixture file or directory",
+    )
+    shared_use.add_argument(
+        "--pretty",
+        action="store_true",
+        help="pretty-print JSON output",
+    )
+
     return parser
 
 
@@ -154,6 +170,17 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.command == "capability-grant":
         result = verify_capability_grant_path(args.path)
+        json.dump(
+            result.to_dict(),
+            sys.stdout,
+            indent=2 if args.pretty else None,
+            sort_keys=True,
+        )
+        sys.stdout.write("\n")
+        return 0 if result.ok else 1
+
+    if args.command == "shared-use":
+        result = verify_shared_use_path(args.path)
         json.dump(
             result.to_dict(),
             sys.stdout,
