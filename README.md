@@ -44,6 +44,8 @@ runtime tools, spawn agents, publish events, or perform external actions.
   `docs/operations/AGENT_OPERATION_BOUNDARIES.md`.
 - Class 4 production-readiness gates: see
   `docs/operations/CLASS_4_PRODUCTION_READINESS_GATES.md`.
+- Target resolver contract: see
+  `docs/architecture/TARGET_RESOLVER_CONTRACT.md`.
 - Initial risk register: see `docs/risk/INITIAL_RISK_REGISTER.md`.
 - Initial control register: see `docs/risk/INITIAL_CONTROL_REGISTER.md`.
 - Initial evidence register: see `docs/risk/INITIAL_EVIDENCE_REGISTER.md`.

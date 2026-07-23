@@ -26,10 +26,38 @@ def test_preview_binds_source_destination_and_payload_without_side_effects() -> 
     assert preview["mode"] == "dry_run"
     assert preview["source"]["conversation_id"] == "channel_test_source"
     assert preview["destination"]["conversation_id"] == "channel_test_source"
+    assert preview["route_resolution"]["decision"] == "resolved"
+    assert preview["route_resolution"]["reason_codes"] == [
+        "target_agent_id_exact",
+        "delivery_destination_bound",
+    ]
+    assert preview["route_resolution"]["route_preview"] == {
+        "surface": "discord",
+        "conversation_id": "channel_test_source",
+        "thread_id": None,
+        "adapter_id": "adapter_discord_dry_run_test",
+        "adapter_type": "chat",
+        "delivery_expectation_type": "visible_chat_reply",
+    }
     assert preview["safety"]["live_side_effect_allowed"] is False
     assert preview["safety"]["external_action_allowed"] is False
     assert preview["payload_preview"]["content_hash"].startswith("sha256:")
     assert "raw_content" not in preview["payload_preview"]
+
+
+def test_route_resolution_is_included_in_audit_event() -> None:
+    result = verify_dry_run_path(FIXTURES / "valid-visible-preview.json")
+    audit_event = result.cases[0].audit_events[0]
+
+    assert audit_event["route_resolution"]["decision"] == "resolved"
+    assert audit_event["route_resolution"]["audit_ref"]["content_hash"].startswith("sha256:")
+
+
+def test_rejected_route_resolution_fails_closed() -> None:
+    result = verify_dry_run_path(FIXTURES / "private-only-completion-missing-receipt.json")
+
+    assert "route_resolution_rejected" in result.cases[0].errors
+    assert result.cases[0].audit_events[0]["route_resolution"]["decision"] == "rejected"
 
 
 def test_receipt_validation_accepts_bound_synthetic_receipt(tmp_path: Path) -> None:

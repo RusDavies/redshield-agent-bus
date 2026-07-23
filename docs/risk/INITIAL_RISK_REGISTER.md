@@ -74,11 +74,13 @@ Controls already present:
 - target and delivery expectation fields in verifier fixtures;
 - wrong-destination invalid fixture;
 - dry-run preview and receipt contract;
+- deterministic target resolver contract;
+- local resolver tests for exact target, ambiguous selector, and adapter-surface mismatch;
+- dry-run audit events include route resolution metadata;
 - agent-operation delivery boundaries.
 
 Next controls:
 
-- define deterministic resolver behavior;
 - implement trusted live-adapter receipts;
 - add stuck/wrong-destination operational monitoring before shared use.
 
