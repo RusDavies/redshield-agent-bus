@@ -14,6 +14,8 @@ Redshield Agent Bus.
   does not publish personal email addresses.
 - `docs/release/OPEN_CORE_RELEASE_CHECKLIST.md` is current.
 - `docs/release/PACKAGE_PROVENANCE_CONTROLS.md` is current.
+- `docs/release/PUBLIC_RELEASE_INFRASTRUCTURE_CONTROLS.md` is current.
+- `.github/workflows/ci.yml` exists and passes for the release candidate.
 - A release-specific evidence file has been copied from
   `docs/release/RELEASE_EVIDENCE_TEMPLATE.md` and completed.
 - `README.md` and public docs describe stand-alone verifier value without
@@ -22,6 +24,7 @@ Redshield Agent Bus.
 - Local verifier commands pass against public fixtures.
 - Python tests pass in a documented environment.
 - `python3 scripts/verify_repo.py open-core` passes.
+- CI status checks for the release candidate pass.
 - Public fixtures contain only fake identities, references, channels, runtime
   ids, tokens, and customer data.
 - Keyper-style, Warden-style, Armor-style, and capability-grant examples remain
@@ -40,6 +43,8 @@ Redshield Agent Bus.
   recorded in release evidence.
 - Any future CI release workflow must use protected branches, minimal tokens,
   pinned third-party actions, and a documented rollback path.
+- The default branch must use branch protection or an equivalent ruleset before
+  release.
 - Package provenance controls must define protected source, CI/runner controls,
   artifact provenance, SBOM expectations, and rollback/recovery expectations.
 

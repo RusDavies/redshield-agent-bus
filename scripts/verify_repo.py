@@ -11,6 +11,7 @@ from collections.abc import Iterable, Sequence
 ROOT = Path(__file__).resolve().parents[1]
 
 OPEN_CORE_REQUIRED_PATHS = [
+    ".github/workflows/ci.yml",
     ".gitignore",
     "CONTRIBUTING.md",
     "LICENSE",
@@ -24,8 +25,12 @@ OPEN_CORE_REQUIRED_PATHS = [
     "docs/architecture/LIVE_ADAPTER_DRY_RUN_CONTRACT.md",
     "docs/architecture/OPEN_CORE_ARMOR_ENFORCEMENT_CONTRACT.md",
     "docs/architecture/OPEN_CORE_WARDEN_POLICY_CONTRACT.md",
+    "docs/architecture/TARGET_RESOLVER_CONTRACT.md",
+    "docs/architecture/TRUSTED_LIVE_ADAPTER_RECEIPT_MODEL.md",
     "docs/operations/AGENT_OPERATION_BOUNDARIES.md",
     "docs/operations/CLASS_4_PRODUCTION_READINESS_GATES.md",
+    "docs/operations/SHARED_USE_CONTROLS.md",
+    "docs/policy/POLICY_INDEX.md",
     "docs/risk/INITIAL_CONTROL_REGISTER.md",
     "docs/risk/INITIAL_EVIDENCE_REGISTER.md",
     "docs/risk/INITIAL_RISK_REGISTER.md",
@@ -40,7 +45,10 @@ OPEN_CORE_REQUIRED_PATHS = [
     "docs/security/AUTHORIZATION_CONTEXT_SCHEMA.md",
     "docs/security/CONTEXT_PACKAGE_RULES.md",
     "docs/qa/QA_PLAN.md",
+    "docs/release/OPEN_CORE_RELEASE_CHECKLIST.md",
     "docs/release/PACKAGE_PROVENANCE_CONTROLS.md",
+    "docs/release/PUBLIC_RELEASE_INFRASTRUCTURE_CONTROLS.md",
+    "docs/release/RELEASE_CANDIDATE_EVIDENCE.md",
     "docs/release/RELEASE_EVIDENCE_TEMPLATE.md",
     "docs/release/RELEASE_SECURITY_GATE.md",
     "scripts/agent_bus_verify.py",
@@ -52,6 +60,9 @@ OPEN_CORE_REQUIRED_PATHS = [
     "src/agent_bus/cli.py",
     "src/agent_bus/credential_provider.py",
     "src/agent_bus/ecosystem_contract.py",
+    "src/agent_bus/live_receipt.py",
+    "src/agent_bus/shared_use.py",
+    "src/agent_bus/target_resolver.py",
     "src/agent_bus/verifier.py",
     "src/agent_bus/warden_policy.py",
     "tests/fixtures/README.md",
@@ -60,6 +71,9 @@ OPEN_CORE_REQUIRED_PATHS = [
     "tests/test_capability_grant.py",
     "tests/test_credential_provider_contract.py",
     "tests/test_ecosystem_contract_examples.py",
+    "tests/test_live_receipt.py",
+    "tests/test_shared_use.py",
+    "tests/test_target_resolver.py",
     "tests/test_warden_policy.py",
     "tests/test_verifier.py",
     "tests/fixtures/agent_bus/envelopes/valid/valid-notify-minimal.json",
@@ -87,6 +101,8 @@ OPEN_CORE_REQUIRED_PATHS = [
     "tests/fixtures/warden_policy/valid-deny.json",
     "tests/fixtures/warden_policy/valid-require-review.json",
     "tests/fixtures/agent_bus/transitions/valid/valid-basic-flow.json",
+    "tests/fixtures/live_receipts/valid-owner-only-delivered.json",
+    "tests/fixtures/shared_use/valid-shared-profile.json",
 ]
 
 OPEN_CORE_ALTERNATIVES = [
