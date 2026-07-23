@@ -11,6 +11,10 @@ Companion controls are tracked in
 sufficient for a gate when its status and evidence satisfy that gate's review
 requirements.
 
+Companion evidence expectations are tracked in
+`docs/risk/INITIAL_EVIDENCE_REGISTER.md`. Planned evidence does not satisfy a
+gate until the evidence exists, is reviewed, and matches the gate scope.
+
 Ratings are deliberately simple until a formal risk process exists:
 
 - Impact: Low, Medium, High, Critical.
@@ -158,7 +162,7 @@ Controls already present:
 Next controls:
 
 - create production operations runbook;
-- create initial evidence and policy registers;
+- create initial policy index;
 - define monitoring, incident, rollback, backup/restore, and review evidence.
 
 Stop condition: any Gate 3 request missing Class 4 evidence or explicit human

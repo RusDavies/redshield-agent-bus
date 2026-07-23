@@ -34,6 +34,8 @@ approval record by itself.
 ## Verification
 
 Record exact commands and results.
+Cross-check required evidence classes against
+`docs/risk/INITIAL_EVIDENCE_REGISTER.md`.
 
 ```sh
 python3 scripts/verify_repo.py open-core
@@ -91,4 +93,3 @@ python3 -m pytest
 - Approved for customer-facing claims:
 - Approval event/reference:
 - Final decision:
-

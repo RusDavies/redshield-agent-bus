@@ -6,6 +6,9 @@ This register tracks public-safe controls for Redshield Agent Bus. It maps the
 initial risk register, threat model, release gates, and Class 4 production gates
 to concrete control expectations.
 
+Companion evidence expectations are tracked in
+`docs/risk/INITIAL_EVIDENCE_REGISTER.md`.
+
 This is a planning and readiness artifact. It does not approve public release,
 package publication, live adapter promotion, shared infrastructure use,
 production use, or enterprise security claims.
@@ -181,6 +184,7 @@ release, and review gates are satisfied.
 Evidence:
 
 - `docs/operations/CLASS_4_PRODUCTION_READINESS_GATES.md`
+- `docs/risk/INITIAL_EVIDENCE_REGISTER.md`
 
 Minimum gate expectation: no Class 4 approval exists until all gates have named
 evidence, owners, status, and a production decision record.
@@ -318,6 +322,7 @@ Evidence:
 
 - `docs/architecture/FIXTURE_AUDIT_STORAGE.md`
 - `docs/operations/CLASS_4_PRODUCTION_READINESS_GATES.md`
+- `docs/risk/INITIAL_EVIDENCE_REGISTER.md`
 
 Minimum gate expectation: Gate 2 and Gate 3 require concrete retention,
 redaction, evidence-export, and access-review rules before live or shared use.
@@ -355,6 +360,8 @@ recovery procedures before shared use.
 - Review this register whenever a new risk is added or a gate changes.
 - Every open risk should map to at least one defined, started, or planned
   control.
+- Every control should map to current or planned evidence in the evidence
+  register.
 - Every live, shared, production, package-release, public-release, or
   enterprise-readiness approval must cite the current register revision.
 - Controls that remain planned cannot be used as evidence that a later gate is

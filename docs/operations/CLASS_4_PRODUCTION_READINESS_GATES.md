@@ -127,6 +127,7 @@ Required evidence:
 - restore procedure and test result where durable state exists;
 - audit retention duration;
 - redaction and minimization rules;
+- current evidence-register review for retained and excluded evidence classes;
 - evidence export owner and approval path.
 
 Blocking conditions:
@@ -167,6 +168,7 @@ Required evidence:
 - open risks and accepted-risk owner;
 - current risk-register review;
 - current control-register review;
+- current evidence-register review;
 - rollback plan;
 - approval event naming scope, duration, and allowed behavior;
 - public-release evidence when repository visibility or package publishing is
@@ -202,6 +204,7 @@ Every Class 4 promotion decision must record:
 - target gate;
 - production/shared-use scope;
 - evidence files;
+- current evidence-register revision;
 - verification commands and results;
 - unresolved blockers;
 - accepted risks with owner and expiry;
