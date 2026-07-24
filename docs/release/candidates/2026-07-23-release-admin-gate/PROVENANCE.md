@@ -92,6 +92,13 @@ Build warnings:
 - Pip emitted cache deserialization warnings. These did not affect package
   contents but should not be treated as release provenance by themselves.
 
+Superseding note:
+
+- The package metadata warning was addressed after this candidate snapshot by
+  moving `pyproject.toml` to PEP 639 license metadata:
+  `License-Expression: Apache-2.0` and `License-File: LICENSE`. Regenerate
+  candidate artifacts before any real public release.
+
 ## SBOM
 
 - SBOM format selected for this candidate: SPDX 2.3 JSON.
@@ -124,4 +131,5 @@ Build warnings:
 - No package index is selected.
 - No package publishing workflow exists.
 - No protected release environment exists.
-- Package license metadata still uses deprecated setuptools forms.
+- This historical candidate's artifacts predate the PEP 639 license metadata
+  cleanup; regenerate candidate artifacts before any real public release.

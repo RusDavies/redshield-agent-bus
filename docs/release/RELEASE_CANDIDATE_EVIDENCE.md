@@ -58,6 +58,15 @@ python3 -m pytest
 - Candidate SBOM artifact:
   `docs/release/candidates/2026-07-23-release-admin-gate/sbom.spdx.json`
 
+## Package Metadata Status
+
+- License metadata uses PEP 639 fields: `license = "Apache-2.0"` and
+  `license-files = ["LICENSE"]`.
+- Local wheel metadata confirms `Metadata-Version: 2.4`,
+  `License-Expression: Apache-2.0`, and `License-File: LICENSE`.
+- The build backend minimum is `setuptools>=77`, matching the PEP 639 field
+  support needed by this package metadata.
+
 ## Rollback Status
 
 - Commit revert or forward-fix path: use normal git review and protected-branch
@@ -74,6 +83,4 @@ python3 -m pytest
   the current GitHub plan; the GitHub API returned `403` during verification.
 - No candidate-specific package artifacts exist.
 - No package publishing workflow exists.
-- Package license metadata uses deprecated setuptools forms and should be
-  modernized before public package publication.
 - No customer-facing security claim is approved.
