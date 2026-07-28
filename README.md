@@ -18,8 +18,11 @@ The current open core provides:
   idempotency, delivery expectations, and risky authorization patterns;
 - context-package redaction and allowlist rules;
 - a credential-provider contract with local fixtures;
-- public-safe examples for RSK AI Auth-style grants, Keyper-style credential
-  evidence, Warden policy decisions, and Armor enforcement results;
+- public-safe examples for
+  [RSK AI Auth-style grants](docs/architecture/CAPABILITY_GRANT_PROOF_ADAPTER_CONTRACT.md),
+  [Keyper-style credential evidence](docs/architecture/CREDENTIAL_CAPABILITY_PROVIDERS.md),
+  [Warden policy decisions](docs/architecture/OPEN_CORE_WARDEN_POLICY_CONTRACT.md),
+  and [Armor enforcement results](docs/architecture/OPEN_CORE_ARMOR_ENFORCEMENT_CONTRACT.md);
 - enforced open-core Warden policy-result fixtures for `allow`, `deny`, and
   `require_review`;
 - enforced open-core Armor enforcement-result fixtures for `allow`, `block`,
@@ -31,30 +34,31 @@ runtime tools, spawn agents, publish events, or perform external actions.
 
 ## Project Governance
 
-- License: Apache License 2.0. See `LICENSE`.
-- Contributions: see `CONTRIBUTING.md`.
-- Vulnerability reporting: see `SECURITY.md`.
-- Public release readiness: see `docs/release/OPEN_CORE_RELEASE_CHECKLIST.md`
-  and `docs/release/RELEASE_SECURITY_GATE.md`.
+- License: Apache License 2.0. See [LICENSE](LICENSE).
+- Contributions: see [CONTRIBUTING.md](CONTRIBUTING.md).
+- Vulnerability reporting: see [SECURITY.md](SECURITY.md).
+- Public release readiness: see
+  [docs/release/OPEN_CORE_RELEASE_CHECKLIST.md](docs/release/OPEN_CORE_RELEASE_CHECKLIST.md)
+  and [docs/release/RELEASE_SECURITY_GATE.md](docs/release/RELEASE_SECURITY_GATE.md).
 - Package provenance controls: see
-  `docs/release/PACKAGE_PROVENANCE_CONTROLS.md` and
-  `docs/release/RELEASE_EVIDENCE_TEMPLATE.md`.
+  [docs/release/PACKAGE_PROVENANCE_CONTROLS.md](docs/release/PACKAGE_PROVENANCE_CONTROLS.md)
+  and [docs/release/RELEASE_EVIDENCE_TEMPLATE.md](docs/release/RELEASE_EVIDENCE_TEMPLATE.md).
 - Public release infrastructure controls: see
-  `docs/release/PUBLIC_RELEASE_INFRASTRUCTURE_CONTROLS.md`.
-- Policy index: see `docs/policy/POLICY_INDEX.md`.
+  [docs/release/PUBLIC_RELEASE_INFRASTRUCTURE_CONTROLS.md](docs/release/PUBLIC_RELEASE_INFRASTRUCTURE_CONTROLS.md).
+- Policy index: see [docs/policy/POLICY_INDEX.md](docs/policy/POLICY_INDEX.md).
 - Agent operation boundaries: see
-  `docs/operations/AGENT_OPERATION_BOUNDARIES.md`.
+  [docs/operations/AGENT_OPERATION_BOUNDARIES.md](docs/operations/AGENT_OPERATION_BOUNDARIES.md).
 - Class 4 production-readiness gates: see
-  `docs/operations/CLASS_4_PRODUCTION_READINESS_GATES.md`.
+  [docs/operations/CLASS_4_PRODUCTION_READINESS_GATES.md](docs/operations/CLASS_4_PRODUCTION_READINESS_GATES.md).
 - Shared-use controls: see
-  `docs/operations/SHARED_USE_CONTROLS.md`.
+  [docs/operations/SHARED_USE_CONTROLS.md](docs/operations/SHARED_USE_CONTROLS.md).
 - Target resolver contract: see
-  `docs/architecture/TARGET_RESOLVER_CONTRACT.md`.
+  [docs/architecture/TARGET_RESOLVER_CONTRACT.md](docs/architecture/TARGET_RESOLVER_CONTRACT.md).
 - Trusted live-adapter receipt model: see
-  `docs/architecture/TRUSTED_LIVE_ADAPTER_RECEIPT_MODEL.md`.
-- Initial risk register: see `docs/risk/INITIAL_RISK_REGISTER.md`.
-- Initial control register: see `docs/risk/INITIAL_CONTROL_REGISTER.md`.
-- Initial evidence register: see `docs/risk/INITIAL_EVIDENCE_REGISTER.md`.
+  [docs/architecture/TRUSTED_LIVE_ADAPTER_RECEIPT_MODEL.md](docs/architecture/TRUSTED_LIVE_ADAPTER_RECEIPT_MODEL.md).
+- Initial risk register: see [docs/risk/INITIAL_RISK_REGISTER.md](docs/risk/INITIAL_RISK_REGISTER.md).
+- Initial control register: see [docs/risk/INITIAL_CONTROL_REGISTER.md](docs/risk/INITIAL_CONTROL_REGISTER.md).
+- Initial evidence register: see [docs/risk/INITIAL_EVIDENCE_REGISTER.md](docs/risk/INITIAL_EVIDENCE_REGISTER.md).
 
 No public release, package publication, live adapter promotion, production use,
 or customer-facing security claim is approved by the presence of these files.
@@ -192,36 +196,19 @@ python3 -m pip install -e '.[test]'
 python3 -m pytest
 ```
 
-## Open-Core Boundary
-
-The open core must remain useful without paid services.
-
-Open core includes:
-
-- protocol vocabulary and envelope semantics;
-- local verifier and fixture suite;
-- authorization-context and context-package safety rules;
-- capability-grant proof adapter contract;
-- credential-provider contract;
-- baseline Warden policy-result contract;
-- baseline Armor enforcement-result contract;
-- adapter and promotion-gate documentation.
-
-Commercial or enterprise editions may add scale, governance, deployed
-enforcement, visibility, integrations, evidence exports, managed operations,
-and support. They must not be required for local validation or the baseline
-safety model.
-
 ## Neighboring Contracts
 
 Agent Bus stays narrow by consuming neighboring capabilities through contracts:
 
-- RSK AI Auth-style / RedshieldWorks Core capability grants describe workload
-  identity and delegated authority.
-- Keyper-style SSH certificate evidence can satisfy the credential-provider
-  contract without making Agent Bus depend on Keyper.
-- Warden policy results answer `allow`, `deny`, or `require_review`.
-- Armor enforcement results answer `allow`, `block`, `sanitize`, or
+- [RSK AI Auth-style / RedshieldWorks Core capability grants](docs/architecture/CAPABILITY_GRANT_PROOF_ADAPTER_CONTRACT.md)
+  describe workload identity and delegated authority.
+- [Keyper-style SSH certificate evidence](docs/architecture/CREDENTIAL_CAPABILITY_PROVIDERS.md)
+  can satisfy the credential-provider contract without making Agent Bus depend
+  on Keyper.
+- [Warden policy results](docs/architecture/OPEN_CORE_WARDEN_POLICY_CONTRACT.md)
+  answer `allow`, `deny`, or `require_review`.
+- [Armor enforcement results](docs/architecture/OPEN_CORE_ARMOR_ENFORCEMENT_CONTRACT.md)
+  answer `allow`, `block`, `sanitize`, or
   `require_review`.
 
 The ecosystem verifier enforces those public example shapes without importing
