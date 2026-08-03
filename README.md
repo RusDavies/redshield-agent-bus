@@ -21,11 +21,11 @@ The current core provides:
 - examples for
   [RSK AI Auth-style grants](docs/architecture/CAPABILITY_GRANT_PROOF_ADAPTER_CONTRACT.md),
   [Keyper-style credential evidence](docs/architecture/CREDENTIAL_CAPABILITY_PROVIDERS.md),
-  [Warden policy decisions](docs/architecture/CORE_WARDEN_POLICY_CONTRACT.md),
-  and [Armor enforcement results](docs/architecture/CORE_ARMOR_ENFORCEMENT_CONTRACT.md);
-- enforced core Warden policy-result fixtures for `allow`, `deny`, and
+  [Warden policy decisions](docs/architecture/WARDEN_POLICY_CONTRACT.md),
+  and [Armor enforcement results](docs/architecture/ARMOR_ENFORCEMENT_CONTRACT.md);
+- enforced Warden policy-result fixtures for `allow`, `deny`, and
   `require_review`;
-- enforced core Armor enforcement-result fixtures for `allow`, `block`,
+- enforced Armor enforcement-result fixtures for `allow`, `block`,
   `sanitize`, and `require_review`;
 - architecture, requirements, security, QA, and promotion-gate documentation.
 
@@ -199,9 +199,9 @@ Agent Bus stays narrow by consuming neighboring capabilities through contracts:
 - [Keyper-style SSH certificate evidence](docs/architecture/CREDENTIAL_CAPABILITY_PROVIDERS.md)
   can satisfy the credential-provider contract without making Agent Bus depend
   on Keyper.
-- [Warden policy results](docs/architecture/CORE_WARDEN_POLICY_CONTRACT.md)
+- [Warden policy results](docs/architecture/WARDEN_POLICY_CONTRACT.md)
   answer `allow`, `deny`, or `require_review`.
-- [Armor enforcement results](docs/architecture/CORE_ARMOR_ENFORCEMENT_CONTRACT.md)
+- [Armor enforcement results](docs/architecture/ARMOR_ENFORCEMENT_CONTRACT.md)
   answer `allow`, `block`, `sanitize`, or
   `require_review`.
 

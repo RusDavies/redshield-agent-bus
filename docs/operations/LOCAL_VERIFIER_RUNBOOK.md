@@ -124,7 +124,7 @@ Expected result:
 }
 ```
 
-The core Warden contract validates baseline `allow`, `deny`, and
+The Warden contract validates baseline `allow`, `deny`, and
 `require_review` policy results. It checks that a policy result binds to the
 original request, carries reason/evidence references, requires approvers for
 review decisions, and does not embed private evidence.
@@ -146,7 +146,7 @@ Expected result:
 }
 ```
 
-The core Armor contract validates baseline `allow`, `block`, `sanitize`,
+The Armor contract validates baseline `allow`, `block`, `sanitize`,
 and `require_review` enforcement results. It checks that an enforcement result
 binds to the original request, names finding/evidence references, requires
 sanitized field references for sanitize decisions, and does not embed private

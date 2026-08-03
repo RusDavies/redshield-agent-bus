@@ -1,4 +1,4 @@
-"""Open-core ecosystem contract example validators."""
+"""Ecosystem contract example validators."""
 
 from __future__ import annotations
 

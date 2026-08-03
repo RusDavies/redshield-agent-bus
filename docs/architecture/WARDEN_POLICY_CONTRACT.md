@@ -1,8 +1,8 @@
-# Core Warden Policy Contract
+# Warden Policy Contract
 
 ## Purpose
 
-The core Warden contract lets Agent Bus consume policy decisions without
+The Warden contract lets Agent Bus consume policy decisions without
 requiring a deployed or private RedshieldWarden service. It is a local fixture
 contract for baseline decisions only.
 

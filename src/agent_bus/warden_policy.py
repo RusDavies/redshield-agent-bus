@@ -1,4 +1,4 @@
-"""Open-core Warden policy-result contract checks."""
+"""Open-Warden policy-result contract checks."""
 
 from __future__ import annotations
 

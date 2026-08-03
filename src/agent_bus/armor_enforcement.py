@@ -1,4 +1,4 @@
-"""Open-core Armor enforcement-result contract checks."""
+"""Open-Armor enforcement-result contract checks."""
 
 from __future__ import annotations
 

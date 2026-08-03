@@ -42,7 +42,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     warden_policy = subparsers.add_parser(
         "warden-policy",
-        help="verify core Warden policy-result contract fixtures",
+        help="verify Warden policy-result contract fixtures",
     )
     warden_policy.add_argument("path", type=Path, help="Warden policy fixture file or directory")
     warden_policy.add_argument(
@@ -53,7 +53,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     armor_enforcement = subparsers.add_parser(
         "armor-enforcement",
-        help="verify core Armor enforcement-result contract fixtures",
+        help="verify Armor enforcement-result contract fixtures",
     )
     armor_enforcement.add_argument("path", type=Path, help="Armor enforcement fixture file or directory")
     armor_enforcement.add_argument(

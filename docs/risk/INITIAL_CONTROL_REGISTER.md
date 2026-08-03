@@ -234,7 +234,7 @@ and able to allow, deny, or require review before risky work proceeds.
 
 Evidence:
 
-- `docs/architecture/CORE_WARDEN_POLICY_CONTRACT.md`
+- `docs/architecture/WARDEN_POLICY_CONTRACT.md`
 - `src/agent_bus/warden_policy.py`
 - `tests/fixtures/warden_policy/`
 - `tests/fixtures/agent_bus/envelopes/valid/valid-notify-with-warden-armor.json`
@@ -251,7 +251,7 @@ crosses sensitive boundaries.
 
 Evidence:
 
-- `docs/architecture/CORE_ARMOR_ENFORCEMENT_CONTRACT.md`
+- `docs/architecture/ARMOR_ENFORCEMENT_CONTRACT.md`
 - `src/agent_bus/armor_enforcement.py`
 - `tests/fixtures/armor_enforcement/`
 - `tests/fixtures/agent_bus/envelopes/valid/valid-notify-with-warden-armor.json`

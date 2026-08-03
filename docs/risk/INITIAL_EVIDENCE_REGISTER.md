@@ -216,7 +216,7 @@ python3 scripts/agent_bus_verify.py warden-policy tests/fixtures/warden_policy -
 
 Current expected result: `ok: true`, `case_count: 6`.
 
-Scope: proves the core Warden policy-result contract for local fixtures.
+Scope: proves the Warden policy-result contract for local fixtures.
 It does not prove live Warden policy enforcement.
 
 ### EVD-007: Armor Enforcement-Result Contract Verification
@@ -235,7 +235,7 @@ python3 scripts/agent_bus_verify.py armor-enforcement tests/fixtures/armor_enfor
 
 Current expected result: `ok: true`, `case_count: 7`.
 
-Scope: proves the core Armor enforcement-result contract for local
+Scope: proves the Armor enforcement-result contract for local
 fixtures. It does not prove live Armor enforcement.
 
 ### EVD-008: Ecosystem Contract Example Verification

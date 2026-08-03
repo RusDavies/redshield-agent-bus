@@ -219,7 +219,7 @@ inconsistent, forged, or optional for risky action classes.
 
 Controls already present:
 
-- core Warden and Armor contract validators;
+- Warden and Armor contract validators;
 - integrated envelope fixtures requiring Warden/Armor bindings;
 - threat model links for TH-15 and TH-16.
 

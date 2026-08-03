@@ -39,9 +39,9 @@ claim, or live-adapter approval.
 
 ## Contract Documents
 
-- [Core Warden policy contract](../architecture/CORE_WARDEN_POLICY_CONTRACT.md):
+- [Warden policy contract](../architecture/WARDEN_POLICY_CONTRACT.md):
   baseline policy decision shape for `allow`, `deny`, and `require_review`.
-- [Core Armor enforcement contract](../architecture/CORE_ARMOR_ENFORCEMENT_CONTRACT.md):
+- [Armor enforcement contract](../architecture/ARMOR_ENFORCEMENT_CONTRACT.md):
   baseline enforcement decision shape for `allow`, `block`, `sanitize`, and
   `require_review`.
 - [Live adapter dry-run contract](../architecture/LIVE_ADAPTER_DRY_RUN_CONTRACT.md):
