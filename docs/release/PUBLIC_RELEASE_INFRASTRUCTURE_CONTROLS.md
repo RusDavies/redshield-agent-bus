@@ -46,8 +46,10 @@ repository could not be enabled or verified during the 2026-07-23
 release-admin gate because GitHub returned a plan/visibility `403`. A follow-up
 A1 reattempt on 2026-08-02 still returned the same `403` for both classic branch
 protection and repository rulesets while the repository remained private. The
-public release remains blocked until that control is enabled or an equivalent
-source control path is explicitly approved and documented.
+2026-08-02 project decision is to defer GitHub default-branch protection until
+the repository is made public under separate explicit public-release approval.
+The public release remains blocked until that public-visibility step is approved
+and default-branch protection is enabled and verified.
 
 ## Publishing Controls
 

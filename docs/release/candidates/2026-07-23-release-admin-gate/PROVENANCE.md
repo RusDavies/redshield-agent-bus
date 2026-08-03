@@ -34,11 +34,12 @@ behavior, production use, or customer-facing security claims.
 - Branch protection blocker: GitHub reported that branch protection for this
   private repository requires GitHub Pro or making the repository public.
 - Action taken: no repository visibility change was made.
+- Follow-up decision on 2026-08-02: defer GitHub default-branch protection until
+  the repository is made public under separate explicit public-release approval.
 
 Default-branch protection therefore remains a release blocker. Before a public
-release, an administrator must either enable the required protection after the
-plan/visibility blocker is resolved or approve and document an equivalent
-control path.
+release, an administrator must make the repository public under explicit
+approval, then enable and verify the required default-branch protection.
 
 ## Publishing Choice
 
