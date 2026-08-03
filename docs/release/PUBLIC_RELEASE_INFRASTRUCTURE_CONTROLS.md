@@ -43,9 +43,11 @@ approval path in the candidate release evidence.
 
 Current status: branch protection for the private `RusDavies/redshield-agent-bus`
 repository could not be enabled or verified during the 2026-07-23
-release-admin gate because GitHub returned a plan/visibility `403`. The public
-release remains blocked until that control is enabled or an equivalent source
-control path is explicitly approved and documented.
+release-admin gate because GitHub returned a plan/visibility `403`. A follow-up
+A1 reattempt on 2026-08-02 still returned the same `403` for both classic branch
+protection and repository rulesets while the repository remained private. The
+public release remains blocked until that control is enabled or an equivalent
+source control path is explicitly approved and documented.
 
 ## Publishing Controls
 

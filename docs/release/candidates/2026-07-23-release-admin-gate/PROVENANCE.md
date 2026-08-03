@@ -28,6 +28,9 @@ behavior, production use, or customer-facing security claims.
   `1c7491b2c644ca109b61a7ae0c2fb9b9adf7d57a` succeeded.
 - Branch protection check: GitHub API returned `403` for
   `GET /repos/RusDavies/redshield-agent-bus/branches/main/protection`.
+- A1 follow-up reattempt on 2026-08-02: GitHub API still returned `403` for
+  classic branch protection and repository rulesets while the repository
+  remained private.
 - Branch protection blocker: GitHub reported that branch protection for this
   private repository requires GitHub Pro or making the repository public.
 - Action taken: no repository visibility change was made.
