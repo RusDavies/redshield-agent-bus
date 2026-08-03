@@ -39,7 +39,7 @@
     ],
     "risk_class": "low",
     "policy_refs": [
-      "policy:open-core:local-safe-notify"
+      "policy:core:local-safe-notify"
     ],
     "required_approver_roles": [],
     "evidence_refs": [

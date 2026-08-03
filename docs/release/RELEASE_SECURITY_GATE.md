@@ -12,18 +12,18 @@ Redshield Agent Bus.
 - `CONTRIBUTING.md` is present and keeps fixtures, tests, and docs public-safe.
 - `SECURITY.md` is present and defines a private vulnerability intake path that
   does not publish personal email addresses.
-- `docs/release/OPEN_CORE_RELEASE_CHECKLIST.md` is current.
+- `docs/release/CORE_RELEASE_CHECKLIST.md` is current.
 - `docs/release/PACKAGE_PROVENANCE_CONTROLS.md` is current.
 - `docs/release/PUBLIC_RELEASE_INFRASTRUCTURE_CONTROLS.md` is current.
 - `.github/workflows/ci.yml` exists and passes for the release candidate.
 - A release-specific evidence file has been copied from
   `docs/release/RELEASE_EVIDENCE_TEMPLATE.md` and completed.
 - `README.md` and public docs describe stand-alone verifier value without
-  management, customer, launch, or commercial-only assumptions.
+  customer-specific, deployment-specific, or launch-plan assumptions.
 - Package metadata identifies the selected license and supported Python version.
 - Local verifier commands pass against public fixtures.
 - Python tests pass in a documented environment.
-- `python3 scripts/verify_repo.py open-core` passes.
+- `python3 scripts/verify_repo.py core` passes.
 - CI status checks for the release candidate pass.
 - Public fixtures contain only fake identities, references, channels, runtime
   ids, tokens, and customer data.
@@ -60,8 +60,8 @@ Stop the release when any of these are true:
   security claims are implied by the release without explicit approval;
 - provenance for the release commit, package artifact, or verification result is
   missing;
-- the open-core repository contains management-only, commercial-only,
-  customer-specific, or private planning material.
+- the core repository contains customer-specific, deployment-specific, or
+  launch-plan material.
 
 ## Approval Record
 

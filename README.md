@@ -1,14 +1,14 @@
 # Redshield Agent Bus
 
-Redshield Agent Bus is an open-core protocol and verifier toolkit for safe
+Redshield Agent Bus is a core protocol and verifier toolkit for safe
 agent-to-agent and agent-to-workflow handoffs.
 
-The open core focuses on one job: define and verify safe bus semantics before
+The core focuses on one job: define and verify safe bus semantics before
 work crosses agent, tool, runtime, workspace, or delivery boundaries.
 
 ## What It Does
 
-The current open core provides:
+The current core provides:
 
 - a local `agent-bus` Python package;
 - a verifier CLI for static bus-message fixtures;
@@ -21,11 +21,11 @@ The current open core provides:
 - public-safe examples for
   [RSK AI Auth-style grants](docs/architecture/CAPABILITY_GRANT_PROOF_ADAPTER_CONTRACT.md),
   [Keyper-style credential evidence](docs/architecture/CREDENTIAL_CAPABILITY_PROVIDERS.md),
-  [Warden policy decisions](docs/architecture/OPEN_CORE_WARDEN_POLICY_CONTRACT.md),
-  and [Armor enforcement results](docs/architecture/OPEN_CORE_ARMOR_ENFORCEMENT_CONTRACT.md);
-- enforced open-core Warden policy-result fixtures for `allow`, `deny`, and
+  [Warden policy decisions](docs/architecture/CORE_WARDEN_POLICY_CONTRACT.md),
+  and [Armor enforcement results](docs/architecture/CORE_ARMOR_ENFORCEMENT_CONTRACT.md);
+- enforced core Warden policy-result fixtures for `allow`, `deny`, and
   `require_review`;
-- enforced open-core Armor enforcement-result fixtures for `allow`, `block`,
+- enforced core Armor enforcement-result fixtures for `allow`, `block`,
   `sanitize`, and `require_review`;
 - architecture, requirements, security, QA, and promotion-gate documentation.
 
@@ -38,7 +38,7 @@ runtime tools, spawn agents, publish events, or perform external actions.
 - Contributions: see [CONTRIBUTING.md](CONTRIBUTING.md).
 - Vulnerability reporting: see [SECURITY.md](SECURITY.md).
 - Public release readiness: see
-  [docs/release/OPEN_CORE_RELEASE_CHECKLIST.md](docs/release/OPEN_CORE_RELEASE_CHECKLIST.md)
+  [docs/release/CORE_RELEASE_CHECKLIST.md](docs/release/CORE_RELEASE_CHECKLIST.md)
   and [docs/release/RELEASE_SECURITY_GATE.md](docs/release/RELEASE_SECURITY_GATE.md).
 - Package provenance controls: see
   [docs/release/PACKAGE_PROVENANCE_CONTROLS.md](docs/release/PACKAGE_PROVENANCE_CONTROLS.md)
@@ -183,12 +183,6 @@ Expected result:
 }
 ```
 
-Run the source classification check in the pre-split source repository:
-
-```sh
-python3 scripts/check_source_classification_manifest.py
-```
-
 Run the standard Python test command after installing test dependencies:
 
 ```sh
@@ -205,14 +199,14 @@ Agent Bus stays narrow by consuming neighboring capabilities through contracts:
 - [Keyper-style SSH certificate evidence](docs/architecture/CREDENTIAL_CAPABILITY_PROVIDERS.md)
   can satisfy the credential-provider contract without making Agent Bus depend
   on Keyper.
-- [Warden policy results](docs/architecture/OPEN_CORE_WARDEN_POLICY_CONTRACT.md)
+- [Warden policy results](docs/architecture/CORE_WARDEN_POLICY_CONTRACT.md)
   answer `allow`, `deny`, or `require_review`.
-- [Armor enforcement results](docs/architecture/OPEN_CORE_ARMOR_ENFORCEMENT_CONTRACT.md)
+- [Armor enforcement results](docs/architecture/CORE_ARMOR_ENFORCEMENT_CONTRACT.md)
   answer `allow`, `block`, `sanitize`, or
   `require_review`.
 
 The ecosystem verifier enforces those public example shapes without importing
-or requiring private or commercial implementations of those systems.
+or requiring external implementations of those systems.
 
 ## Safety Model
 

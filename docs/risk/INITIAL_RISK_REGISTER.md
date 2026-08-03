@@ -40,7 +40,7 @@ rollback or stop condition. No risks are accepted in this initial register.
 | RSK-009 | Warden policy or Armor enforcement evidence is bypassed, inconsistent, or treated as optional for risky actions. | Critical | Medium | Mitigate | Started | Maintainer |
 | RSK-010 | Shared queues or routing are abused, flooded, starved, or claimed by the wrong actor. | High | Medium | Mitigate | Open | Maintainer / operator |
 | RSK-011 | Audit evidence stores too much private content, too little useful provenance, or lacks retention rules. | High | Medium | Mitigate | Started | Maintainer / operator |
-| RSK-012 | Open-core contracts become coupled to private neighboring products or commercial-only implementations. | Medium | Medium | Mitigate | Started | Maintainer |
+| RSK-012 | Core contracts become coupled to private neighboring products or private implementations. | Medium | Medium | Mitigate | Started | Maintainer |
 
 ## Detailed Risks
 
@@ -181,7 +181,7 @@ Controls already present:
 - release security gate;
 - package provenance controls;
 - release evidence template;
-- open-core profile verification.
+- core profile verification.
 
 Next controls:
 
@@ -200,7 +200,7 @@ Armor, or managed-operations readiness before evidence exists.
 Controls already present:
 
 - product brief non-goals;
-- open-core/commercial split;
+- protocol and release scope boundaries;
 - release and production gates block customer-facing claims.
 
 Next controls:
@@ -219,7 +219,7 @@ inconsistent, forged, or optional for risky action classes.
 
 Controls already present:
 
-- open-core Warden and Armor contract validators;
+- core Warden and Armor contract validators;
 - integrated envelope fixtures requiring Warden/Armor bindings;
 - threat model links for TH-15 and TH-16.
 
@@ -275,27 +275,26 @@ Next controls:
 Stop condition: production/shared use without audit minimization, retention, and
 restore evidence.
 
-### RSK-012: Open-Core Coupling Drift
+### RSK-012: Core Coupling Drift
 
-Risk: The open core becomes coupled to Keyper, RSK AI Auth, Warden, Armor,
-commercial bundles, downstream products, customer policy, or private management
-state.
+Risk: The core becomes coupled to Keyper, RSK AI Auth, Warden, Armor,
+downstream products, customer policy, or deployment-specific state.
 
 Controls already present:
 
-- open-core boundary in README and product brief;
+- core boundary in README and product brief;
 - generic credential-provider, capability-grant, Warden, and Armor contracts;
 - public-safe ecosystem fixtures;
-- repository split and public-doc verification.
+- public-content verification.
 
 Next controls:
 
 - keep neighboring systems behind public contract examples;
-- reject private/commercial assumptions in open-core docs and tests;
+- reject downstream assumptions in core docs and tests;
 - review public repo content before visibility changes.
 
-Stop condition: open-core code or docs require a private/commercial product for
-baseline verifier value.
+Stop condition: core code or docs require an external product for baseline
+verifier value.
 
 ## Review Cadence
 

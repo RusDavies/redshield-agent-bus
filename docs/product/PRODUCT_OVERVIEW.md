@@ -20,9 +20,9 @@ Agent work often crosses boundaries:
 
 Without a typed bus model, those boundaries become convention and guesswork.
 
-## Open-Core Value
+## Core Value
 
-The open core gives adopters a local verifier and contract set that can answer:
+The core gives adopters a local verifier and contract set that can answer:
 
 - Is this handoff well formed?
 - Who is acting?
@@ -35,21 +35,13 @@ The open core gives adopters a local verifier and contract set that can answer:
 - Would baseline enforcement block or sanitize unsafe content?
 
 That is useful for local development, CI checks, adapter development, and
-small-team validation before any paid service exists.
+team validation before live deployment.
 
-## Commercial Boundary
+## Scope Boundaries
 
-Commercial editions should make the open-core safety model easier to operate
-across organizations and production systems.
+The project defines protocol semantics, verifier behavior, fixture contracts,
+and release gates. It does not include a production broker, live adapter service,
+hosted operations console, organization policy engine, or deployment platform.
 
-Paid value may include:
-
-- organization policy and approval workflows;
-- deployed runtime enforcement;
-- admin visibility and Agent Hub workflows;
-- connector-specific controls;
-- evidence and audit exports;
-- managed operations and support.
-
-Paid features should not be required for the basic verifier, protocol semantics,
-local safety model, or baseline Warden/Armor result contracts.
+Future live use needs explicit promotion evidence, rollback paths, and human
+approval for the specific runtime and surface involved.

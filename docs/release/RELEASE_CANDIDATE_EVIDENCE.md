@@ -37,7 +37,7 @@ location, and rollback evidence. It remains evidence only, not approval.
 ## Current Local Verification Commands
 
 ```sh
-python3 scripts/verify_repo.py open-core
+python3 scripts/verify_repo.py core
 python3 scripts/agent_bus_verify.py verify tests/fixtures/agent_bus --pretty
 python3 scripts/agent_bus_verify.py dry-run tests/fixtures/adapter_dry_runs --pretty
 python3 scripts/agent_bus_verify.py capability-grant tests/fixtures/capability_grants --pretty

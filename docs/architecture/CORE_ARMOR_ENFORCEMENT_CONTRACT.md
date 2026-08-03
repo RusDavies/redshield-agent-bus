@@ -1,8 +1,8 @@
-# Open-Core Armor Enforcement Contract
+# Core Armor Enforcement Contract
 
 ## Purpose
 
-The open-core Armor contract lets Agent Bus consume enforcement decisions
+The core Armor contract lets Agent Bus consume enforcement decisions
 without requiring a deployed or private RedshieldArmor runtime guard. It is a
 local fixture contract for baseline checks only.
 

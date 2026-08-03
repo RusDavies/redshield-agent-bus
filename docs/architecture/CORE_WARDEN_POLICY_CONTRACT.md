@@ -1,8 +1,8 @@
-# Open-Core Warden Policy Contract
+# Core Warden Policy Contract
 
 ## Purpose
 
-The open-core Warden contract lets Agent Bus consume policy decisions without
+The core Warden contract lets Agent Bus consume policy decisions without
 requiring a deployed or private RedshieldWarden service. It is a local fixture
 contract for baseline decisions only.
 
@@ -58,7 +58,7 @@ stable once fixtures depend on them.
   "decision": "allow",
   "reason_codes": ["action_class_allowed"],
   "risk_class": "low",
-  "policy_refs": ["policy:open-core:local-safe-notify"],
+  "policy_refs": ["policy:core:local-safe-notify"],
   "required_approver_roles": [],
   "evidence_refs": ["evidence:warden:test-allow-0001"],
   "applies_to": {

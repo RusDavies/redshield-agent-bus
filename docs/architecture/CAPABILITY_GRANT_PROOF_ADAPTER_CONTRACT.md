@@ -1,6 +1,6 @@
 # Capability Grant Proof Adapter Contract
 
-This contract lets Agent Bus consume a public open-core capability-grant shape
+This contract lets Agent Bus consume a public core capability-grant shape
 without depending on a live issuer, private `rsk-ai-auth` history, or a hosted
 RedshieldWorks service.
 

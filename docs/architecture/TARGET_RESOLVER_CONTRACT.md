@@ -7,7 +7,7 @@ single local route preview before any adapter dry-run or later live behavior is
 allowed. It exists to prevent ambiguous target selection, wrong-destination
 delivery, and audit gaps.
 
-This contract is open-core and local-first. It does not approve live delivery,
+This contract is core and local-first. It does not approve live delivery,
 session spawning, runtime calls, queue publication, production use, public
 release, or enterprise routing.
 

@@ -1,8 +1,8 @@
-# Open-Core Release Checklist
+# Core Release Checklist
 
 No public release is approved yet.
 
-Before a public open-core release:
+Before a public core release:
 
 - [ ] License is selected and present.
 - [ ] Contribution policy is present.
@@ -22,14 +22,14 @@ Before a public open-core release:
 - [ ] Public fixtures contain only fake ids and no private data.
 - [ ] Keyper-style provider fixture stays behind the generic credential-provider
       contract and does not introduce a hard dependency.
-- [ ] Open-core Warden and Armor baseline contract examples are present.
+- [ ] Core Warden and Armor baseline contract examples are present.
 - [ ] Ecosystem contract examples pass the local schema verifier.
-- [ ] Repo verification profile for open core passes.
+- [ ] Repo verification profile for core passes.
 - [ ] Supply-chain and provenance expectations are documented.
 - [ ] SBOM expectation and rollback path are documented.
 - [ ] Branch protection or equivalent default-branch ruleset is verified.
-- [ ] No management, migration approval, private planning, customer policy, or
-      commercial launch posture is included in the public repo.
+- [ ] No customer-specific, deployment-specific, or launch-plan material is
+      included in the public repo.
 
 Production, hosted, managed, enterprise, or customer-facing deployment requires
 separate gates and evidence. A public package release is not a production

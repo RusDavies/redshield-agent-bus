@@ -38,7 +38,7 @@
     ],
     "risk_class": "high",
     "policy_refs": [
-      "policy:open-core:fail-closed-risky-action"
+      "policy:core:fail-closed-risky-action"
     ],
     "required_approver_roles": [],
     "evidence_refs": [

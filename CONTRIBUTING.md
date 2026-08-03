@@ -1,12 +1,12 @@
 # Contributing To Redshield Agent Bus
 
 Redshield Agent Bus is currently pre-release. Contributions are welcome once
-they preserve the open-core boundary and the local-first safety model.
+they preserve the core boundary and the local-first safety model.
 
 ## Ground Rules
 
-- Keep the open core downstream-agnostic. Do not add product, customer,
-  commercial, management, or launch-plan assumptions to this repository.
+- Keep the core downstream-agnostic. Do not add customer-specific,
+  deployment-specific, or launch-plan assumptions to this repository.
 - Keep verifier behavior deterministic and local. Tests must not require live
   credentials, live chat surfaces, agent runtimes, network services, or
   production infrastructure.
@@ -26,7 +26,7 @@ python3 -m pytest
 ```
 
 Before opening a change, also run the local verifier checks that apply to the
-files you touched. The full open-core verification set is:
+files you touched. The full core verification set is:
 
 ```sh
 python3 scripts/agent_bus_verify.py verify tests/fixtures/agent_bus --pretty
@@ -35,7 +35,7 @@ python3 scripts/agent_bus_verify.py capability-grant tests/fixtures/capability_g
 python3 scripts/agent_bus_verify.py warden-policy tests/fixtures/warden_policy --pretty
 python3 scripts/agent_bus_verify.py armor-enforcement tests/fixtures/armor_enforcement --pretty
 python3 scripts/agent_bus_verify.py ecosystem-contract tests/fixtures/agent_bus/ecosystem --pretty
-python3 scripts/verify_repo.py open-core
+python3 scripts/verify_repo.py core
 ```
 
 ## Change Review Expectations
@@ -49,6 +49,5 @@ Protocol, security, release, and fixture changes should explain:
 
 Changes that enable live posting, live agent spawning, external actions,
 production runtime calls, public package release, or customer-facing security
-claims require explicit human approval recorded outside this public-target
+claims require explicit human approval recorded outside this public
 repository before implementation.
-

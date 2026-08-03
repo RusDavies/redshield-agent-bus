@@ -13,7 +13,7 @@ must be present and verified before a separate release approval can be valid.
 
 - GitHub Actions CI workflow: `.github/workflows/ci.yml`.
 - Least-privilege workflow permissions: `contents: read`.
-- CI verifies the open-core repository profile.
+- CI verifies the core repository profile.
 - CI runs all local fixture verifier commands.
 - CI runs the Python test suite.
 - Release evidence template requires source protection, verification, build
@@ -31,7 +31,7 @@ Minimum settings:
 
 - require pull request review before merging release, security, fixture, and
   workflow changes;
-- require the `Verify open core` CI job before merge;
+- require the `Verify core` CI job before merge;
 - block force pushes;
 - block branch deletion;
 - require conversations to be resolved before merge;
@@ -89,7 +89,7 @@ Current candidate evidence:
 Run local release-control verification:
 
 ```sh
-python3 scripts/verify_repo.py open-core
+python3 scripts/verify_repo.py core
 ```
 
 Run the same commands the CI workflow runs:

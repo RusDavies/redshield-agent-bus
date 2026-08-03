@@ -45,7 +45,7 @@ Evidence records should prefer:
 
 | ID | Evidence | Status | Supports | Gate |
 | --- | --- | --- | --- | --- |
-| EVD-001 | Open-core profile verification result | Current | CTL-007, CTL-010, CTL-016 | Gate 0 / public release |
+| EVD-001 | Core profile verification result | Current | CTL-007, CTL-010, CTL-016 | Gate 0 / public release |
 | EVD-002 | Local verifier fixture-suite result | Current | CTL-001, CTL-002, CTL-003, CTL-004, CTL-005, CTL-019 | Gate 0 |
 | EVD-003 | Adapter dry-run preview and receipt verification | Current | CTL-005, CTL-006 | Gate 0 / Gate 1 |
 | EVD-004 | Capability-grant contract verification | Current | CTL-015 | Gate 0 / Gate 1 |
@@ -70,7 +70,7 @@ Evidence records should prefer:
 
 ## Current Evidence Records
 
-### EVD-001: Open-Core Profile Verification Result
+### EVD-001: Core Profile Verification Result
 
 Accepted evidence:
 
@@ -82,13 +82,13 @@ Accepted evidence:
 Current command:
 
 ```sh
-python3 scripts/verify_repo.py open-core
+python3 scripts/verify_repo.py core
 ```
 
-Current expected result: `OK: redshield-agent-bus open-core profile contains
+Current expected result: `OK: redshield-agent-bus core profile contains
 98 required checks`.
 
-Scope: proves the current open-core repository includes the required public-safe
+Scope: proves the current core repository includes the required public-safe
 files and fixtures for Gate 0 review. It does not prove branch protection,
 release automation, public visibility readiness, or package provenance.
 
@@ -216,7 +216,7 @@ python3 scripts/agent_bus_verify.py warden-policy tests/fixtures/warden_policy -
 
 Current expected result: `ok: true`, `case_count: 6`.
 
-Scope: proves the open-core Warden policy-result contract for local fixtures.
+Scope: proves the core Warden policy-result contract for local fixtures.
 It does not prove live Warden policy enforcement.
 
 ### EVD-007: Armor Enforcement-Result Contract Verification
@@ -235,7 +235,7 @@ python3 scripts/agent_bus_verify.py armor-enforcement tests/fixtures/armor_enfor
 
 Current expected result: `ok: true`, `case_count: 7`.
 
-Scope: proves the open-core Armor enforcement-result contract for local
+Scope: proves the core Armor enforcement-result contract for local
 fixtures. It does not prove live Armor enforcement.
 
 ### EVD-008: Ecosystem Contract Example Verification
@@ -255,8 +255,7 @@ python3 scripts/agent_bus_verify.py ecosystem-contract tests/fixtures/agent_bus/
 Current expected result: `ok: true`, `case_count: 4`.
 
 Scope: proves public-safe neighboring contract examples remain parseable and
-downstream-agnostic. It does not prove private or commercial implementation
-behavior.
+downstream-agnostic. It does not prove live implementation behavior.
 
 ### EVD-009: Python Unit Test Result
 
@@ -292,7 +291,7 @@ Current evidence:
 
 - `docs/security/THREAT_MODEL.md`
 
-Scope: proves Gate 0 local-verifier and open-core preparation review only. It
+Scope: proves Gate 0 local-verifier and core preparation review only. It
 does not approve public release, package publication, live adapter promotion,
 production use, enterprise claims, or customer-facing security posture.
 

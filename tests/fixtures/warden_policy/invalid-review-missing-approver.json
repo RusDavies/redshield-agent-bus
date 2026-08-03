@@ -34,7 +34,7 @@
     "decision": "require_review",
     "reason_codes": ["public_action_requires_human_review"],
     "risk_class": "medium",
-    "policy_refs": ["policy:open-core:review-public-action"],
+    "policy_refs": ["policy:core:review-public-action"],
     "required_approver_roles": [],
     "evidence_refs": ["evidence:warden:test-review-missing-approver"],
     "applies_to": {

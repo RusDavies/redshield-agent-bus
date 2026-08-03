@@ -24,7 +24,7 @@ behavior, production use, or customer-facing security claims.
 
 - CI workflow present: `.github/workflows/ci.yml`.
 - CI workflow permission posture: `contents: read`.
-- CI workflow status: latest `Verify open core` run for commit
+- CI workflow status: latest `Verify core` run for commit
   `1c7491b2c644ca109b61a7ae0c2fb9b9adf7d57a` succeeded.
 - Branch protection check: GitHub API returned `403` for
   `GET /repos/RusDavies/redshield-agent-bus/branches/main/protection`.

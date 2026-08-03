@@ -16,7 +16,7 @@
       "decision": "deny",
       "reason_codes": ["external_action_not_authorized"],
       "risk_class": "high",
-      "policy_refs": ["policy:open-core:fail-closed-risky-action"],
+      "policy_refs": ["policy:core:fail-closed-risky-action"],
       "required_approver_roles": [],
       "evidence_refs": ["evidence:warden:integrated-deny"],
       "applies_to": {

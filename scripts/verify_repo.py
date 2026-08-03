@@ -10,7 +10,7 @@ from collections.abc import Iterable, Sequence
 
 ROOT = Path(__file__).resolve().parents[1]
 
-OPEN_CORE_REQUIRED_PATHS = [
+CORE_REQUIRED_PATHS = [
     ".github/workflows/ci.yml",
     ".gitignore",
     "CONTRIBUTING.md",
@@ -23,8 +23,8 @@ OPEN_CORE_REQUIRED_PATHS = [
     "docs/architecture/FIRST_BUILDABLE_PATH.md",
     "docs/architecture/FIXTURE_AUDIT_STORAGE.md",
     "docs/architecture/LIVE_ADAPTER_DRY_RUN_CONTRACT.md",
-    "docs/architecture/OPEN_CORE_ARMOR_ENFORCEMENT_CONTRACT.md",
-    "docs/architecture/OPEN_CORE_WARDEN_POLICY_CONTRACT.md",
+    "docs/architecture/CORE_ARMOR_ENFORCEMENT_CONTRACT.md",
+    "docs/architecture/CORE_WARDEN_POLICY_CONTRACT.md",
     "docs/architecture/TARGET_RESOLVER_CONTRACT.md",
     "docs/architecture/TRUSTED_LIVE_ADAPTER_RECEIPT_MODEL.md",
     "docs/operations/AGENT_OPERATION_BOUNDARIES.md",
@@ -45,7 +45,7 @@ OPEN_CORE_REQUIRED_PATHS = [
     "docs/security/AUTHORIZATION_CONTEXT_SCHEMA.md",
     "docs/security/CONTEXT_PACKAGE_RULES.md",
     "docs/qa/QA_PLAN.md",
-    "docs/release/OPEN_CORE_RELEASE_CHECKLIST.md",
+    "docs/release/CORE_RELEASE_CHECKLIST.md",
     "docs/release/PACKAGE_PROVENANCE_CONTROLS.md",
     "docs/release/PUBLIC_RELEASE_INFRASTRUCTURE_CONTROLS.md",
     "docs/release/RELEASE_CANDIDATE_EVIDENCE.md",
@@ -107,36 +107,36 @@ OPEN_CORE_REQUIRED_PATHS = [
     "tests/fixtures/shared_use/valid-shared-profile.json",
 ]
 
-OPEN_CORE_ALTERNATIVES = [
+CORE_ALTERNATIVES = [
     (
         "public README",
-        ("README.md", "docs/open-core/README.md"),
+        ("README.md", "docs/core/README.md"),
     ),
     (
         "public product overview",
         (
             "docs/product/PRODUCT_OVERVIEW.md",
-            "docs/open-core/PRODUCT_OVERVIEW.md",
+            "docs/core/PRODUCT_OVERVIEW.md",
         ),
     ),
     (
         "local verifier runbook",
         (
             "docs/operations/LOCAL_VERIFIER_RUNBOOK.md",
-            "docs/open-core/LOCAL_VERIFIER_RUNBOOK.md",
+            "docs/core/LOCAL_VERIFIER_RUNBOOK.md",
         ),
     ),
     (
-        "open-core release checklist",
+        "core release checklist",
         (
-            "docs/release/OPEN_CORE_RELEASE_CHECKLIST.md",
-            "docs/open-core/OPEN_CORE_RELEASE_CHECKLIST.md",
+            "docs/release/CORE_RELEASE_CHECKLIST.md",
+            "docs/core/CORE_RELEASE_CHECKLIST.md",
         ),
     ),
 ]
 
 PROFILES = {
-    "open-core": (OPEN_CORE_REQUIRED_PATHS, OPEN_CORE_ALTERNATIVES),
+    "core": (CORE_REQUIRED_PATHS, CORE_ALTERNATIVES),
 }
 
 try:
@@ -174,20 +174,6 @@ def verify(profile: str, root: Path) -> int:
             print(f"- {path}")
         return 1
 
-    if profile == "commercial" and not required_paths:
-        placeholder = root / "COMMERCIAL_PLACEHOLDER.md"
-        if placeholder.exists():
-            print(
-                f"OK: {root.name} commercial profile is placeholder-only "
-                f"({placeholder.name})"
-            )
-        else:
-            print(
-                f"OK: {root.name} commercial profile has no required paths yet; "
-                "commercial implementation is not approved"
-            )
-        return 0
-
     total = len(required_paths) + len(alternatives)
     print(f"OK: {root.name} {profile} profile contains {total} required checks")
     return 0
@@ -195,9 +181,9 @@ def verify(profile: str, root: Path) -> int:
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Verify required files for source and split target repos."
+        description="Verify required files for this repository."
     )
-    default_profile = "source" if "source" in PROFILES else "open-core"
+    default_profile = "source" if "source" in PROFILES else "core"
     parser.add_argument(
         "profile",
         nargs="?",

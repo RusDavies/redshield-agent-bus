@@ -34,7 +34,7 @@
     "decision": "allow",
     "reason_codes": ["action_class_allowed"],
     "risk_class": "low",
-    "policy_refs": ["policy:open-core:local-safe-notify"],
+    "policy_refs": ["policy:core:local-safe-notify"],
     "required_approver_roles": [],
     "evidence_refs": ["evidence:warden:test-private-evidence"],
     "applies_to": {

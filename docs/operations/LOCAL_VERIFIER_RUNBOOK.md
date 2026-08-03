@@ -2,7 +2,7 @@
 
 ## Scope
 
-The current open-core runtime is local verification only.
+The current core runtime is local verification only.
 
 It reads static fixtures, validates bus-message envelopes and state
 transitions, and prints deterministic results. It must not perform live
@@ -124,7 +124,7 @@ Expected result:
 }
 ```
 
-The open-core Warden contract validates baseline `allow`, `deny`, and
+The core Warden contract validates baseline `allow`, `deny`, and
 `require_review` policy results. It checks that a policy result binds to the
 original request, carries reason/evidence references, requires approvers for
 review decisions, and does not embed private evidence.
@@ -146,7 +146,7 @@ Expected result:
 }
 ```
 
-The open-core Armor contract validates baseline `allow`, `block`, `sanitize`,
+The core Armor contract validates baseline `allow`, `block`, `sanitize`,
 and `require_review` enforcement results. It checks that an enforcement result
 binds to the original request, names finding/evidence references, requires
 sanitized field references for sanitize decisions, and does not embed private

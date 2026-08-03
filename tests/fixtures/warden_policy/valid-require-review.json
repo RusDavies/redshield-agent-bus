@@ -37,7 +37,7 @@
     ],
     "risk_class": "medium",
     "policy_refs": [
-      "policy:open-core:review-public-action"
+      "policy:core:review-public-action"
     ],
     "required_approver_roles": [
       "project_owner"

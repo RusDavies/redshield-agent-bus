@@ -38,7 +38,7 @@ Cross-check required evidence classes against
 `docs/risk/INITIAL_EVIDENCE_REGISTER.md`.
 
 ```sh
-python3 scripts/verify_repo.py open-core
+python3 scripts/verify_repo.py core
 python3 scripts/agent_bus_verify.py verify tests/fixtures/agent_bus --pretty
 python3 scripts/agent_bus_verify.py dry-run tests/fixtures/adapter_dry_runs --pretty
 python3 scripts/agent_bus_verify.py capability-grant tests/fixtures/capability_grants --pretty

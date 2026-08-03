@@ -1,20 +1,20 @@
 # Policy Index
 
 This index collects the current public-safe policy, boundary, and gate documents
-for Redshield Agent Bus. It is an index of open-core rules and verifier-facing
+for Redshield Agent Bus. It is an index of core rules and verifier-facing
 contracts, not a deployed policy service, enterprise policy console, compliance
 claim, or live-adapter approval.
 
 ## Current Policy Posture
 
-- The open core is local-first: fixtures, verifier commands, dry-run previews,
+- The core is local-first: fixtures, verifier commands, dry-run previews,
   and receipt validation are allowed.
 - Live posting, live session spawning, runtime/gateway side effects, public
   release, production use, external actions, destructive actions, and
   customer-facing security claims remain blocked until the matching gate and
   approval record exist.
-- Warden and Armor are consumed through public contract shapes. The open core
-  must not depend on private, commercial, customer-specific, or deployed
+- Warden and Armor are consumed through public contract shapes. The core
+  must not depend on private, customer-specific, or deployed
   Warden/Armor implementations for baseline validation.
 - Evidence should use references, hashes, decisions, receipts, and redacted
   metadata. Fixtures and public docs must not contain private memory, secrets,
@@ -39,9 +39,9 @@ claim, or live-adapter approval.
 
 ## Contract Documents
 
-- [Open-core Warden policy contract](../architecture/OPEN_CORE_WARDEN_POLICY_CONTRACT.md):
+- [Core Warden policy contract](../architecture/CORE_WARDEN_POLICY_CONTRACT.md):
   baseline policy decision shape for `allow`, `deny`, and `require_review`.
-- [Open-core Armor enforcement contract](../architecture/OPEN_CORE_ARMOR_ENFORCEMENT_CONTRACT.md):
+- [Core Armor enforcement contract](../architecture/CORE_ARMOR_ENFORCEMENT_CONTRACT.md):
   baseline enforcement decision shape for `allow`, `block`, `sanitize`, and
   `require_review`.
 - [Live adapter dry-run contract](../architecture/LIVE_ADAPTER_DRY_RUN_CONTRACT.md):
@@ -61,7 +61,7 @@ claim, or live-adapter approval.
 ## Security And Release Gates
 
 - [Threat model](../security/THREAT_MODEL.md):
-  threat, mitigation, and open-finding source for local verification, open-core
+  threat, mitigation, and open-finding source for local verification, core
   preparation, and future live-adapter risks.
 - [Authorization context schema](../security/AUTHORIZATION_CONTEXT_SCHEMA.md):
   source-event and approval-event requirements for bounded authority.
@@ -80,14 +80,14 @@ claim, or live-adapter approval.
 - [Initial control register](../risk/INITIAL_CONTROL_REGISTER.md): current
   control expectations and evidence links.
 - [Initial evidence register](../risk/INITIAL_EVIDENCE_REGISTER.md): current
-  evidence inventory for open-core readiness.
+  evidence inventory for core readiness.
 
 ## Local Verification
 
 Run the public repository verification profile:
 
 ```sh
-python3 scripts/verify_repo.py open-core
+python3 scripts/verify_repo.py core
 ```
 
 Run the full Python test suite:

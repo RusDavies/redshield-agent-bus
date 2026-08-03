@@ -14,7 +14,7 @@
       ],
       "risk_class": "low",
       "policy_refs": [
-        "policy:open-core:local-safe-notify"
+        "policy:core:local-safe-notify"
       ],
       "required_approver_roles": [],
       "evidence_refs": [
@@ -32,7 +32,7 @@
       ],
       "risk_class": "high",
       "policy_refs": [
-        "policy:open-core:fail-closed-risky-action"
+        "policy:core:fail-closed-risky-action"
       ],
       "required_approver_roles": [],
       "evidence_refs": [
@@ -49,7 +49,7 @@
       ],
       "risk_class": "medium",
       "policy_refs": [
-        "policy:open-core:review-public-action"
+        "policy:core:review-public-action"
       ],
       "required_approver_roles": [
         "project_owner"

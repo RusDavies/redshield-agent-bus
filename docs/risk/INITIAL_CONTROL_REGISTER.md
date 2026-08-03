@@ -40,7 +40,7 @@ Control status values:
 | CTL-013 | Armor enforcement-result contract | Started | RSK-003, RSK-005, RSK-009 | TH-6, TH-9, TH-16 | Gate 0 / Gate 2 |
 | CTL-014 | Credential-provider evidence contract | Started | RSK-001, RSK-009, RSK-011 | TH-1, TH-12 | Gate 0 / Gate 1 |
 | CTL-015 | Capability-grant proof adapter contract | Started | RSK-001, RSK-005, RSK-009 | TH-1, TH-9 | Gate 0 / Gate 1 |
-| CTL-016 | Open-core boundary and coupling control | Defined | RSK-007, RSK-012 | TH-13, TH-14 | Public release |
+| CTL-016 | Core boundary and coupling control | Defined | RSK-007, RSK-012 | TH-13, TH-14 | Public release |
 | CTL-017 | Risk register review | Defined | RSK-001 through RSK-012 | TH-1 through TH-16 | Class 4E planning |
 | CTL-018 | Audit minimization and retention | Planned | RSK-003, RSK-011 | TH-6, TH-10, TH-12 | Gate 2 / Gate 3 |
 | CTL-019 | Runtime-event boundary | Started | RSK-001, RSK-005 | TH-3, TH-8, TH-9 | Gate 0 / Gate 1 |
@@ -160,7 +160,7 @@ approval evidence.
 Evidence:
 
 - `docs/operations/PROMOTION_GATE.md`
-- `docs/release/OPEN_CORE_RELEASE_CHECKLIST.md`
+- `docs/release/CORE_RELEASE_CHECKLIST.md`
 - `docs/release/RELEASE_SECURITY_GATE.md`
 - `docs/release/RELEASE_EVIDENCE_TEMPLATE.md`
 
@@ -208,7 +208,7 @@ Evidence:
 - `CONTRIBUTING.md`
 - `SECURITY.md`
 - `docs/release/RELEASE_SECURITY_GATE.md`
-- `docs/release/OPEN_CORE_RELEASE_CHECKLIST.md`
+- `docs/release/CORE_RELEASE_CHECKLIST.md`
 
 Minimum gate expectation: release candidates must satisfy the security gate and
 record review evidence before public visibility or package publication.
@@ -234,7 +234,7 @@ and able to allow, deny, or require review before risky work proceeds.
 
 Evidence:
 
-- `docs/architecture/OPEN_CORE_WARDEN_POLICY_CONTRACT.md`
+- `docs/architecture/CORE_WARDEN_POLICY_CONTRACT.md`
 - `src/agent_bus/warden_policy.py`
 - `tests/fixtures/warden_policy/`
 - `tests/fixtures/agent_bus/envelopes/valid/valid-notify-with-warden-armor.json`
@@ -251,7 +251,7 @@ crosses sensitive boundaries.
 
 Evidence:
 
-- `docs/architecture/OPEN_CORE_ARMOR_ENFORCEMENT_CONTRACT.md`
+- `docs/architecture/CORE_ARMOR_ENFORCEMENT_CONTRACT.md`
 - `src/agent_bus/armor_enforcement.py`
 - `tests/fixtures/armor_enforcement/`
 - `tests/fixtures/agent_bus/envelopes/valid/valid-notify-with-warden-armor.json`
@@ -292,20 +292,20 @@ Minimum gate expectation: local fixtures verify the public grant shape and
 reject expired or mismatched grants. Live gates require issuer trust and proof
 validation.
 
-### CTL-016: Open-Core Boundary And Coupling Control
+### CTL-016: Core Boundary And Coupling Control
 
-Objective: the open core must stay downstream-agnostic and avoid depending on
-private, customer-specific, commercial-only, or management-repository state.
+Objective: the core must stay downstream-agnostic and avoid depending on
+customer-specific data, deployment-specific state, or external products.
 
 Evidence:
 
 - `README.md`
-- `docs/release/OPEN_CORE_RELEASE_CHECKLIST.md`
+- `docs/release/CORE_RELEASE_CHECKLIST.md`
 - `docs/architecture/CREDENTIAL_CAPABILITY_PROVIDERS.md`
 
 Minimum gate expectation: public docs and fixtures describe contracts rather
 than private implementations. Release review must check for private data and
-commercial coupling.
+downstream coupling.
 
 ### CTL-017: Risk Register Review
 
