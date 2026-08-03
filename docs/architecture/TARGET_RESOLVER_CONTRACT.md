@@ -13,7 +13,7 @@ release, or enterprise routing.
 
 ## Resolver Inputs
 
-The resolver consumes only public-safe envelope and adapter-capability metadata:
+The resolver consumes only envelope and adapter-capability metadata:
 
 - `message_id` and `correlation_id`;
 - `source.workspace_id` and `source.project_slug`;

@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This register tracks public-safe controls for Redshield Agent Bus. It maps the
+This register tracks controls for Redshield Agent Bus. It maps the
 initial risk register, threat model, release gates, and Class 4 production gates
 to concrete control expectations.
 

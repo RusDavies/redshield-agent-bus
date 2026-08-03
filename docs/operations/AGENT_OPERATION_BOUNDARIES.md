@@ -6,7 +6,7 @@ These boundaries define what agents may do through Redshield Agent Bus as the
 project moves toward Class 4E use. They prevent a verified bus envelope from
 being mistaken for permission to perform arbitrary work.
 
-This document is public-safe and implementation-agnostic. It does not approve
+This document is implementation-agnostic. It does not approve
 live adapters, production use, public release, customer-facing security claims,
 or enterprise operations.
 
@@ -52,7 +52,7 @@ Forbidden:
 
 Allowed only with a concrete source event and matching authorization context:
 
-- read public-safe or project-authorized files;
+- read project-authorized files;
 - edit scoped project files;
 - run local tests and verification commands;
 - create commits in the scoped repository;

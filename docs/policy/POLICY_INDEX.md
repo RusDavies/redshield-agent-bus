@@ -1,6 +1,6 @@
 # Policy Index
 
-This index collects the current public-safe policy, boundary, and gate documents
+This index collects the current policy, boundary, and gate documents
 for Redshield Agent Bus. It is an index of core rules and verifier-facing
 contracts, not a deployed policy service, enterprise policy console, compliance
 claim, or live-adapter approval.

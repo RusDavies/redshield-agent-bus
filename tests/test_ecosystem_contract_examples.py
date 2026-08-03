@@ -1,4 +1,4 @@
-"""Shape checks for public-safe ecosystem contract examples."""
+"""Shape checks for ecosystem contract examples."""
 
 from __future__ import annotations
 

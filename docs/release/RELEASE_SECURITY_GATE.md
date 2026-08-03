@@ -9,7 +9,8 @@ Redshield Agent Bus.
 ## Required Evidence
 
 - `LICENSE` is present and selected deliberately.
-- `CONTRIBUTING.md` is present and keeps fixtures, tests, and docs public-safe.
+- `CONTRIBUTING.md` is present and keeps fixtures, tests, and docs suitable for
+  release.
 - `SECURITY.md` is present and defines a private vulnerability intake path that
   does not publish personal email addresses.
 - `docs/release/CORE_RELEASE_CHECKLIST.md` is current.

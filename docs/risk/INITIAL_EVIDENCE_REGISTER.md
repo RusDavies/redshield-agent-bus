@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This register defines public-safe evidence expectations for Redshield Agent Bus
+This register defines evidence expectations for Redshield Agent Bus
 gates, controls, and risks. It says what kind of proof can support a readiness
 claim, where that proof should live, what it can demonstrate, and what must stay
 out of evidence records.
@@ -39,7 +39,7 @@ Evidence records should prefer:
 - hashes or references instead of raw sensitive content;
 - explicit approval references that identify scope, duration, allowed behavior,
   and exclusions;
-- stable dates and reviewer names or roles where public-safe.
+- stable dates and reviewer names or roles where appropriate.
 
 ## Evidence Summary
 
@@ -88,7 +88,7 @@ python3 scripts/verify_repo.py core
 Current expected result: `OK: redshield-agent-bus core profile contains
 98 required checks`.
 
-Scope: proves the current core repository includes the required public-safe
+Scope: proves the current core repository includes the required
 files and fixtures for Gate 0 review. It does not prove branch protection,
 release automation, public visibility readiness, or package provenance.
 
@@ -254,7 +254,7 @@ python3 scripts/agent_bus_verify.py ecosystem-contract tests/fixtures/agent_bus/
 
 Current expected result: `ok: true`, `case_count: 4`.
 
-Scope: proves public-safe neighboring contract examples remain parseable and
+Scope: proves neighboring contract examples remain parseable and
 downstream-agnostic. It does not prove live implementation behavior.
 
 ### EVD-009: Python Unit Test Result

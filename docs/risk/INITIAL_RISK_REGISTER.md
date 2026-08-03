@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This register tracks public-safe product, security, operations, and release
+This register tracks product, security, operations, and release
 risks for Redshield Agent Bus. It is an initial Class 4E planning artifact, not
 a production approval record.
 
@@ -284,7 +284,7 @@ Controls already present:
 
 - core boundary in README and product brief;
 - generic credential-provider, capability-grant, Warden, and Armor contracts;
-- public-safe ecosystem fixtures;
+- ecosystem fixtures;
 - public-content verification.
 
 Next controls:

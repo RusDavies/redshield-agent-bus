@@ -18,7 +18,7 @@ The current core provides:
   idempotency, delivery expectations, and risky authorization patterns;
 - context-package redaction and allowlist rules;
 - a credential-provider contract with local fixtures;
-- public-safe examples for
+- examples for
   [RSK AI Auth-style grants](docs/architecture/CAPABILITY_GRANT_PROOF_ADAPTER_CONTRACT.md),
   [Keyper-style credential evidence](docs/architecture/CREDENTIAL_CAPABILITY_PROVIDERS.md),
   [Warden policy decisions](docs/architecture/CORE_WARDEN_POLICY_CONTRACT.md),
