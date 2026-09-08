@@ -66,8 +66,9 @@ Build environment:
 
 - Python: `Python 3.14.5`.
 - Build backend: setuptools through `pyproject.toml`.
-- Editable package source before build:
-  `redshield-agent-bus @ file:///home/skippy/.openclaw/workspace/projects/redshield-agent-bus`.
+- Source checkout was the candidate repository on branch `main` at source
+  commit `1c7491b2c644ca109b61a7ae0c2fb9b9adf7d57a`; no local filesystem path
+  is treated as release evidence.
 
 Build and test dependencies observed in the verification environment:
 

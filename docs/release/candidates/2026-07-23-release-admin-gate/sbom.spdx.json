@@ -7,8 +7,7 @@
   "creationInfo": {
     "created": "2026-07-23T00:00:00Z",
     "creators": [
-      "Tool: manual-candidate-inventory",
-      "Organization: RusDavies"
+      "Tool: manual-candidate-inventory"
     ]
   },
   "packages": [
@@ -21,7 +20,7 @@
       "licenseConcluded": "Apache-2.0",
       "licenseDeclared": "Apache-2.0",
       "copyrightText": "NOASSERTION",
-      "supplier": "Organization: RusDavies",
+      "supplier": "NOASSERTION",
       "externalRefs": [
         {
           "referenceCategory": "PACKAGE-MANAGER",
